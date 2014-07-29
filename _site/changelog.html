@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta itemprop="name" content="Polymer - Changelog">
+<meta itemprop="description" content="Polymer is a new type of library for the web, built on top of Web Components, and designed to leverage the evolving web platform on modern browsers.">
+
+
+<meta itemprop="image" content="http://www.polymer-project.org/images/instacod.png">
+
+
+<title>
+  
+    Changelog - 
+   Polymer
+</title>
+<link rel="shortcut icon" href="/images/icons/loading_icon.png">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/prettify/sunburst.css" rel="stylesheet">
+<!-- <link href="/css/pygments/default.css" rel="stylesheet" type="text/css"> -->
+<link href="/css/site.css?20131025" rel="stylesheet">
+
+
+
+<script async>
+// Prevent usage of the appspot.com URL.
+try {
+  if (location.hostname.match('appspot.com') &&
+      location.search.substring(1).split('&').indexOf('force') == -1) {
+    window.location = location.protocol + '//www.polymer-project.org' + location.pathname;
+  }
+} catch(e) {
+  // noop
+}
+</script>
+
+
+
+
+<!--   
+  <script src="/polymer.min.js?20131025"></script>
+ -->
+  
+
+
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      </a>
+      <a class="brand" href="/">Polymer</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="icon github"><a href="https://github.com/polymer/polymer"><img src="/images/icons/github.png">View on Github</a></li>
+          <li class="icon bug"><a href="https://github.com/polymer/polymer/issues/new"><img src="/images/icons/bug.png">File a bug</a></li>
+          <li class="icon source"><a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md"><img src="/images/icons/source.png">Contribute</a></li>
+          <li class="icon talk"><a href="/discuss.html"><img src="/images/icons/talk.png">Discuss</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+  <div class="well well-small sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">Getting Started</li>
+      <li><a href="/getting-the-code.html">Get the code</a></li>
+      <li><a href="/getting-started.html">Getting started</a></li>
+      <li><a href="/runtime-config.html">Runtime configuration</a></li>
+      <li><a href="/articles/">Articles</a></li>
+      
+      <li class="divider"></li>
+      <li class="nav-header elements">Elements</li>
+      <li><a href="/docs/elements/">Polymer elements</a></li>
+      <li><a href="/docs/elements/other.html">Other elements</a></li>
+      <li class="nav-header core">Core runtime</li>
+      <li><a href="/polymer.html">polymer.js</a></li>
+      <li class="nav-header foundation">Platform technologies</li>
+      <li><a href="/platform/custom-elements.html">Custom Elements</a></li>
+      <li><a href="/platform/shadow-dom.html">Shadow DOM</a></li>
+      <li><a href="/platform/html-imports.html">HTML Imports</a></li>
+      <!-- <li class="disabled"><a href="#">Templates</a></li> -->
+      <li><a href="/platform/mdv.html">MDV</a></li>
+      <!-- <li><a href="/platform/mutation-observers.html" disabled>Mutation Observers</a></li> -->
+      <li><a href="/platform/pointer-events.html">Pointer Events</a></li>
+      <li><a href="/platform/web-animations.html">Web Animations</a></li>
+      <li class="divider"></li>
+      <li class="nav-header">More information</li>
+      <li><a href="/tooling-strategy.html">Tools &amp; Testing</a></li>
+      <li><a href="/compatibility.html">Browser Compatibility</a></li>
+      <li><a href="/changelog.html">Changelog</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="span8" id="content-container">
+
+      <span class="edit-on-github">
+  <a href="https://github.com/Polymer/docs/edit/master/changelog.md">Edit on Github</a>
+</span>
+
+
+      
+      <div class="page-header">
+        <h1>Changelog
+          
+        </h1>
+      </div>
+      
+
+      
+      
+
+      <div id="content" class="
+        
+           
+              show-permalinks 
+           
+        
+      "><p>This document lists the notable changes across the entirety of the project,
+including polyfill repos, tools, projects, and UI elements.</p>
+
+<h2 id="2013-07-11">2013-07-11</h2>
+
+<p>See the <a href="https://github.com/Polymer/polymer/releases/tag/v0.0.20130711">full list of changes</a>.</p>
+
+<h3 id="polymer">Polymer</h3>
+
+<h4 id="general">General</h4>
+
+<p>All hail <code>&lt;polymer-element&gt;</code>!</p>
+
+<p>Declaring elements is now <code>&lt;polymer-element name="tag-name"&gt;</code> (was <code>&lt;element name="tag-name"&gt;</code>).
+Elements are now auto registered, so a script tag is no longer required:</p>
+
+<pre><code>&lt;polymer-element name="tag-name"&gt;
+  &lt;template&gt;...&lt;/template&gt;
+&lt;/polymer-element&gt;
+</code></pre>
+
+<p><strong>Features</strong></p>
+
+<p>More complex elements are registered with <code>Polymer('tag-name', {prototype})</code> (was <code>Polymer.register(this, {prototype})</code>). This allows for more flexible script decoupling:</p>
+
+<ol>
+  <li><code>&lt;script src&gt;</code> works now</li>
+  <li><code>&lt;script&gt;</code> can come before or inside the element, but not after</li>
+</ol>
+
+<p><strong>Changes</strong></p>
+
+<ol>
+  <li>Script scope is no longer special (e.g. <code>this</code> no longer refers to the element).</li>
+  <li>Closures are not longer supported for private variables. Private vars should be done
+with the standard methods like anonymous self calling functions.</li>
+</ol>
+
+<h4 id="core">Core</h4>
+
+<ul>
+  <li>`.resetStyleInheirtance&#8217; can now be defined on the element&#8217;s prototype (<a href="https://github.com/Polymer/polymer/commit/411d53c34c9121952f0be66f761a1a1a13f8c78e">commit</a>)</li>
+  <li>Shadow DOM shhim styling has been moved into platform as <code>ShadowCSS</code> (<a href="https://github.com/Polymer/polymer/commit/ae24b2a8e288747cfc178282de927d54050f9b5a">commit</a>)</li>
+</ul>
+
+<h3 id="platform">Platform</h3>
+
+<ul>
+  <li>Polyfill <code>&lt;template&gt;</code>/<code>&lt;element&gt;</code> styling not use <code>!important</code>. Fixes <a href="https://github.com/Polymer/polymer/issues/191">#191</a>.</li>
+  <li>Add <code>array()</code> and <code>forEach()</code> to <code>NodeList</code>, <code>NamedNodeMap</code>, <code>HTMLCollection</code> (<a href="https://github.com/Polymer/platform/commit/32c1f4a7df6bce56586134908f2d98ab616e7dac">commit</a>)</li>
+</ul>
+
+<h4 id="custom-elements">Custom Elements</h4>
+
+<ul>
+  <li>Script execution is more specific to JS (<a href="https://github.com/Polymer/CustomElements/commit/bdc3139c9c0ac04dd748668d05a10625df889b3f">commit</a>)</li>
+</ul>
+
+<h4 id="html-imports">HTML Imports</h4>
+
+<ul>
+  <li>Scripts within <code>&lt;template&gt;</code> content are now executed. Fixes <a href="https://github.com/Polymer/HTMLImports/issues/22">#22</a>.</li>
+  <li>Non-JS script tags are no longer parsed (<a href="https://github.com/Polymer/HTMLImports/commit/0f35bd21fab3e0e9b99b525581d1135f27787dd1">commit</a>) </li>
+</ul>
+
+<h4 id="mdv">MDV</h4>
+
+<ul>
+  <li>CompoundBindings have been sped up (<a href="https://github.com/Polymer/mdv/commit/27b9cc6dfa69745aadb862780ae71b905e74014f">commit</a>, <a href="https://github.com/Polymer/mdv/commit/b01b4867805311f3815f4e065cea0ced5dd4d4a2">commit</a>)</li>
+  <li>Binds have a more consistent API (<a href="https://github.com/Polymer/mdv/commit/95c4eca5a89ed3d04af1c6607a61f49d35d05ca6">commit</a>)</li>
+  <li>Initial work on MDV benchmarking (<a href="https://github.com/Polymer/mdv/commit/79b3d33bc199315f1424ff9ef072ec44e0482668">commit</a>)</li>
+  <li>Ensure <code>getInstanceModel()</code> is only called when a new instance will be created. Allows for the common case of inserting an instance via a <code>DocumentFragment</code> (<a href="https://github.com/Polymer/mdv/commit/694a4114779a9cd8ea3c915d1f5e9ec5ad6bd68c">commit</a>)</li>
+</ul>
+
+<h4 id="pointer-events">Pointer Events</h4>
+
+<ul>
+  <li>Use ES6 <code>Map</code> where available (<a href="https://github.com/Polymer/PointerEvents/commit/84ac51c69a2e53fafb7e00696917bb260d760497">commit</a>)</li>
+  <li><code>allShadows()</code> method added to find all shadow roots (<a href="https://github.com/Polymer/PointerEvents/commit/812f79efdcb5557923f7ae1ab05eaedc9971c1a6">commit</a>)</li>
+  <li>Handle IE 11 use of string <code>.pointerType</code> (<a href="https://github.com/Polymer/PointerEvents/commit/0fbec53b1c2b656ea149728eab5f9e2f0c8e8410">commit</a>)</li>
+  <li>Don&#8217;t override native <code>PointerEvent</code> (<a href="https://github.com/Polymer/PointerEvents/commit/a38f1ab0697e186ca77e6e5c94030036d1163e34">commit</a>)</li>
+  <li>Use <code>shadow.olderShadowRoot</code> when possible. Fixes <a href="https://github.com/Polymer/PointerEvents/issues/81">#81</a>.</li>
+  <li>Touch will try to use <code>touch-action</code> or use the old <code>MutationObserver</code> method (<a href="https://github.com/Polymer/PointerEvents/commit/614e60b5b97373558c6fa2b5ab7310f9d156ffab">commit</a>)</li>
+</ul>
+
+<h4 id="shadow-dom">Shadow DOM</h4>
+
+<ul>
+  <li><code>Event.path</code> always originates from the target (<a href="https://github.com/Polymer/ShadowDOM/commit/9f888b01c1ae9e0c745232e1525848bcbee7d7d9">commit</a>)</li>
+  <li>Fixed issue where FF24 doesn&#8217;t support <code>document.createEvent('FocusEvent')</code> (<a href="https://github.com/Polymer/ShadowDOM/commit/f183806ac65097d754afa5b0e886a61d5677cb8e">commit</a>)</li>
+</ul>
+
+<h3 id="elements--projects">Elements &amp; Projects</h3>
+
+<h4 id="polymer-elements">polymer-elements</h4>
+
+<ul>
+  <li>Added <code>&lt;polymer-overlay&gt;</code> (<a href="https://github.com/Polymer/polymer-elements/commit/d3f92ce3a20da925f839e6aae56cec75c5919165">commit</a>)</li>
+  <li>Added <code>&lt;polymer-key-helper&gt;</code> (<a href="https://github.com/Polymer/polymer-elements/commit/9f1b18741eb968b6740a3a889428151f495a2740">commit</a>)</li>
+  <li>Added <code>&lt;polymer-file&gt;</code> (<a href="https://github.com/Polymer/polymer-elements/commit/afb5f7a006c94f4f100b6b38aa44b5973d147a0b">commit</a>)</li>
+  <li>Added <code>&lt;polymer-animation&gt;</code> elements (<a href="https://github.com/Polymer/polymer-elements/commit/cfd4c49699b4dba01963f3169847b7d9f4150d51">commit</a>)</li>
+  <li>Added <code>&lt;polymer-media-query&gt;</code> (<a href="https://github.com/Polymer/polymer-elements/commit/b9fccc0c6d685c38d2a43ac873636b752c64200c">commit</a>)</li>
+  <li>Added <code>&lt;polymer-selector&gt;</code> (<a href="https://github.com/Polymer/polymer-elements/commit/f0a603467c657b98dff2240c5cf02e24fb339dfb">commit</a>)</li>
+</ul>
+
+<h4 id="polymer-ui-elements">polymer-ui-elements</h4>
+
+<ul>
+  <li>Added <code>&lt;polymer-ui-accordian&gt;</code> (<a href="https://github.com/Polymer/polymer-ui-elements/commit/00da2f56e1eadac5c861063ad8b31a2a4ea39319">commit</a>)</li>
+  <li>Added <code>&lt;polymer-ui-splitter&gt;</code> (<a href="https://github.com/Polymer/polymer-ui-elements/commit/e6d8029c73720a734a157ec0b3743f47b4707eaf">commit</a>)</li>
+  <li>Added responsive design to toolbar (<a href="https://github.com/Polymer/polymer-ui-elements/commit/7e856f76b93a60f5457c863d9663e4bb302a1889">commit</a>)</li>
+</ul>
+
+<hr />
+
+<h2 id="2013-06-17">2013-06-17</h2>
+
+<p class="centered alert alert-info"><strong>Notice</strong>: This release contains important changes to the structure of the project.</p>
+
+<p>The repo structure was &#8220;flattened&#8221; such that <code>platform</code> and <code>polymer</code> repos no
+longer contain submodules. Instead, the dependencies need to be checked out as siblings.
+For example, <code>platform</code> now expects <code>HTMLImports</code>, <code>CustomElements</code>, <code>PointerEvents</code>, <code>MDV</code>, <code>ShadowDOM</code>, etc. to be siblings. <code>polymer</code> expects to be siblings with all of them. <strong>Unless you&#8217;re
+working directly on Polymer, it&#8217;s safe to stick with <a href="https://github.com/Polymer/polymer-all/tree/master"><code>polymer-all</code></a>.</strong></p>
+
+<h3 id="polymer-1">Polymer</h3>
+
+<h4 id="general-1">General</h4>
+
+<ul>
+  <li>The <a href="https://github.com/components/polymer">Bower component</a> has been updated to reflect
+this release.</li>
+  <li>Polymer-based <a href="http://todomvc.com/labs/architecture-examples/polymer/index.html">TodoMVC app</a> (<a href="https://github.com/Polymer/todomvc">source</a>) was published.</li>
+  <li><a href="https://github.com/Polymer/mdv/blob/master/docs/expression_syntax.md">MDV Expression Syntax</a> is on by default (<a href="https://github.com/Polymer/polymer/commit/5b869b5b03880435c288383a042a366314914ea7">commit</a>). No changes are necessary for your current usage of templates. New features include support for inline math expressions, named scoping, and more. <a href="https://github.com/Polymer/mdv/blob/master/docs/expression_syntax.md">Read more</a>.</li>
+  <li>To reduce memory leaks, <strong>elements created 1.) in JavaScript (e.g. <code>document.createElement('x-foo')</code>) and 2.) not in the DOM will lose their bindings, asynchronously</strong>. (<a href="https://github.com/Polymer/polymer/commit/5b869b5b03880435c288383a042a366314914ea7">commit</a>)
+    <ul>
+      <li>If you want an element to remain <em>active</em> when it&#8217;s not in the <code>document</code>
+(e.g. it keeps its MDV bindings and <code>*Changed</code> methods), you must call
+<code>this.cancelUnbindAll()</code> after it&#8217;s been created or removed. The <code>ready()</code> callback
+is a good place for creation time.</li>
+      <li>If you call <code>cancelUnbindAll()</code> and never put the element back in the DOM,
+it is your responsibility to eventually call <code>this.unbindAll()/asyncUnbindAll()</code>. Otherwise, you will leak memory.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="core-1">Core</h4>
+
+<ul>
+  <li>Arrays and Objects are supported as attributes (<a href="https://github.com/Polymer/polymer/commit/8bdeba4ffafba4997f47387435e32c800cff8e9f">commit</a>)</li>
+  <li>Polyfill support for <code>:scope</code> instead of <code>@host</code> (<a href="https://github.com/Polymer/polymer/commit/e226596c0504b651f3b1bc48093f9cd02adc247e">commit</a>)</li>
+  <li>Style are correctly applied to type extension custom elements (e.g. <code>[is="x-foo"]</code>) (<a href="https://github.com/Polymer/polymer/commit/4b64c878c82a2d51b253565e988e081e09497994">commit</a>)</li>
+  <li>The other lifecycle callbacks (<code>inserted</code>, <code>removed</code>, <code>attributeChanged</code>) can
+be setup in the <code>Polymer.register()</code> call in addition to <code>ready</code>. <strong>Note</strong>: these
+names are shorter than the spec&#8217;s API.</li>
+</ul>
+
+<h3 id="platform-1">Platform</h3>
+
+<h4 id="custom-elements-1">Custom Elements</h4>
+
+<p>See the <a href="https://github.com/Polymer/CustomElements/pull/41">full list of changes</a>.</p>
+
+<ul>
+  <li>Support non-enumerable properties defined on <code>HTMLElement</code> prototypes (<a href="https://github.com/Polymer/CustomElements/commit/3f09cb9035040acb823a4561878f0bf697d2fb9a">commit</a>)</li>
+  <li>Boostrap on <code>DOMContentLoaded</code> instead of <code>window.load</code>. Go immediately if
+<code>document.readyState === 'complete'</code> (<a href="https://github.com/Polymer/CustomElements/commit/4ddb59a57a8ac09ef43f241aba0bbca448046105">commit</a>)</li>
+  <li><code>.constructor</code> references correct name defined in <code>&lt;element&gt;</code>&#8217;s <code>contructor</code> attribute (<a href="https://github.com/Polymer/CustomElements/commit/e34dc4204355bf8d01399d75b9dbc47b7a237ddc">commit</a>)</li>
+  <li>Update to new source map syntax (from <code>//@</code> to <code>//#</code>) (<a href="https://github.com/Polymer/CustomElements/commit/b89e86d65218d5671aefd3770e8720cf4ed9b75f">commit</a>)</li>
+</ul>
+
+<h4 id="html-imports-1">HTML Imports</h4>
+
+<p>See the <a href="https://github.com/Polymer/HTMLImports/pull/14">full list of changes</a>.</p>
+
+<ul>
+  <li>Loading now kicks off immediately if <code>document.readyState === 'complete'</code> (<a href="https://github.com/Polymer/HTMLImports/commit/121789488287c0b59d8c546bcb9ac0e8ca686357">commit</a>)</li>
+  <li>Do not load external stylesheets that are not in <code>&lt;element&gt;</code>. Also support external
+stylesheets inside of <code>&lt;template&gt;</code> (<a href="https://github.com/Polymer/HTMLImports/commit/8df92bfcb989560bae9a5b4c909ed115e0acbbe6">commit</a>)</li>
+  <li>Update to new source map syntax (from <code>//@</code> to <code>//#</code>) (<a href="https://github.com/Polymer/HTMLImports/commit/cf8edfde3ba4e71454e99acf192946cc2b76fa60">commit</a>)</li>
+</ul>
+
+<h4 id="mdv-1">MDV</h4>
+
+<p>See the <a href="https://github.com/Polymer/mdv/pull/106">full list of changes</a>.</p>
+
+<ul>
+  <li>Support binding to <code>HTMLSelectElement.selectedIndex</code> (<a href="https://github.com/Polymer/mdv/commit/53a5d78b329b9a52ad9426bbd57b9322f42f1bd2">commit</a>)</li>
+  <li><code>HTMLTemplateElement.createInstance()</code> now takes model &amp; syntax string (e.g. <code>template.createInstance(model, 'MDV')</code>) (<a href="https://github.com/Polymer/mdv/commit/22c32ebfa84b6e08341b2e1af71a25b5bee4b2be">commit</a>)</li>
+  <li>Implement two-way binding to <code>HTMLTextArea.value</code> (<a href="https://github.com/Polymer/mdv/commit/55104c3fed41db04f98076f825bc32f6dfc5624f">commit</a>)</li>
+  <li>Named scopes are supported (e.g. <code>&lt;template repeat="{{item in items}}"&gt;</code>) (<a href="https://github.com/Polymer/mdv/commit/0e98ae0b017f722030e5203d3a151f07f9f392bf">commit</a>). <a href="https://github.com/Polymer/mdv/blob/master/docs/syntax_api.md">Read more</a>.</li>
+  <li>Implement <a href="https://github.com/Polymer/mdv/blob/master/docs/expression_syntax.md">MDV Syntax expressions</a> (<a href="https://github.com/Polymer/mdv/commit/63e8fad3cda4e4505da119577b8cb164d321bfd4">commit</a>)</li>
+  <li>Allow <code>&lt;template if="{{expr}}"&gt;</code> to be equivalent to <code>&lt;template bind if="{{expr}}"&gt;</code> (<a href="https://github.com/Polymer/mdv/commit/9657f53fe38d2c87dd2b1f34398a41fafadc73b2">commit</a>)</li>
+</ul>
+
+<h4 id="pointer-events-1">Pointer Events</h4>
+
+<p>See the <a href="https://github.com/Polymer/PointerEvents/pull/77">full list of changes</a>.</p>
+
+<ul>
+  <li>Split mouse/touch/MS events into their own modules (<a href="https://github.com/Polymer/PointerEvents/commit/946d643f9bc304f75fe1f4ec008ac43dee7eec2f">commit</a>)</li>
+  <li>Touches that fall off the screen are handled more gracefull (<a href="https://github.com/Polymer/PointerEvents/commit/9bab6b80e74fcbbdb4145286aae264ae54175419">commit</a>)</li>
+</ul>
+
+<h4 id="shadow-dom-1">Shadow DOM</h4>
+
+<p>See the <a href="https://github.com/Polymer/ShadowDOM/pull/171">full list of changes</a>.</p>
+
+<ul>
+  <li>Alias <code>.createShadowRoot()</code> to <code>.webkitCreateShadowRoot()</code> (<a href="https://github.com/Polymer/ShadowDOM/commit/8645527db46c31d217ebc2fdbaaff63ce6081cf2">commit</a>)</li>
+  <li>Remove <code>shadowRoot.insertionParent</code> per spec (<a href="https://github.com/Polymer/ShadowDOM/commit/f798ba26e895bb65456920ea33844d1dc9960dd6">common</a>)</li>
+  <li>Implement <code>event.path</code> (<a href="https://github.com/Polymer/ShadowDOM/commit/3b1422cb6a6c7e429038168993192a4c8435035a">commit</a>)</li>
+</ul>
+
+<h3 id="elements--projects-1">Elements &amp; Projects</h3>
+
+<ul>
+  <li>Added <code>&lt;polymer-meta&gt;</code> for storing metadata (<a href="https://github.com/Polymer/polymer-elements/commit/832a45a543371b4756bd42f90f8209f420f5a83a">commit</a>)</li>
+  <li>Added <code>&lt;polymer-ui-ratings&gt;</code> (<a href="https://github.com/Polymer/polymer-ui-elements/commit/a9a5d26992285ba9f1122541a3e8d56ded2d5c19">commit</a>)</li>
+  <li>Added <code>&lt;polymer-ui-toggle-button&gt;</code> (<a href="https://github.com/Polymer/polymer-ui-elements/commit/5904e63b8eb9bd295a1bcd7e940870f83df4260e">commit</a>)</li>
+  <li>
+    <p>Added <code>&lt;polymer-ui-tabs&gt;</code> (<a href="https://github.com/Polymer/polymer-ui-elements/commit/1812da5110df5f382ce9982ac5f297565edc1bad">commit</a>)</p>
+  </li>
+  <li>Initial work on <a href="https://github.com/Polymer/projects/commit/1dd87c03e30ae34d1266c943c1a42466b43788f4">Polymer Elements Playground</a></li>
+  <li>Added port of <a href="https://github.com/Polymer/projects/commit/1dd6746d918c72e316fa65e2c975640da56768c7">Memory Game</a></li>
+</ul>
+
+<hr />
+
+<h2 id="2013-06-05">2013-06-05</h2>
+
+<h3 id="polymer-2">Polymer</h3>
+
+<p>See the <a href="https://github.com/Polymer/polymer/pull/172">full list of changes</a>.</p>
+
+<ul>
+  <li><code>asend()</code> is deprecated. Please use <a href="http://www.polymer-project.org/polymer.html#fire"><code>asyncFire()</code></a> instead (<a href="https://github.com/Polymer/polymer/commit/3e82099fb5e65d05e730c54d6a218128523855c9">commit</a>)</li>
+  <li><code>asyncMethod()</code> now uses <code>requestAnimationFrame()</code> if no timeout duration is given (<a href="https://github.com/Polymer/polymer/commit/7fa356d7b35b3c64d523c6bb375df2b26fccf2bc">commit</a>)</li>
+  <li>Support was added for <code>event.path</code> (<a href="https://github.com/Polymer/polymer/commit/37721192e54ff4f4dd9ba7b02cc00308efd9802f">commit</a>, <a href="https://github.com/Polymer/polymer/commit/5fdfb68b4a4a7eddea281e6404848d7d1b911c5b">commit</a>)</li>
+  <li>Support for &#8220;Polymer&#8221; custom MDV syntax (<a href="https://github.com/Polymer/polymer/commit/59af46cd6727a900a43e9990f018a014cc9ca52e">commit</a>, <a href="https://github.com/Polymer/polymer/commit/09badeece541a5c740c19d579acbc4b96e4afa0f">commit</a>, <a href="https://github.com/Polymer/polymer/commit/e5a4c5e626d1e754d45f6317da31e82c99877a34">commit</a>)</li>
+  <li>More explicit anti-FOUC prevention (<a href="https://github.com/Polymer/polymer/commit/6fc9b8ce5214a8b1028c051295f743d28084ce00">commit</a>)</li>
+  <li>Process of putting template content into shadowRoots was changed to prevent
+404 requests (<a href="https://github.com/Polymer/polymer/commit/bd0bd6ec6ce890839dbe56b5b18dfbcdd8eed297">commit</a>). <a href="https://github.com/Polymer/polymer/issues/153">Fixes #153</a></li>
+</ul>
+
+<h3 id="platform-2">Platform</h3>
+
+<p>See the <a href="https://github.com/Polymer/platform/pull/18">full list of changes</a>.</p>
+
+<h4 id="html-imports-2">HTML Imports</h4>
+
+<p>See the <a href="https://github.com/Polymer/HTMLImports/pull/12">full list of changes</a>.</p>
+
+<ul>
+  <li>Use <code>DOMContentLoaded</code> instead of <code>window.onload</code> to trigger importing (<a href="https://github.com/Polymer/HTMLImports/commit/afb39f2ff3eb25962a19bdd992835b4076c24bf8">commit</a>)</li>
+  <li>Added <code>.status === 0</code> check for imports to work in Cordova and across <code>file://</code> (<a href="https://github.com/Polymer/HTMLImports/commit/af76c4e5acb312dfe3db87aaf974c7397aed395b">commit</a>)</li>
+  <li>Expose <code>HTMLImports.xhr</code> hook (<a href="https://github.com/Polymer/HTMLImports/commit/753e582159fb42184dcba19ea96c00e77cb55a11">commit</a>)</li>
+</ul>
+
+<h3 id="elements--projects-2">Elements &amp; Projects</h3>
+
+<h3 id="polymer-elements-1">polymer-elements</h3>
+
+<ul>
+  <li>Added <code>&lt;polymer-page&gt;</code>element (<a href="https://github.com/Polymer/polymer-elements/commit/31fabe67f1ed6799f148c001f0f56cc71a5cced1]">commit</a>)</li>
+  <li>Added <code>&lt;polymer-view-source-link&gt;</code> element (<a href="https://github.com/Polymer/polymer-elements/commit/d4c702d06348df6cdaf1c74f19ea3f8df7451c64">commit</a>)</li>
+  <li>Added <code>&lt;polymer-localstorage&gt;</code> (<a href="https://github.com/Polymer/polymer-elements/commit/3feba7f5fb91fc819b6ddf335031c9e5dc31233f">commit</a>)</li>
+  <li>Version of <code>&lt;polymer-layout&gt;</code> that uses CSS flexbox (<a href="https://github.com/Polymer/polymer-elements/commit/22f71e468c307c199869c5790291d25d9fe01787">commit</a>)</li>
+  <li>Added <code>&lt;polymer-ui-sidebar-menu&gt;</code> (formerly known as ribbon) (<a href="https://github.com/Polymer/polymer-ui-elements/commit/5f889b3b98687a14e4142d202a8c931ea22b59d1">commit</a>)</li>
+  <li>
+    <p>Added <code>&lt;polymer-ui-icon&gt;</code> example file (<a href="https://github.com/Polymer/polymer-ui-elements/commit/d2dc6da9ecd0fb727cb7204983c200764940fbad">commit</a>)</p>
+  </li>
+  <li>Initial commit of Gallery (<a href="https://github.com/Polymer/projects/commit/d57bd2c9e667bde9b2488d944a119101f5105bd8]">commit</a>)</li>
+</ul>
+
+<hr />
+
+<h2 id="2013-05-15">2013-05-15</h2>
+
+<p>This release mainly contained important platform fixes for IE and Firefox.</p>
+
+<p>See the <a href="https://github.com/Polymer/polymer/pull/135">full list of changes</a>.</p>
+
+<h3 id="platform-3">Platform</h3>
+
+<h4 id="custom-elements-2">Custom Elements</h4>
+
+<h4 id="html-imports-3">HTML Imports</h4>
+
+<h4 id="mdv-2">MDV</h4>
+
+<ul>
+  <li>Correct event type for checkbox bindings (<a href="https://github.com/Polymer/mdv/commit/2c675cab75aea2ef3d1b981a616469587b9210fe">commit</a>) </li>
+</ul>
+
+<h4 id="html-imports-4">HTML Imports</h4>
+
+<ul>
+  <li>Only enable cache busting in debug mode (<a href="https://github.com/Polymer/HTMLImports/commit/5a38cbba1e85491b6bc712fd25dec43e68409a5e">commit</a>)</li>
+</ul>
+
+<h4 id="shadow-dom-2">Shadow DOM</h4>
+
+<ul>
+  <li>Fixed <a href="https://github.com/Polymer/ShadowDOM/pull/151">#151</a> - <code>HTMLLegendElement</code> issue in FF21.</li>
+</ul>
+
+<h4 id="pointer-eventsgestures">Pointer Events/Gestures</h4>
+
+<ul>
+  <li>Fix for <code>&lt;button&gt;</code> in IE (<a href="https://github.com/Polymer/PointerEvents/commit/a0e984dc5591903ba989c28fbf3d6997c5578b15">commit</a>)</li>
+</ul>
+
+<hr />
+
+<h2 id="2013-05-13">2013-05-13</h2>
+
+<p class="centered alert alert-info"><strong>Notice</strong>: This release contains important changes to the structure of the project.</p>
+
+<p>Project renamed to Polymer! <a href="https://github.com/polymer">https://github.com/polymer</a></p>
+
+<hr />
+
+<h2 id="2013-05-09">2013-05-09</h2>
+
+<h3 id="polymer-3">Polymer</h3>
+
+<p>See the <a href="https://github.com/polymer/polymer/pull/125">full list of changes</a>.</p>
+
+<ul>
+  <li>
+    <p>Project has a build status at <a href="http://build.chromium.org/p/client.toolkit/waterfall">http://build.chromium.org/p/client.toolkit/waterfall</a>
+and tests are being run on Browserstack (<a href="https://github.com/polymer/polymer/commit/4516edcf1f3639b0a1bb70d39a088c8f51fea1b5">commit</a>)</p>
+  </li>
+  <li>
+    <p>Base example components <a href="https://github.com/polymer/polymer/commit/2fdd9e0602f9162765f97985531bbb3301b12780">were removed</a> and separated
+into their own <a href="https://github.com/polymer/toolkit-ui"><code>toolkit-ui</code></a> repo,
+while the <a href="https://github.com/polymer/toolkit-elements"><code>toolkit-elements</code></a> repo
+contains non-visual elements.</p>
+  </li>
+  <li>
+    <p>A <a href="https://github.com/polymer/projects/commit/02e45ebfc4815816544b608077880f949a10e8ea">sandbox tool</a> was
+added to projects.</p>
+  </li>
+</ul>
+
+<p><strong>Elements and animations</strong></p>
+
+<ul>
+  <li>
+    <p>New <code>g-overlay</code> element with web animations (<a href="https://github.com/polymer/polymer/commit/9f8f036cebb5ddff9849a37ddb53e62081540715">commit</a>) and <code>g-tabspanel</code> (<a href="https://github.com/polymer/polymer/commit/9f711efcee4e3f6ef181a1cb4c2f7d9013a26b2a">commit</a>)</p>
+  </li>
+  <li>
+    <p>Added <code>g-fadein</code>, <code>g-fadeout</code> animations (<a href="https://github.com/polymer/polymer/commit/1569066b09968b41678d35df1bf67a3d8634262a">commit</a>) and <code>g-shake</code>, a configurable shake animation (<a href="https://github.com/polymer/polymer/commit/9344922068bff938e90378e888259cc1a41bcd89">commit</a>)</p>
+  </li>
+</ul>
+
+<p><strong>Features &amp; bug fixes</strong></p>
+
+<ul>
+  <li>
+    <p>Element registration now puts a <code>.elementElement</code> property on the prototpe to reference
+the <code>&lt;element&gt;</code> (<a href="https://github.com/polymer/polymer/commit/64f7e64e4356e13fee19b89cef0bda185ebbe920">commit</a>)</p>
+  </li>
+  <li>
+    <p>pseudo-scoping now works on Firefox and IE where <code>cssRule.selectorText</code> is readonly (<a href="https://github.com/polymer/polymer/commit/f96ddd200030fd8e8cf82c0dba141863e1761da2">commit</a>)</p>
+  </li>
+  <li>
+    <p>Attributes de-serialization is more predicable. For example, numbers are treated
+as numbers, srings as strings, dates as <code>Date</code>, etc. (<a href="https://github.com/polymer/polymer/commit/ef601c3f8cf77a72c3a7a60f0f5b925dd5208e36">commit</a>, <a href="https://github.com/polymer/polymer/commit/6f04747ecd2f281dfc08273c2f1422cf24d138a8">commit</a>, <a href="https://github.com/polymer/polymer/commit/ec15352311f39594f2cc43d42d40db017e9293a8">commit</a>)</p>
+  </li>
+  <li>
+    <p>MDV v3 is now turned on by default.</p>
+
+    <ul>
+      <li>
+        <p>Added <code>.unbind()</code> and additional machinery for MDV bindings (<a href="https://github.com/polymer/polymer/commit/197d6f3c6fe08953fd915e243ce2cf8861347ee1">commit</a>)</p>
+      </li>
+      <li>
+        <p>MDV bindings are more comprehensive, with Node, Text, and <code>&lt;input&gt;</code> elements (<a href="https://github.com/polymer/polymer/commit/2e11ba658916df02c8ba87ead037ce0104a6b205">commit</a>) </p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><code>Toolkit.getBinding(element, name)</code> no longer generates an exception if element is null [<a href="https://github.com/polymer/polymer/commit/a270417d136b6f00205ea60d451be9d296e9745d">commit</a>)</p>
+  </li>
+</ul>
+
+<h3 id="platform-4">Platform</h3>
+
+<h4 id="custom-elements-3">Custom Elements</h4>
+
+<p>See the <a href="https://github.com/polymer/CustomElements/pull/25">full list of changes</a>.</p>
+
+<ul>
+  <li>
+    <p>Implement life cycle callbacks (inserted|removed|attributeChanged) using MutationObsevers.
+<strong>Note</strong>: you can no longer add lifecycle callbacks to a <code>lifecycle</code> object. They must be
+on the prototpye. (<a href="https://github.com/polymer/CustomElements/commit/68da1e33bf5fdbab805b0d695d15729e4d379282">commit</a>)</p>
+  </li>
+  <li>
+    <p><code>document.register()</code> only triggers document-wide upgrade when called after
+initial load is complete (<a href="https://github.com/polymer/CustomElements/commit/2c80460cba9f742e4f3fef434b225ef1829de39b">commit</a>)</p>
+  </li>
+  <li>
+    <p><code>document.register()</code> tests were updated to align with spec changes (<a href="https://github.com/polymer/CustomElements/commit/0aabe6b5fc66e847db8fa2988519d202641e9dfb">commit</a>)</p>
+  </li>
+  <li>
+    <p>Added support for native <code>document.webkitRegister()</code> (if available) (<a href="https://github.com/polymer/CustomElements/commit/5cb7a971135162d40fd078a9fafdc9bd2c0eb91e">commit</a>)</p>
+  </li>
+  <li>
+    <p><code>attributeChanged</code> callback only fires when attribute has actually been modified (<a href="https://github.com/polymer/CustomElements/commit/9f7cf5268b01c9c9568b6d239995f6b01a027012">commit</a>)</p>
+  </li>
+  <li>
+    <p><code>&lt;style&gt;</code> elements are now (correctly) ignored if they&#8217;re in the main document (<a href="https://github.com/polymer/CustomElements/commit/632ef0f43a5bb693580345096c1748e27990e39f">commit</a>)</p>
+  </li>
+</ul>
+
+<h4 id="html-imports-5">HTML Imports</h4>
+
+<p>See the <a href="https://github.com/polymer/HTMLImports/pull/8">full list of changes</a></p>
+
+<ul>
+  <li>
+    <p><code>HTMLImports.getDocumentUrl()</code> added (<a href="https://github.com/polymer/HTMLImports/commit/0bdff1841f151cd7479a98338a6521cba4ef9c82">commit</a>)</p>
+  </li>
+  <li>
+    <p><code>HTMLImports.readyTime</code> added for primative timing data [<a href="https://github.com/polymer/HTMLImports/commit/414b70756d05fcf6b344c942163e5d6a777c4f5c">commit</a>)</p>
+  </li>
+  <li>
+    <p>Caching is configurable with <code>.cache</code> [<a href="https://github.com/polymer/HTMLImports/commit/4e4a2afb03803e55f5b12149ffaa5704ca50e0e6">commit</a>)</p>
+  </li>
+</ul>
+
+<h4 id="mdv-3">MDV</h4>
+
+<p>See the <a href="https://github.com/polymer/mdv/pull/65">full list of changes</a></p>
+
+<ul>
+  <li>
+    <p>Now using ChangeSummary v3 (<a href="https://github.com/polymer/mdv/commit/a82e4f56c7fa24970c27244d623b1a10fd740822">commit</a>)</p>
+  </li>
+  <li>
+    <p>Removed <code>.effectiveContent</code> API (<a href="https://github.com/polymer/mdv/commit/66f5ec16998ee17dcdbd20759494ddd9900470ae">commit</a>)</p>
+  </li>
+  <li>
+    <p>Removed <code>HTMLTemplateElement.bindTree</code> in favor of <code>template.model</code> (<a href="https://github.com/polymer/mdv/commit/b31c6fc016ea81088059f0b628dc253ade201cf8">commit</a>)</p>
+  </li>
+  <li>
+    <p>Exposed <code>HTMLTemplateElement.parseAndBind_</code> (<a href="hen/mdv/commit/075f5f22e0b55783e1cd1486d02f2d1002e3ef8d">commit</a>)</p>
+  </li>
+  <li>
+    <p>Implemented <code>.getInstanceModel</code> for returning the model associated with a template (<a href="https://github.com/polymer/mdv/commit/b6af70e922c49fc6fc85e782e549831d3680712e">commit</a>)</p>
+  </li>
+</ul>
+
+<h4 id="pointer-events--gestures">Pointer Events / Gestures</h4>
+
+<p>See the full list of changes <a href="https://github.com/polymer/PointerEvents/pull/65">here</a> and <a href="https://github.com/polymer/PointerGestures/pull/3">here</a>.</p>
+
+<ul>
+  <li>
+    <p><code>touch-action: user</code> is an alias for <code>touch-action: none</code> (<a href="https://github.com/polymer/PointerEvents/commit/5d3d05cadbdb9ce53749a31a3c6f424566056da6">commit</a>)</p>
+  </li>
+  <li>
+    <p>Fix <code>pointercapture</code> throws on IE10 (<a href="https://github.com/polymer/PointerEvents/commit/d338d9fc314961650c418101d4603b2a3a8c0302">commit</a>)</p>
+  </li>
+  <li>
+    <p>Expose <code>.clientXY</code>, <code>.pageXY</code>, <code>.screenXY</code> of track gestures. (<a href="https://github.com/polymer/PointerGestures/commit/2c25f0cc6ca6a9edd993052dc0c4b13def37005c">commit</a>)</p>
+  </li>
+</ul>
+
+<h4 id="shadow-dom-3">Shadow DOM</h4>
+
+<p>See the <a href="https://github.com/polymer/ShadowDOM/pull/139">full list of changes</a></p>
+
+<ul>
+  <li>
+    <p>Implemented <code>.querySelector|All()</code> and <code>.getElementById()</code> (<a href="https://github.com/polymer/ShadowDOM/commit/8efd247fbf52f75a4f5c07e3d939dcf4500c4f62">commit</a>, <a href="https://github.com/polymer/ShadowDOM/commit/1bc20a60860b816e070feac44863053a2c6acb9b">commit</a>)</p>
+  </li>
+  <li>
+    <p>Implemented <code>.elementFromPoint</code> for <code>document</code> and ShadowRoot (<a href="https://github.com/polymer/ShadowDOM/commit/1a11be889a1f76ca45e09655f7e7ed5b2aeaa297">commit</a>)</p>
+  </li>
+  <li>
+    <p>Wrapped <code>MutationRecord</code> interface now that Blink has it. (<a href="https://github.com/polymer/ShadowDOM/commit/7079f38054dad74b2c0e4e18421bd11946e9f56f">commit</a>)</p>
+  </li>
+  <li>
+    <p><code>document.write()</code> is now <a href="https://github.com/polymer/ShadowDOM/commit/733b350e15ea800f95efab2caae0a4c008d07ca0">overriden</a> and wrapped in the polyfill (<a href="https://github.com/polymer/ShadowDOM/commit/07be1f387f9a099bd9a13a0edf193acbf0f5c522">commit</a>)</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="2013-04-17">2013-04-17</h2>
+
+<h3 id="toolkit">Toolkit</h3>
+
+<ul>
+  <li>If you&#8217;re writing a <a href="/polymer.html">Toolkit component</a>, there&#8217;s
+no longer need to include <code>platform.js</code> alongside <code>toolkit.js</code>. <code>toolkit.js</code> now loads <code>platform.js</code> under the hood. </li>
+</ul>
+
+<h3 id="platform-5">Platform</h3>
+
+<h4 id="customelements">CustomElements</h4>
+
+<ul>
+  <li>The <code>constructor</code> attribute is now supported (<a href="https://github.com/polymer/CustomElements/commit/96417cf084daf1421a9786e39282206f4ef6d35e">commit</a>)</li>
+</ul>
+
+<h4 id="html-imports-6">HTML Imports</h4>
+
+<ul>
+  <li>
+    <p>Fixed issue with imports loaded at the same url would not have the content associated with them (<a href="https://github.com/polymer/HTMLImports/commit/882a9b6cc53d41d46967346b0b7e32edc4a6f7b9">commit</a>)</p>
+  </li>
+  <li>
+    <p>Polyfill now correctly checks for <code>HTMLTemplateElement</code> before using it (<a href="https://github.com/polymer/HTMLImports/commit/24283edea12b36ae0db0e7f928fdcb20a6e46eda">commit</a>)</p>
+  </li>
+  <li>
+    <p>If <code>HTMLTemplateElement.bootstrap</code> is available, then bootstrap templates in imported documents. (<a href="https://github.com/polymer/HTMLImports/commit/8c842e1c1bf3f13ca2097386886874f873e8ec0b">commit</a>)</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="2013-04-11">2013-04-11</h2>
+
+<p class="centered alert alert-info"><strong>Notice</strong>: This release contains important changes to the structure of the project.</p>
+
+<ul>
+  <li>The <code>toolkit</code> repository now brings in the <code>platform</code> repository as a submodule.</li>
+  <li>Until now, the <em>dev</em> branch has been the development branch and <em>master</em> has
+been the stable release. Now, the <em>stable</em> branch is the default &#8220;stable&#8221; codebase.
+<em>master</em> branches are the in-development tip of tree. The <em>stable</em> branch is also
+the default view on Github.</li>
+</ul>
+
+<h3 id="toolkit-1">Toolkit</h3>
+
+<ul>
+  <li><code>g-component.html</code> no longer exists as the Tookit kernel. It has been replaced
+with loading in <code>toolkit.js</code> instead.</li>
+  <li>Added <code>debug</code> <a href="/runtime-config.html">runtime flags</a> to conditionally load debug
+version of <code>platform.js</code>.</li>
+</ul>
+
+<hr />
+
+<h2 id="2013-02-25">2013-02-25</h2>
+
+<h3 id="toolkit-2">Toolkit</h3>
+
+<ul>
+  <li>
+    <p>Changed &#8220;toolkit/src&#8221; folder name to &#8220;toolkit/components&#8221;. Update your source paths accordingly.</p>
+  </li>
+  <li>
+    <p>Introduced <code>selectedClass</code> property to g-selector component. (<a href="https://github.com/polymer/polymer/commit/a1565b536ea05cddf7a5984c15017c2bc803d1e5">commit</a>)</p>
+  </li>
+  <li>
+    <p>g-selector now sends an <code>activate</code> event which is fired whenever an item is activated (can occur when the currently selected item is activated). The <code>select</code> event is fired only when the selected item changes. (<a href="https://github.com/polymer/polymer/commit/5aaddd82d89796b493726d31fb5ab2d73a7e1770">commit</a>)</p>
+  </li>
+  <li>
+    <p>g-menu-button: the menu now closes in response to the selector&#8217;s activate event (<a href="https://github.com/polymer/polymer/commit/5aaddd82d89796b493726d31fb5ab2d73a7e1770">commit</a>)</p>
+  </li>
+  <li>
+    <p>g-selection: selecting the same item is now a no-op (<a href="https://github.com/polymer/polymer/commit/0075c4c4c39afa1235e8afd3580099f6c530a5ff">commit</a>)</p>
+  </li>
+  <li>
+    <p>Added support for 2-way bindings on input elements (<a href="https://github.com/polymer/polymer/commit/16715bbb25fbb8a97455e66cd17021b7761ae0ad">commit</a>)</p>
+  </li>
+  <li>
+    <p>g-ajax: Response is bindable; params can be set as json or object.</p>
+  </li>
+  <li>
+    <p>g-panels: Added <code>autoselect</code> property that controls if keys/swipes can select panels; added <code>canselect</code> event to control if a panel can be selected.</p>
+  </li>
+</ul>
+
+<h3 id="platform-6">Platform</h3>
+
+<ul>
+  <li>
+    <p>Landed version 2 of the Shadow DOM shim. See the <a href="https://github.com/polymer/polyfills/pull/88">pull request</a> for details.</p>
+  </li>
+  <li>
+    <p>ShadowRoot now installs shadow reference on <code>node.webkitShadowRoot</code>, as per spec. Fixes <a href="https://github.com/polymer/polymer/issues/68">#68</a>. (<a href="https://github.com/polymer/polymer/commit/34363b6093674956118d8d82cea389961d0e5337">commit</a>)</p>
+  </li>
+  <li>
+    <p>Loader: allow stylesheets and scripts in components defined in document. (<a href="https://github.com/polymer/polymer/commit/9875a08fb3f0b153ea044d19b8b3b39cf6e3656c">commit</a>)</p>
+  </li>
+</ul>
+
+<h3 id="tools">Tools</h3>
+
+<ul>
+  <li>Shadow DOM inspector
+Added a tool for inspecting Shadow DOM trees. You can invoke the tool via <code>window.sinspect(<em>node</em>)</code>, where <code>node</code> is the element to start inspecting from. If not specified then it will use <code>document.body</code>.</li>
+</ul>
+
+<p>To use the tool, open the JavaScript console and type <code>sinspect()</code>.</p>
+
+<p><strong>Note</strong>: The tool opens in a pop-up window so you may have to unblock it.</p>
+
+<p><img src="images/changelog/sinspect-screen.png" alt="" /></p>
+
+</div>
+
+      <hr>
+
+      <footer>
+        <div>
+          <div>&copy; 2013 Polymer Authors.<br>Code licensed under the <a href="https://github.com/polymer/polymer/blob/master/LICENSE" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</div>
+        </div>
+        <div id="logo-row">
+          <img src="/images/logos/webcomponents.png" alt="Web Components" title="Web Components">
+          <img src="/images/logos/html5logo.svg" alt="HTML5" title="HTML5">
+          <img src="/images/logos/js.jpg" alt="JavaScript" title="JavaScript">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/js/prettify/prettify.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39334307-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+function addPermalink(el) {
+  el.classList.add('has-permalink');
+  el.insertAdjacentHTML('beforeend',
+      '<a class="permalink" title="Permalink" href="#' + el.id + '">#</a>');
+}
+
+// Change "active" style on selected left-hand navigation menu item.
+$(document).ready(function () {
+  var path = location.pathname;
+  $('ul.nav > li > a[href="' + path + '"]').parent().addClass('active');
+
+  // Add permalinks to heading elements.
+  var permalinkEl = document.querySelector('.show-permalinks');
+  if (permalinkEl) {
+    ['h2','h3','h4'].forEach(function(h, i) {
+      [].forEach.call(permalinkEl.querySelectorAll(h), addPermalink);
+    });
+  }
+
+  // TODO: Use kramdown {:.prettyprint .linenums .lang-ruby} to add the
+  // <pre class="prettyprint"> instead of doing this client-side.
+  $('pre').addClass('prettyprint');
+  window.prettyPrint && prettyPrint();
+});
+</script>
+
+</body>
+</html>

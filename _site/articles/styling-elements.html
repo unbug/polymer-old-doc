@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta itemprop="name" content="Polymer - A Guide to Styling Elements">
+<meta itemprop="description" content="Polymer is a new type of library for the web, built on top of Web Components, and designed to leverage the evolving web platform on modern browsers.">
+
+
+<meta itemprop="image" content="http://www.polymer-project.org/images/instacod.png">
+
+
+<title>
+  
+    A Guide to Styling Elements - 
+   Polymer
+</title>
+<link rel="shortcut icon" href="/images/icons/loading_icon.png">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/prettify/sunburst.css" rel="stylesheet">
+<!-- <link href="/css/pygments/default.css" rel="stylesheet" type="text/css"> -->
+<link href="/css/site.css?20131025" rel="stylesheet">
+
+
+
+<script async>
+// Prevent usage of the appspot.com URL.
+try {
+  if (location.hostname.match('appspot.com') &&
+      location.search.substring(1).split('&').indexOf('force') == -1) {
+    window.location = location.protocol + '//www.polymer-project.org' + location.pathname;
+  }
+} catch(e) {
+  // noop
+}
+</script>
+
+
+<script src="/polymer.min.js?20131025"></script>
+
+
+
+<!--   
+  <script src="/polymer.min.js?20131025"></script>
+ -->
+  
+
+
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      </a>
+      <a class="brand" href="/">Polymer</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="icon github"><a href="https://github.com/polymer/polymer"><img src="/images/icons/github.png">View on Github</a></li>
+          <li class="icon bug"><a href="https://github.com/polymer/polymer/issues/new"><img src="/images/icons/bug.png">File a bug</a></li>
+          <li class="icon source"><a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md"><img src="/images/icons/source.png">Contribute</a></li>
+          <li class="icon talk"><a href="/discuss.html"><img src="/images/icons/talk.png">Discuss</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+  <div class="well well-small sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">Getting Started</li>
+      <li><a href="/getting-the-code.html">Get the code</a></li>
+      <li><a href="/getting-started.html">Getting started</a></li>
+      <li><a href="/runtime-config.html">Runtime configuration</a></li>
+      <li><a href="/articles/">Articles</a></li>
+      
+      <li class="divider"></li>
+      <li class="nav-header elements">Elements</li>
+      <li><a href="/docs/elements/">Polymer elements</a></li>
+      <li><a href="/docs/elements/other.html">Other elements</a></li>
+      <li class="nav-header core">Core runtime</li>
+      <li><a href="/polymer.html">polymer.js</a></li>
+      <li class="nav-header foundation">Platform technologies</li>
+      <li><a href="/platform/custom-elements.html">Custom Elements</a></li>
+      <li><a href="/platform/shadow-dom.html">Shadow DOM</a></li>
+      <li><a href="/platform/html-imports.html">HTML Imports</a></li>
+      <!-- <li class="disabled"><a href="#">Templates</a></li> -->
+      <li><a href="/platform/mdv.html">MDV</a></li>
+      <!-- <li><a href="/platform/mutation-observers.html" disabled>Mutation Observers</a></li> -->
+      <li><a href="/platform/pointer-events.html">Pointer Events</a></li>
+      <li><a href="/platform/web-animations.html">Web Animations</a></li>
+      <li class="divider"></li>
+      <li class="nav-header">More information</li>
+      <li><a href="/tooling-strategy.html">Tools &amp; Testing</a></li>
+      <li><a href="/compatibility.html">Browser Compatibility</a></li>
+      <li><a href="/changelog.html">Changelog</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="span8" id="content-container">
+
+      <span class="edit-on-github">
+  <a href="https://github.com/Polymer/docs/edit/master/articles/styling-elements.md">Edit on Github</a>
+</span>
+
+
+      
+      <div class="page-header">
+        <h1>A Guide to Styling Elements
+          
+        </h1>
+      </div>
+      
+
+      
+      
+
+      <div id="content" class="
+        
+           
+              show-permalinks 
+           
+        
+      ">
+<aside class="author">
+  <p><a href="https://plus.google.com/118075919496626375791" target="blank_"><img src="//www.google.com/s2/photos/profile/118075919496626375791?sz=40" alt="Eric Bidelman profile pic" title="Eric Bidelman" /></a></p>
+
+  <p>By <a href="https://plus.google.com/118075919496626375791" target="blank_">Eric Bidelman</a><br />
+Published <time pubdate="" datetime="2013-07-11">July 11, 2013</time></p>
+
+</aside>
+
+<h4 id="toc" class="no_toc">Content</h4>
+
+<ul id="markdown-toc">
+  <li><a href="#default-styles">Default styles</a>    <ul>
+      <li><a href="#user-provided-styles">User-provided styles</a></li>
+      <li><a href="#element-defined-styles">Element-defined styles</a></li>
+    </ul>
+  </li>
+  <li><a href="#preventing-fouc">Preventing FOUC</a>    <ul>
+      <li><a href="#polyfilling-unresolved">&#8220;Polyfilling&#8221; :unresolved</a></li>
+    </ul>
+  </li>
+  <li><a href="#inheriting--resetting-outside-styles">Inheriting / resetting outside styles</a></li>
+  <li><a href="#allowing-users-to-style-your-internals">Allowing users to style your internals</a></li>
+  <li><a href="#styling-distributed-nodes">Styling distributed nodes</a>    <ul>
+      <li><a href="#polymers-polyfill-directive">Polymer&#8217;s @polyfill directive</a></li>
+    </ul>
+  </li>
+  <li><a href="#polyfill-details">Polyfill details</a>    <ul>
+      <li><a href="#handling-scoped-styles">Handling scoped styles</a></li>
+      <li><a href="#making-styles-global">Making styles global</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+
+<p>This article covers many of the new CSS rules, properties, and concepts for
+styling <a href="/platform/custom-elements.html">Custom Elements</a>. While much of it is applicable to general Web Components, it specifically focuses on:</p>
+
+<ol>
+  <li>How to use these new CSS features with Polymer</li>
+  <li>How Polymer&#8217;s polyfills shim certain behaviors</li>
+</ol>
+
+<p>Many of the topics outlined in this article are closely related to how CSS and Shadow DOM interact with each other. If you want the dirty details on styling Shadow DOM, see my article on HTML5Rocks.com, <a href="http://www.html5rocks.com/tutorials/webcomponents/shadowdom-201/">Shadow DOM 201 - CSS and Styling</a>.</p>
+
+<h2 id="default-styles">Default styles</h2>
+
+<p>Most elements in HTML have default styling applied by the browser. For example,
+<code>&lt;head&gt;</code> and <code>&lt;title&gt;</code> are <code>display: none</code>, <code>&lt;div&gt;</code> is <code>display: block</code>,
+<code>&lt;body&gt;</code> has <code>margin: 8px</code>, and list items are <code>list-style-type: disc</code>.</p>
+
+<h3 id="user-provided-styles">User-provided styles</h3>
+
+<p>As with any HTML element, users of your Custom Element can define styles on it:</p>
+
+<pre><code>&lt;style&gt;
+  x-foo {
+    display: block;
+  }
+  x-foo:hover {
+    opacity: 0;
+  }
+&lt;/style&gt;
+&lt;x-foo&gt;&lt;/x-foo&gt;
+</code></pre>
+
+<p>However, it&#8217;s common for a Custom Element to define its own look. </p>
+
+<h3 id="element-defined-styles">Element-defined styles</h3>
+
+<p class="alert alert-error"><strong>Heads up</strong>: <code>@host</code> is going away soon in favor of <code>:host()</code>. See the <a href="https://www.w3.org/Bugs/Public/show_bug.cgi?id=22390">spec bug</a>.</p>
+
+<p>Elements <em>you</em> create will likely need some sort of styling.</p>
+
+<p>The <a href="https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html#host-at-rule"><code>@host</code> at-rule</a> allows you to target and style an element internally, from within its definition:</p>
+
+<pre><code>&lt;polymer-element name="x-foo"&gt;
+  &lt;template&gt;
+    &lt;style&gt;
+      @host {
+        /* Three equivalent rules, in order of preference. */
+        :scope {
+          display: block; /* Note: by default elements are always display:inline. */
+        }
+        * {
+          display: block;
+        }
+        x-foo {
+          display: block;
+        }
+      }
+    &lt;/style&gt;
+  &lt;/template&gt;
+&lt;/polymer-element&gt;
+</code></pre>
+
+<p>The only selectors that work in <code>@host</code> are those targeting the host element itself,
+in this case, <code>&lt;x-foo&gt;</code>. In the context of <code>@host</code>, you can use the <a href="http://www.w3.org/TR/selectors4/#scope-pseudo"><code>:scope</code></a> pseudo-class, <code>*</code>, or the type selector (<code>x-foo</code>)
+to refer to the element. They have slightly different meanings, but for all intents
+and purposes, all three are equivalent.</p>
+
+<h4 id="reacting-to-user-states">Reacting to user states</h4>
+
+<p>An interesting application of <code>@host</code> is for reacting to different user-driven states (:hover, :focus, :active, etc.):</p>
+
+<pre><code>&lt;polymer-element name="x-button"&gt;
+  &lt;template&gt;
+    &lt;style&gt;
+      @host {
+        :scope {
+          opacity: 0.6;
+          transition: opacity 400ms ease-in-out;
+        }
+        :scope:hover { opacity: 1; }
+        :scope:active { ... }
+      }
+    &lt;/style&gt;
+    &lt;button&gt;&lt;content&gt;&lt;/content&gt;&lt;/button&gt;
+  &lt;/template&gt;
+&lt;/polymer-element&gt;
+
+&lt;x-button&gt;x-buttonz!&lt;/x-button&gt;
+</code></pre>
+
+<polymer-element name="x-button-example">
+  <template>
+    <style>
+      @host {
+        :scope {
+          opacity: 0.6;
+          transition: opacity 400ms ease-in-out;
+        }
+        :scope:hover {
+          opacity: 1;
+        }
+        :scope:active {
+          position: relative;
+          top: 3px;
+          left: 3px;
+        }
+      }
+    </style>
+    <button><content></content></button>
+  </template>
+</polymer-element>
+
+<p>When someone mouses over <code>&lt;x-button&gt;</code> they&#8217;ll get a sexy fade-in!</p>
+
+<p><strong>Demo:</strong> <x-button-example>x-buttonz!</x-button-example></p>
+
+<h4 id="programmatically-modifying-styles">Programmatically modifying styles</h4>
+
+<p>You can dynamically change an element&#8217;s styling by, you guessed it, modifying 
+ts <code>.style</code> property.</p>
+
+<p>From the outside:</p>
+
+<pre><code>var xFoo = document.createElement('x-foo');
+xFoo.style.background = 'blue';
+</code></pre>
+
+<p>From within the element:</p>
+
+<pre><code>&lt;polymer-element name="x-foo" on-click="changeBg"&gt;
+  &lt;template&gt;
+    &lt;style&gt;
+      @host {
+        :scope {
+          display: inline-block;
+          background: red;
+          color: white;
+        }
+      }
+    &lt;/style&gt;
+    &lt;div&gt;Click me&lt;/div&gt;
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('x-foo', {
+      changeBg: function() {
+        this.style.background = 'blue'; 
+      }
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;
+</code></pre>
+
+<polymer-element name="x-bgchange-example" on-click="changeBg">
+  <template>
+    <style>
+      @host { :scope { display: inline-block; padding: 5px; background: red; color: white; } }
+    </style>
+    <div>Click me</div>
+  </template>
+  <script>
+    Polymer('x-bgchange-example', {
+      changeBg: function() {
+        this.style.background = 'blue'; 
+      }
+    });
+  </script>
+</polymer-element>
+
+<p><strong>Demo:</strong> <x-bgchange-example></x-bgchange-example></p>
+
+<p>If you&#8217;re feeling loco, it&#8217;s possible to modify the rules in an <code>@host</code>
+block using CSSOM:</p>
+
+<pre><code>&lt;polymer-element name="x-foo" on-click="changeBg"&gt;
+  &lt;template&gt;
+    &lt;style&gt;
+      @host { :scope { background: red; } }
+    &lt;/style&gt;
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('x-foo', {
+      changeBg: function() {
+        var sheet = this.shadowRoot.querySelector('style').sheet;
+        // Brittle if @host isn't first in &lt;style&gt;.
+        var hostRules = sheet.cssRules[0];
+        // Append the rule to the end.
+        hostRules.insertRule(':scope:hover { color: white; }',
+                             hostRules.cssRules.length);
+      }
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;
+</code></pre>
+
+<p>The only reason to do this would be to programmatically add/remove pseudo-class rules.
+It&#8217;s also worth noting that this trick doesn&#8217;t work under Polymer&#8217;s Shadow DOM polyfill.
+See <a href="https://github.com/Polymer/platform/issues/23">issue #23</a>.</p>
+
+<p>For more information on <code>@host</code>, see <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/#toc-style-host">Shadow DOM 201 - CSS and Styling</a>.</p>
+
+<h2 id="preventing-fouc">Preventing FOUC</h2>
+
+<p>When you declare <code>&lt;x-foo&gt;</code> (or any non-native HTML element), it exists
+happily on the page as a regular <code>HTMLElement</code>. Only when the browser registers its definition
+does <code>&lt;x-foo&gt;</code> become magical.</p>
+
+<p>Before an element gets registered, the process of upgrading it may take more time than expected.
+For example, an <a href="/platform/html-imports.html">HTML Import</a> that defines your element might
+be slow due to poor network conditions.</p>
+
+<p>To combat these types of UX issues and mitigate things like <a href="http://en.wikipedia.org/wiki/Flash_of_unstyled_content">FOUC</a>, you can use the CSS <code>:unresolved</code> pseudo class. It applies to unknown elements right up until the point the lifecycle <code>createdCallback</code> is called.</p>
+
+<p class="alert alert-success"><strong>Support:</strong> CSS <code>:unresolved</code> is supported natively in Chrome 29. It has not been polyfilled.</p>
+
+<p><strong>Example:</strong> fade in an element when it&#8217;s registered</p>
+
+<pre><code>&lt;style&gt;
+  x-foo {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  x-foo:unresolved {
+    opacity: 0;
+  }
+&lt;/style&gt;
+</code></pre>
+
+<p><strong>Example:</strong> using generated content to display a &#8220;loading&#8221; message</p>
+
+<pre><code>&lt;style&gt;
+  :unresolved {
+    display: flex;
+    justify-content: center;
+    background: rgba(255,255,255,0.5);
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+  }
+  :unresolved:after {
+    padding: 15px;
+    content: 'loading...';
+    color: #ccc;
+  }
+&lt;/style&gt;
+</code></pre>
+
+<h3 id="polyfilling-unresolved">&#8220;Polyfilling&#8221; :unresolved</h3>
+
+<p>Until <code>:unresolved</code> is widely supported in browsers, you can use my little trick to fake the
+behavior. The basic idea is to add a CSS class to the Custom Element when Polymer&#8217;s <code>WebComponentsReady</code> event fires.</p>
+
+<p><strong>Example:</strong> Faking <code>:unresolved</code>:</p>
+
+<pre><code>&lt;style&gt;
+  x-foo:not(.resolved) { ... }
+&lt;/style&gt;
+&lt;x-foo&gt;&lt;/x-foo&gt;
+&lt;script&gt;
+  document.addEventListener('WebComponentsReady', function(e) {
+    // Add .resolved to all custom elements. This is a hack until :unresolved is
+    // supported in all browsers and Polymer registers elements using document.register().
+    for (var name in CustomElements.registry) {
+      var els = document.querySelectorAll(name + ', [is="' + name + '"]');
+      [].forEach.call(els, function(el, i) {
+        el.classList.add('resolved');
+      });
+    }
+  });
+&lt;/script&gt;
+</code></pre>
+
+<p><code>WebComponentsReady</code> signifies when all elements have been upgraded.</p>
+
+<h2 id="inheriting--resetting-outside-styles">Inheriting / resetting outside styles</h2>
+
+<p>As a convenience, Polymer allows you to set Shadow DOM&#8217;s <code>applyAuthorStyles</code> and <code>resetStyleInheritance</code> properties directly when constructing the element&#8217;s <code>prototype</code>.
+However, please keep in mind that Polymer does not attempt to polyfill <code>applyAuthorStyles</code> or <code>resetStyleInheritance</code>.</p>
+
+<p>Take on the look and feel of the page with <code>applyAuthorStyles</code>:</p>
+
+<pre><code>Polymer('x-foo', {
+  applyAuthorStyles: true,
+  //resetStyleInheritance: true,
+  ready: function() { ... },
+  ...
+});
+</code></pre>
+
+<p>Alternatively, you can set either of these at any time directly on the shadowRoot:</p>
+
+<pre><code>ready: function() {
+  this.shadowRoot.applyAuthorStyles = true;
+  this.shadowRoot.resetStyleInheritance = false; // default.
+}
+</code></pre>
+
+<p><strong>Remember:</strong> styles defined in the main document continue to apply to the Light DOM nodes they target,
+even if those nodes are distributed into Shadow DOM. Basically, going into an insertion point doesn&#8217;t change what styles are applied. An example helps illustrate this point:</p>
+
+<pre><code>&lt;style&gt;
+  x-foo &gt; div {
+    color: green;
+  }
+  .red {
+    color: red; 
+  }
+&lt;/style&gt;
+
+&lt;polymer-element name="x-foo"&gt;
+  &lt;template&gt;
+    &lt;div class="red"&gt;Shadow DOM: red when applyAuthorStyles=true&lt;/div&gt;
+    &lt;content select="div"&gt;&lt;/content&gt;
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('x-foo', {
+      applyAuthorStyles: true
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;
+
+&lt;x-foo&gt;
+  &lt;div&gt;Light DOM: green&lt;/div&gt;
+&lt;/x-foo&gt;
+</code></pre>
+
+<style>
+  x-foo-example2 > div {
+    color: green;
+  }
+  .red {
+    color: red; 
+  }
+</style>
+
+<polymer-element name="x-foo-example2">
+  <template>
+    <style>
+      @host { :scope { display: block; } }
+    </style>
+    <div class="red">Shadow DOM: red when applyAuthorStyles=true</div>
+    <content select="div"></content>
+  </template>
+  <script>
+    Polymer('x-foo-example2', {
+      applyAuthorStyles: true
+    });
+  </script>
+</polymer-element>
+
+<p><strong>Demo:</strong></p>
+
+<x-foo-example2 style="margin-bottom:20px;">
+  <div>Light DOM: green</div>
+</x-foo-example2>
+
+<p>The element&#8217;s Shadow DOM <code>&lt;div class="red"&gt;</code> matches the <code>.red</code> class when
+<code>applyAuthorStyles</code> is true. When it&#8217;s false, we&#8217;re not &#8220;applying the authors styles&#8221;
+and it doesn&#8217;t match. The distributed <code>&lt;div&gt;Light DOM: green&lt;/div&gt;</code> remains green because
+it&#8217;s logically still in the parent page and therefore matching <code>x-foo &gt; div</code>.
+It&#8217;s simple being rendered elsewhere (over in Shadow DOM land).</p>
+
+<p class="alert alert-info"><strong>Gotcha</strong>: Even with <code>.applyAuthorStyles</code> set, selectors don&#8217;t cross Shadow DOM boundaries.
+Styles on the outside only apply when the selector in question matches entirely
+in or outside the shadowRoot. For example, <code>x-foo .red { color: red; }</code> does not
+match the inner <code>&lt;div class="red"&gt;</code>.</p>
+
+<p>For more information on <code>applyAuthorStyles</code> and <code>resetStyleInheritance</code>, see <a href="http://www.html5rocks.com/tutorials/webcomponents/shadowdom-201/#toc-style-inheriting">Shadow DOM 201 - CSS and Styling</a>.</p>
+
+<h2 id="allowing-users-to-style-your-internals">Allowing users to style your internals</h2>
+
+<p class="alert alert-error"><strong>Heads up:</strong> The <code>pseudo</code> attribute and <code>::x-*</code> custom pseudo elements are 
+getting replaced soon by by <code>part</code> and <code>::part()</code>, respectively. See the <a href="https://www.w3.org/Bugs/Public/show_bug.cgi?id=22461">spec bug</a>.</p>
+
+<p>Nodes in your element that contain the <code>pseudo</code> attribute can be targeted from outside CSS.
+These are called <a href="http://www.w3.org/TR/shadow-dom/#custom-pseudo-elements">Custom pseudo elements</a>. Essentially, they give users a way to style specific pieces of your element by exposing some of its internal structure.</p>
+
+<p><strong>Example</strong></p>
+
+<pre><code>&lt;style&gt;
+  x-foo::x-header {
+    color: black;
+    background: yellow;
+  }
+&lt;/style&gt;
+
+&lt;polymer-element name="x-foo"&gt;
+  &lt;template&gt;
+    &lt;h1 pseudo="x-header"&gt;I'm an x-foo!&lt;/h1&gt;
+  &lt;/template&gt;
+&lt;/polymer-element&gt;
+
+&lt;x-foo&gt;&lt;/x-foo&gt;
+</code></pre>
+
+<p class="alert alert-info"><strong>Note</strong>: the name of a custom pseudo element needs to be prefixed with &#8220;x-&#8220;.</p>
+
+<p>For more information on custom pseudo elements, see <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/#toc-custom-pseduo">Shadow DOM 201 - CSS and Styling</a>.</p>
+
+<h2 id="styling-distributed-nodes">Styling distributed nodes</h2>
+
+<p class="alert alert-error"><strong>Heads up:</strong> The <code>::distributed()</code> is being renamed soon to <code>::content()</code>.
+See the <a href="https://www.w3.org/Bugs/Public/show_bug.cgi?id=22460">spec bug</a>.</p>
+
+<p><code>&lt;content&gt;</code> elements allow you to select nodes from the &#8220;Light DOM&#8221; and
+render them at predefined locations in your element. The CSS <code>::distributed()</code> function
+is used to style nodes that pass through one of points. It&#8217;s argument is
+a CSS selector to match node(s) distributed at that insertion point.</p>
+
+<p><strong>Example</strong></p>
+
+<pre><code>&lt;polymer-element name="x-foo"&gt;
+  &lt;template&gt;
+    &lt;style&gt;
+      content[select="p"]::-webkit-distributed(*) { /* anything distributed here */
+        font-weight: bold;
+      }
+      ::-webkit-distributed(p:first-child) {
+        color: red;
+      }
+      ::-webkit-distributed(footer &gt; p) {
+        color: green;
+      }
+      ::-webkit-distributed(&gt; p) { /* scope relative selector */
+        color: blue;
+      }
+    &lt;/style&gt;
+    &lt;content select="p"&gt;&lt;/content&gt;
+    &lt;content&gt;&lt;/content&gt;
+  &lt;/template&gt;
+&lt;/polymer-element&gt;
+
+&lt;!-- Children of x-foo are the Light DOM --&gt;
+&lt;x-foo&gt;
+  &lt;p&gt;I'm red and bold&lt;/p&gt;
+  &lt;p&gt;I'm blue and bold&lt;/p&gt;
+  &lt;footer&gt;
+    &lt;p&gt;I'm also red&lt;/p&gt;
+    &lt;p&gt;I'm green&lt;/p&gt;
+    &lt;span&gt;I'm pink&lt;/span&gt;
+  &lt;/footer&gt;
+&lt;/x-foo&gt;
+</code></pre>
+
+<h3 id="polymers-polyfill-directive">Polymer&#8217;s @polyfill directive</h3>
+
+<p>To polyfill complex styling like this, Polymer provides the <code>@polyfill</code>
+directive to be placed inside a CSS comment above your rule. The string next
+to <code>"@polyfill"</code> describes a CSS selector and is used to replace the next rule
+in the <code>&lt;style&gt;</code> element.</p>
+
+<p>One use for <code>@polyfill</code> is to polyfill <code>::distributed()</code> rules. You can do this
+through careful use of selectors:</p>
+
+<pre><code>/* @polyfill @host .bar */
+::-webkit-distributed(.bar) {
+  color: red;
+}
+</code></pre>
+
+<p>Under native Shadow DOM the above rule remains as written. Under the polyfill, it becomes:</p>
+
+<pre><code>x-foo .bar {
+  color: red:
+}
+</code></pre>
+
+<p>For more information on <code>::distributed()</code>, see <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/#toc-style-disbtributed-nodes">Shadow DOM 201 - CSS and Styling</a>.</p>
+
+<h2 id="polyfill-details">Polyfill details</h2>
+
+<h3 id="handling-scoped-styles">Handling scoped styles</h3>
+
+<p>Native Shadow DOM gives us style encapsulation for free via scoped styles. For browsers
+that lack native support, Polymer&#8217;s polyfills attempt to shim <em>some</em>
+of the scoping behavior.</p>
+
+<p>Because polyfilling the styling behaviors of Shadow DOM is difficult, Polymer
+has opted to favor practicality and performance over correctness. For example,
+the polyfill&#8217;s do not protect Shadow DOM elements against document level CSS.</p>
+
+<p>When Polymer processes element definitions, it looks for <code>&lt;style&gt;</code> elements
+and stylesheets. It removes these from the custom element&#8217;s Shadow DOM <code>&lt;template&gt;</code>
+and re-formulates them according to the rules below. Once this is done, a <code>&lt;style&gt;</code>
+element is added to the main document with the reformulated rules.</p>
+
+<h4 id="reformatting-rules">Reformatting rules</h4>
+
+<ol>
+  <li>
+    <p><strong>Convert rules inside <code>@host</code> to rules prefixed with the element&#8217;s tag name</strong></p>
+
+    <p>For example, this rule inside an <code>x-foo</code>:</p>
+
+    <pre><code> &lt;polymer-element name="x-foo"&gt;
+   &lt;template&gt;
+     &lt;style&gt;
+       @host {
+         :scope { ... }
+         :scope:hover { ... }
+       }
+     &lt;/style&gt;
+   ...
+</code></pre>
+
+    <p>becomes:</p>
+
+    <pre><code> &lt;polymer-element name="x-foo"&gt;
+   &lt;template&gt;
+     &lt;style&gt;
+       x-foo { ... }
+       x-foo:hover { ... }
+     &lt;/style&gt;
+   ...
+</code></pre>
+  </li>
+  <li>
+    <p><strong>Prepend selectors with the element name, creating a descendent selector</strong>.
+This ensures styling does not leak outside the element&#8217;s shadowRoot (e.g. upper bound encapsulation).</p>
+
+    <p>For example, this rule inside an <code>x-foo</code>:</p>
+
+    <pre><code> &lt;polymer-element name="x-foo"&gt;
+   &lt;template&gt;
+     &lt;style&gt;
+       div { ... }
+     &lt;/style&gt;
+   ...
+</code></pre>
+
+    <p>becomes:</p>
+
+    <pre><code> &lt;polymer-element name="x-foo"&gt;
+   &lt;template&gt;
+     &lt;style&gt;
+       x-foo div { ... }
+     &lt;/style&gt;
+   ...
+</code></pre>
+
+    <p>Note, this technique does not enforce lower bound encapsulation. For that,
+   you need to set <code>Platform.ShadowCSS.strictStyling = true</code>. This isn&#8217;t the
+   yet the default because it requires that you add the custom element&#8217;s
+   name as an attribute on all DOM nodes in the shadowRoot (e.g. <code>&lt;span x-foo&gt;</code>).</p>
+  </li>
+</ol>
+
+<h3 id="making-styles-global">Making styles global</h3>
+
+<p>Sometimes you need globals.</p>
+
+<p>According to spec, certain CSS @-rules like <code>@keyframe</code> and <code>@font-face</code>
+cannot be defined in a <code>&lt;style scoped&gt;</code>. Therefore, you need to either declare
+their definitions outside the element or make them global using the
+<code>polymer-scope="global"</code> attribute.</p>
+
+<p><strong>Example:</strong> making a stylesheet global</p>
+
+<pre><code>&lt;polymer-element name="x-foo"&gt;
+  &lt;template&gt;
+    &lt;link rel="stylesheet" href="fonts.css" polymer-scope="global"&gt;
+    ...
+  &lt;/template&gt;
+&lt;/polymer-element&gt;
+</code></pre>
+
+<p>A stylesheet or <code>&lt;style&gt;</code> that uses the <code>polymer-scope="global"</code> attribute
+is moved to the <code>&lt;head&gt;</code> of the main page. This happens once, and you can safely
+use it wherever you need it.</p>
+
+<p><strong>Example:</strong> Define and use CSS animations in an element</p>
+
+<pre><code>&lt;polymer-element name="x-blink"&gt;
+  &lt;template&gt;
+    &lt;style polymer-scope="global"&gt;
+      @-webkit-keyframes blink {
+        to { opacity: 0; }
+      }
+    &lt;/style&gt;
+    &lt;style&gt;
+      @host {
+        :scope {
+          -webkit-animation: blink 1s cubic-bezier(1.0,0,0,1.0) inifnite 1s;
+        }
+      }
+    &lt;/style&gt;
+    ...
+  &lt;/template&gt;
+&lt;/polymer-element&gt;
+</code></pre>
+
+<p class="alert alert-error"><strong>Note:</strong> <code>polymer-scope="global"</code> should only be used for stylesheets or <code>&lt;style&gt;</code>
+that contain rules which need to be in the global scope (e.g. <code>@keyframe</code> and <code>@font-face</code>).</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>There are a bunch of new concepts when it comes to styling Custom Elements. What makes
+things particularly interesting (and at the same time, wonky) is this Shadow DOM guy.
+In web development, we&#8217;re conditioned to think, &#8220;Yay! Globals everywhere!&#8221; That goes
+for DOM, CSS, and JS. Not so with Custom Elements. It&#8217;s a brave new world, but a powerful one
+of encapsulation, puppies, and fluffy bunnies. Drink it in.</p>
+
+<hr />
+
+<div id="disqus_thread"></div>
+<script>
+  var disqus_shortname = 'polymer-project';
+  var disqus_url = location.protocol + '//' + location.host + '/articles/styling-elements.html';
+  var disqus_identifier = "a-guide-to-styling-elements";
+
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+</div>
+
+      <hr>
+
+      <footer>
+        <div>
+          <div>&copy; 2013 Polymer Authors.<br>Code licensed under the <a href="https://github.com/polymer/polymer/blob/master/LICENSE" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</div>
+        </div>
+        <div id="logo-row">
+          <img src="/images/logos/webcomponents.png" alt="Web Components" title="Web Components">
+          <img src="/images/logos/html5logo.svg" alt="HTML5" title="HTML5">
+          <img src="/images/logos/js.jpg" alt="JavaScript" title="JavaScript">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/js/prettify/prettify.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39334307-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+function addPermalink(el) {
+  el.classList.add('has-permalink');
+  el.insertAdjacentHTML('beforeend',
+      '<a class="permalink" title="Permalink" href="#' + el.id + '">#</a>');
+}
+
+// Change "active" style on selected left-hand navigation menu item.
+$(document).ready(function () {
+  var path = location.pathname;
+  $('ul.nav > li > a[href="' + path + '"]').parent().addClass('active');
+
+  // Add permalinks to heading elements.
+  var permalinkEl = document.querySelector('.show-permalinks');
+  if (permalinkEl) {
+    ['h2','h3','h4'].forEach(function(h, i) {
+      [].forEach.call(permalinkEl.querySelectorAll(h), addPermalink);
+    });
+  }
+
+  // TODO: Use kramdown {:.prettyprint .linenums .lang-ruby} to add the
+  // <pre class="prettyprint"> instead of doing this client-side.
+  $('pre').addClass('prettyprint');
+  window.prettyPrint && prettyPrint();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta itemprop="name" content="Polymer - Getting started">
+<meta itemprop="description" content="Polymer is a new type of library for the web, built on top of Web Components, and designed to leverage the evolving web platform on modern browsers.">
+
+
+<meta itemprop="image" content="http://www.polymer-project.org/images/instacod.png">
+
+
+<title>
+  
+    Getting started - 
+   Polymer
+</title>
+<link rel="shortcut icon" href="/images/icons/loading_icon.png">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/prettify/sunburst.css" rel="stylesheet">
+<!-- <link href="/css/pygments/default.css" rel="stylesheet" type="text/css"> -->
+<link href="/css/site.css?20131025" rel="stylesheet">
+
+
+
+<script async>
+// Prevent usage of the appspot.com URL.
+try {
+  if (location.hostname.match('appspot.com') &&
+      location.search.substring(1).split('&').indexOf('force') == -1) {
+    window.location = location.protocol + '//www.polymer-project.org' + location.pathname;
+  }
+} catch(e) {
+  // noop
+}
+</script>
+
+
+<script src="/polymer.min.js?20131025"></script>
+
+
+
+<!--   
+  <script src="/polymer.min.js?20131025"></script>
+ -->
+  
+
+
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      </a>
+      <a class="brand" href="/">Polymer</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="icon github"><a href="https://github.com/polymer/polymer"><img src="/images/icons/github.png">View on Github</a></li>
+          <li class="icon bug"><a href="https://github.com/polymer/polymer/issues/new"><img src="/images/icons/bug.png">File a bug</a></li>
+          <li class="icon source"><a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md"><img src="/images/icons/source.png">Contribute</a></li>
+          <li class="icon talk"><a href="/discuss.html"><img src="/images/icons/talk.png">Discuss</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+  <div class="well well-small sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">Getting Started</li>
+      <li><a href="/getting-the-code.html">Get the code</a></li>
+      <li><a href="/getting-started.html">Getting started</a></li>
+      <li><a href="/runtime-config.html">Runtime configuration</a></li>
+      <li><a href="/articles/">Articles</a></li>
+      
+      <li class="divider"></li>
+      <li class="nav-header elements">Elements</li>
+      <li><a href="/docs/elements/">Polymer elements</a></li>
+      <li><a href="/docs/elements/other.html">Other elements</a></li>
+      <li class="nav-header core">Core runtime</li>
+      <li><a href="/polymer.html">polymer.js</a></li>
+      <li class="nav-header foundation">Platform technologies</li>
+      <li><a href="/platform/custom-elements.html">Custom Elements</a></li>
+      <li><a href="/platform/shadow-dom.html">Shadow DOM</a></li>
+      <li><a href="/platform/html-imports.html">HTML Imports</a></li>
+      <!-- <li class="disabled"><a href="#">Templates</a></li> -->
+      <li><a href="/platform/mdv.html">MDV</a></li>
+      <!-- <li><a href="/platform/mutation-observers.html" disabled>Mutation Observers</a></li> -->
+      <li><a href="/platform/pointer-events.html">Pointer Events</a></li>
+      <li><a href="/platform/web-animations.html">Web Animations</a></li>
+      <li class="divider"></li>
+      <li class="nav-header">More information</li>
+      <li><a href="/tooling-strategy.html">Tools &amp; Testing</a></li>
+      <li><a href="/compatibility.html">Browser Compatibility</a></li>
+      <li><a href="/changelog.html">Changelog</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="span8" id="content-container">
+
+      <span class="edit-on-github">
+  <a href="https://github.com/Polymer/docs/edit/master/getting-started.md">Edit on Github</a>
+</span>
+
+
+      
+      <div class="page-header">
+        <h1>Getting started
+          
+        </h1>
+      </div>
+      
+
+      
+      
+
+      <div id="content" class="
+        
+           
+              show-permalinks 
+           
+        
+      "><p><a href="/platform/custom-elements.html">Custom Elements</a> are the core building blocks of
+Polymer-based applications. You create applications by assembling custom elements
+together, either ones provided by Polymer, ones you create yourself,
+or third-party elements.</p>
+
+<h2 id="basics">Basics</h2>
+
+<p>Polymer expands the concepts of <a href="/platform/custom-elements.html">Custom Elements</a> by providing extra goodies. However, if you&#8217;re only interested in building a regular Custom Element, all you need is <code>platform.js</code>. It contains polyfills for missing platform features like <a href="/platform/shadow-dom.html">Shadow DOM</a> and <a href="/platform/html-imports.html">HTML Imports</a>.</p>
+
+<ol>
+  <li>Load <strong>platform.js</strong> to polyfill missing platform features.</li>
+  <li>Load components with <code>&lt;link rel="import" href="/path/to/component-file.html"&gt;</code></li>
+  <li>Use the custom element in your page.</li>
+</ol>
+
+<p>Here&#8217;s a bare bones example:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;!-- 1. Shim missing platform features --&gt;
+    &lt;script src="polymer-all/platform/platform.js"&gt;&lt;/script&gt;
+    &lt;!-- 2. Load a component --&gt;
+    &lt;link rel="import" href="x-foo.html"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- 3. Declare the component by its tag. --&gt;
+    &lt;x-foo&gt;&lt;/x-foo&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p class="alert"><b>Note</b>: You must always run your app from a web server. This
+  is for the <a href="/platform/html-imports.html">HTML Imports</a> polyfill
+  to work properly. This requirement will go away when the API is available 
+natively in browsers.</p>
+
+<h2 id="components">Components</h2>
+
+<h3 id="creating-a-basic-custom-element">Creating a basic custom element</h3>
+
+<p>The platform polyfills provided by Polymer let you load and display
+custom elements. Just by loading <code>platform.js</code> you get support for these
+new technologies.</p>
+
+<link rel="import" href="/samples/components/basic-element.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<!-- Source tabs -->
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element" data-toggle="tab">my-element.html</a></li>
+  <li><a href="#index" data-toggle="tab">index.html</a></li>
+</ul>
+
+<!-- Source tab content -->
+<div class="tab-content">
+  <div class="tab-pane active" id="element">
+  <div>
+    <pre><code class="html">&lt;element name=&quot;my-element&quot;&gt;
+  &lt;section&gt;
+    I'm a my-element!
+  &lt;/section&gt;
+  &lt;footer&gt;nothing to see here&lt;/footer&gt;
+  &lt;script&gt;
+    // When &lt;element&gt; is in document, might run in wrong context.
+    // Only do work when this == &lt;element&gt;.
+    if (this !== window) {
+      var section = this.querySelector('section');
+      this.register({
+        prototype: {
+          readyCallback: function() {
+            this.innerHTML = section.innerHTML;
+          }
+        }
+     });
+    }
+  &lt;/script&gt;
+&lt;/element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/platform/platform.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- Load custom element --&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;my-element.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Instantiate custom element --&gt;
+    &lt;my-element&gt;&lt;/my-element&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<!-- Running sample -->
+  <div class="span4">
+    <h5>Result</h5>
+    <div class="well">
+      <my-element></my-element>
+    </div>
+  </div>
+</div>
+
+<p class="alert"><strong>Reminder:</strong> The <code>name</code> attribute is required and specifies the name of the HTML
+tag you&#8217;ll instantiate in markup (e.g. <code>&lt;tag-name&gt;</code>). It must be a &#8220;-&#8220; separated string.</p>
+
+<h3 id="creating-a-polymer-element">Creating a Polymer element</h3>
+
+<p>Polymer provides extra goodies for creating custom elements. We call these souped-up custom elements &#8220;Polymer elements&#8221;. To create one, follow these steps:</p>
+
+<ol>
+  <li>
+    <p>Load <a href="/polymer.html">Polymer core</a> (<code>polymer/polymer.js</code> or <code>polymer.min.js</code>).</p>
+
+    <p class="alert"><strong>Note:</strong> <code>polymer.js</code> loads <code>platform.js</code> under the hood.
+You only need to include <code>polymer.js</code> when writing a Polymer element.</p>
+  </li>
+  <li>
+    <p>Declare your custom element using <code>&lt;polymer-element&gt;</code>.</p>
+  </li>
+</ol>
+
+<p>In the following sample, we&#8217;ve converted our basic custom element into a Polymer element named <code>tk-element</code>.</p>
+
+<link rel="import" href="/samples/components/tk-element.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<!-- Source tabs -->
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element2" data-toggle="tab">tk-element.html</a></li>
+  <li><a href="#index2" data-toggle="tab">index.html</a></li>
+</ul>
+
+<!-- Source tab content -->
+<div class="tab-content">
+  <div class="tab-pane active" id="element2">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-element&quot;&gt;
+  &lt;template&gt;
+    &lt;span&gt;I'm &lt;b&gt;tk-element&lt;/b&gt;. This is my Shadow DOM.&lt;/span&gt;
+  &lt;/template&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index2">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-element.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;tk-element&gt;&lt;/tk-element&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<div class="span4">
+  <h5>Result</h5>
+
+  <!-- Running sample -->
+  <div class="well">
+    <tk-element></tk-element>
+  </div>
+</div>
+</div>
+
+<h4 id="add-propertiesmethods-to-your-component">Add properties/methods to your component</h4>
+
+<p>If you need to add public methods/properties to your element,
+include a <code>&lt;script&gt;</code> that calls <code>Polymer('your-tagname')</code>.
+<code>Polymer(..)</code> is a convenience wrapper for <a href="/platform/custom-elements.html#documentregister"><code>document.register</code></a>, but also endows the element with special features like
+data binding and event mapping. Its first argument is the name of the element
+you&#8217;re creating. The second argument (optional) is an object that defines your
+element&#8217;s <code>prototype</code>. </p>
+
+<link rel="import" href="/samples/components/tk-element-proto.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<!-- Source tabs -->
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#tk-element-proto" data-toggle="tab">tk-element-proto.html</a></li>
+  <li><a href="#tk-element-proto-index" data-toggle="tab">index.html</a></li>
+</ul>
+
+<!-- Source tab content -->
+<div class="tab-content">
+  <div class="tab-pane active" id="tk-element-proto">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-element-proto&quot;&gt;
+  &lt;template&gt;
+    &lt;span&gt;I'm &lt;b&gt;tk-element-proto&lt;/b&gt; with a prototype.&lt;/span&gt;
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('tk-element-proto', {
+      ready: function() {
+        //...
+      }
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="tk-element-proto-index">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-element-proto.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;tk-element-proto&gt;&lt;/tk-element-proto&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<div class="span4">
+  <h5>Result</h5>
+
+  <!-- Running sample -->
+  <div class="well">
+    <tk-element-proto></tk-element-proto>
+  </div>
+</div>
+</div>
+
+<h2 id="declarative-data-binding">Declarative data binding</h2>
+
+<p>You can bind properties in your component using declarative data binding and the &#8220;double-mustache&#8221; syntax (<code>{{}}</code>) from <a href="/platform/mdv.html">Model Driven Views</a>. The <code>{{}}</code> is replaced by the value of the property referenced between the brackets.</p>
+
+<link rel="import" href="/samples/components/tk-element-databinding.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element3" data-toggle="tab">tk-element-databinding.html</a></li>
+  <li><a href="#index3" data-toggle="tab">index.html</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="element3">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-element-databinding&quot;&gt;
+  &lt;template&gt;
+    This is &lt;strong&gt;{{owner}}&lt;/strong&gt;'s tk-element.
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('tk-element-databinding', {
+      owner: 'Daniel'
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index3">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-element-databinding.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;tk-element-databinding&gt;&lt;/tk-element-databinding&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+
+<!-- Running sample -->
+<div class="span4">
+  <h5>Result</h5>
+<div class="well">
+  <tk-element-databinding></tk-element-databinding>
+</div>
+</div>
+</div>
+
+<h3 id="binding-to-markup">Binding to markup</h3>
+
+<p>You can use binding expressions in most HTML markup, except for tag names themselves. In the following example, we create a new property on our component named <code>color</code> whose value is bound to the value of the <code>color</code> style applied to the custom element.</p>
+
+<link rel="import" href="/samples/components/tk-element-databinding-color.html" />
+
+<!-- tk-element-databinding-color.html -->
+<div class="row-fluid">
+  <div class="span8">
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element5" data-toggle="tab">tk-element-databinding-color.html</a></li>
+  <li><a href="#index5" data-toggle="tab">index.html</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="element5">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-element-databinding-color&quot;&gt;
+  &lt;template&gt;
+    This is a &lt;strong&gt;{{owner}}&lt;/strong&gt;'s tk-element. 
+    {{owner}} likes the color 
+    &lt;span style=&quot;color: {{color}}&quot;&gt;{{color}}&lt;/span&gt;.
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('tk-element-databinding-color', {
+      owner: &quot;Daniel&quot;,
+      color: &quot;red&quot;
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index5">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-element-databinding-color.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;tk-element-databinding-color&gt;&lt;/tk-element-databinding-color&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+  <div class="span4">
+  <h5>Result</h5>
+<div class="well">
+  <tk-element-databinding-color></tk-element-databinding-color>
+</div>
+</div>
+</div>
+
+<h3 id="binding-between-components-and-native-elements">Binding between components and native elements</h3>
+
+<p>The following example demonstrates binding component properties to attributes of native input elements.</p>
+
+<link rel="import" href="/samples/components/tk-binding-to-elements.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<!-- Source tabs -->
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element13" data-toggle="tab">tk-binding-to-elements.html</a></li>
+  <li><a href="#index13" data-toggle="tab">index.html</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="element13">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-binding-to-elements&quot;&gt;
+  &lt;template&gt;
+    &lt;p&gt;This is &lt;strong&gt;{{owner}}&lt;/strong&gt;'s tk-element but 
+    &lt;strong&gt;{{name}}&lt;/strong&gt; lets me borrow it. 
+    He likes the color &lt;span style=&quot;color: {{color}}&quot;&gt;{{color}}&lt;/span&gt;. 
+    I am &lt;strong&gt;{{age}}&lt;/strong&gt; years old.&lt;/p&gt;
+    &lt;label for=&quot;ageInput&quot;&gt;Age:&lt;/label&gt;
+    &lt;input id=&quot;ageInput&quot; type=&quot;range&quot; value=&quot;{{age}}&quot;&gt;
+    &lt;label for=&quot;nameInput&quot;&gt;Name:&lt;/label&gt;
+    &lt;input id=&quot;nameInput&quot; value=&quot;{{name}}&quot; placeholder=&quot;Your name here...&quot;&gt;
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('tk-binding-to-elements', {
+      age: &quot;25&quot;,
+      name: &quot;Daniel&quot;,
+      color: &quot;red&quot;,
+      owner: &quot;Eric&quot;,
+      nameChanged: function() {
+        if (this.name) {
+          // ensure capitalization
+          this.name = this.name[0].toUpperCase() +  this.name.slice(1);
+        }
+      }
+    });
+&lt;/script&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index13">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-binding-to-elements.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;tk-binding-to-elements&gt;&lt;/tk-binding-to-elements&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<div class="span4">
+  <!-- Running sample -->
+  <h5>Result</h5>
+<div class="well">
+  <tk-binding-to-elements></tk-binding-to-elements>
+</div>
+</div>
+</div>
+
+<h2 id="adding-a-ready-lifecycle-method">Adding a ready() lifecycle method</h2>
+
+<p>When an element has been registered and finished initializing itself, it calls its
+<code>ready</code> method, if one exists. The <code>ready</code> callback is a great place to do
+constructor-like initialization work.</p>
+
+<link rel="import" href="/samples/components/tk-element-ready.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<!-- Tabs -->
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element10" data-toggle="tab">tk-element-ready.html</a></li>
+  <li><a href="#index10" data-toggle="tab">index.html</a></li>
+</ul>
+
+<!-- Tab content -->
+<div class="tab-content">
+  <div class="tab-pane active" id="element10">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-element-ready&quot;&gt;
+  &lt;template&gt;
+    This is a &lt;b&gt;tk-element&lt;/b&gt; with a ready() method.
+    &lt;span id=&quot;readyEl&quot;&gt;Not ready...&lt;/span&gt;
+  &lt;/template&gt;
+  &lt;script&gt;  
+    Polymer('tk-element-ready', {
+      owner: &quot;Daniel&quot;,
+      ready: function() {
+        this.$.readyEl.innerText = this.owner + &quot; is ready!&quot;;
+      }
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index10">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-element-ready.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;tk-element-ready&gt;&lt;/tk-element-ready&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<div class="span4">
+  <!-- Running sample -->
+  <h5>Result</h5>
+<div class="well">
+  <tk-element-ready></tk-element-ready>
+</div>
+</div>
+</div>
+
+<h2 id="publishing-properties">Publishing properties</h2>
+
+<p>Published properties can be used to define an element&#8217;s &#8220;public API&#8221;. Polymer
+establishes two-way data binding for published properties and provides access
+to the property&#8217;s value using MDV&#8217;s <code>{{}}</code>.</p>
+
+<p><em>Publish</em> a property by listing it in the <code>attributes</code> attribute in your <code>&lt;polymer-element&gt;</code>. Properties declared this way are initially <code>null</code>. To provide a more appropriate default value, include the same property name directly in your prototype (as seen below).</p>
+
+<p>The following example defines two data-bound properties on the element, <code>owner</code> and <code>color</code>,
+and gives them default values:</p>
+
+<link rel="import" href="/samples/components/tk-element-property-public.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element6" data-toggle="tab">tk-element-property-public.html</a></li>
+  <li><a href="#index6" data-toggle="tab">index.html</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="element6">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-element-property-public&quot;
+         attributes=&quot;owner color&quot;&gt;
+  &lt;template&gt;
+    This is a &lt;strong&gt;{{owner}}&lt;/strong&gt;'s tk-element. 
+    He likes the color &lt;b style=&quot;color: {{color}}&quot;&gt;{{color}}&lt;/b&gt;.
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('tk-element-property-public', {
+      // These default values are overridden
+      // by the user's attribute values.
+      color: &quot;red&quot;,
+      owner: &quot;Daniel&quot;
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index6">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-element-property-public.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;well&quot;&gt;
+      &lt;!-- Component specifies values its public properties. --&gt;
+      &lt;tk-element-property-public owner=&quot;Scott&quot; color=&quot;blue&quot;&gt;
+      &lt;/tk-element-property-public&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<div class="span4">
+  <!-- Running sample -->
+  <h5>Result</h5>
+  <div class="well">
+    <tk-element-property-public owner="Scott" color="blue"></tk-element-property-public>
+  </div>
+</div>
+</div>
+
+<p>Note: In this example the user overrides the defaults for <code>owner</code> and <code>color</code>
+by configuring the element with initial attribute values (e.g. <code>&lt;tk-element-property-public owner="Scott" color="blue"&gt;</code>).</p>
+
+<p><a href="/polymer.html#published-properties">Learn more about published properties</a></p>
+
+<h2 id="automatic-node-finding">Automatic node finding</h2>
+
+<p>Shadow DOM is a self-contained document-like subtree; id&#8217;s in that subtree do not interact with id&#8217;s in other trees. Each Polymer element generates a map of id&#8217;s to node references in the element&#8217;s template. This map is accessible as <code>$</code> on the element. </p>
+
+<link rel="import" href="/samples/components/tk-node-finding.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<!-- Source tabs -->
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element12" data-toggle="tab">tk-node-finding.html</a></li>
+  <li><a href="#index12" data-toggle="tab">index.html</a></li>
+</ul>
+
+<!-- Source tab content -->
+<div class="tab-content">
+  <div class="tab-pane active" id="element12">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-node-finding&quot; attributes=&quot;owner color&quot;&gt;
+  &lt;template&gt;
+    &lt;p&gt;
+    This is a &lt;strong&gt;{{owner}}&lt;/strong&gt;'s tk-element.
+    He likes the color &lt;b style=&quot;color: {{color}}&quot;&gt;{{color}}&lt;/b&gt;.
+    &lt;/p&gt;
+    &lt;button on-click=&quot;setFocus&quot;&gt;Set focus to text input&lt;/button&gt;
+    &lt;input id=&quot;nameInput&quot; value=&quot;{{owner}}&quot; placeholder=&quot;Your name here...&quot;&gt;
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('tk-node-finding', {
+      color: &quot;red&quot;,
+      owner: &quot;Daniel&quot;,
+      setFocus: function() {
+        this.$.nameInput.focus();
+      }
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index12">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- Load custom element --&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-node-finding.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Instantiate custom element --&gt;
+    &lt;tk-node-finding&gt;&lt;/tk-node-finding&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<div class="span4">
+  <!-- Running sample -->
+  <h5>Result</h5>
+<div class="well">
+  <tk-node-finding></tk-node-finding>
+</div>
+</div>
+</div>
+</div>
+
+      <hr>
+
+      <footer>
+        <div>
+          <div>&copy; 2013 Polymer Authors.<br>Code licensed under the <a href="https://github.com/polymer/polymer/blob/master/LICENSE" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</div>
+        </div>
+        <div id="logo-row">
+          <img src="/images/logos/webcomponents.png" alt="Web Components" title="Web Components">
+          <img src="/images/logos/html5logo.svg" alt="HTML5" title="HTML5">
+          <img src="/images/logos/js.jpg" alt="JavaScript" title="JavaScript">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/js/prettify/prettify.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39334307-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+function addPermalink(el) {
+  el.classList.add('has-permalink');
+  el.insertAdjacentHTML('beforeend',
+      '<a class="permalink" title="Permalink" href="#' + el.id + '">#</a>');
+}
+
+// Change "active" style on selected left-hand navigation menu item.
+$(document).ready(function () {
+  var path = location.pathname;
+  $('ul.nav > li > a[href="' + path + '"]').parent().addClass('active');
+
+  // Add permalinks to heading elements.
+  var permalinkEl = document.querySelector('.show-permalinks');
+  if (permalinkEl) {
+    ['h2','h3','h4'].forEach(function(h, i) {
+      [].forEach.call(permalinkEl.querySelectorAll(h), addPermalink);
+    });
+  }
+
+  // TODO: Use kramdown {:.prettyprint .linenums .lang-ruby} to add the
+  // <pre class="prettyprint"> instead of doing this client-side.
+  $('pre').addClass('prettyprint');
+  window.prettyPrint && prettyPrint();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<link rel="import" href="/samples/components/tk-element-databinding.html">
+
+<div class="row-fluid">
+  <div class="span8">
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element3" data-toggle="tab">tk-element-databinding.html</a></li>
+  <li><a href="#index3" data-toggle="tab">index.html</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="element3">
+{% highlight html %}
+{% include_external ../samples/components/tk-element-databinding.html %}
+{% endhighlight %}
+  </div>
+  <div class="tab-pane" id="index3">
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="polymer-all/polymer/polymer.js"></script>
+    <link rel="import" href="tk-element-databinding.html">
+  </head>
+  <body>
+    <tk-element-databinding></tk-element-databinding>
+  </body>
+</html>
+{% endhighlight %}
+  </div>
+</div>
+</div>
+
+
+<!-- Running sample -->
+<div class="span4">
+  <h5>Result</h5>
+<div class="well">
+  <tk-element-databinding></tk-element-databinding>
+</div>
+</div>
+</div>

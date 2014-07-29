@@ -1,0 +1,50 @@
+application: polymer-project
+version: 2013-07-12
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+#default_expiration: "0s"
+
+handlers:
+
+- url: /$
+  static_files: _site/index.html
+  upload: _site/index\.html
+
+# Preserve old URL.
+- url: /polymer/polymer.min.js
+  static_files: js/polymer.min.js
+  upload: js/polymer\.min\.js
+
+- url: /polymer.min.js
+  static_files: js/polymer.min.js
+  upload: js/polymer\.min\.js
+
+# Map unminified polymer in demos to minified version.
+- url: /polymer-all/polymer/polymer.js$
+  static_files: js/polymer.min.js
+  upload: js/polymer\.min\.js
+
+- url: /polymer-all
+  static_dir: polymer-all
+
+- url: /(.*)/$
+  static_files: _site/\1/index.html
+  upload: _site/(.*)/index.html
+
+- url: /
+  static_dir: _site
+
+skip_files:
+- ^(.*/)?app\.yaml
+- ^(.*/)?app\.yml
+- ^(.*/)?index\.yaml
+- ^(.*/)?index\.yml
+- ^(.*/)?#.*#
+- ^(.*/)?.*~
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*/RCS/.*
+- ^(.*/)?\..*
+- ^(.*/)?.*\.bak$
+- ^(.*/)?node_modules

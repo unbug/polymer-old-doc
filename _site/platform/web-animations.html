@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta itemprop="name" content="Polymer - Web Animations">
+<meta itemprop="description" content="Polymer is a new type of library for the web, built on top of Web Components, and designed to leverage the evolving web platform on modern browsers.">
+
+
+<meta itemprop="image" content="http://www.polymer-project.org/images/instacod.png">
+
+
+<title>
+  
+    Web Animations - 
+   Polymer
+</title>
+<link rel="shortcut icon" href="/images/icons/loading_icon.png">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/prettify/sunburst.css" rel="stylesheet">
+<!-- <link href="/css/pygments/default.css" rel="stylesheet" type="text/css"> -->
+<link href="/css/site.css?20131025" rel="stylesheet">
+
+
+
+<script async>
+// Prevent usage of the appspot.com URL.
+try {
+  if (location.hostname.match('appspot.com') &&
+      location.search.substring(1).split('&').indexOf('force') == -1) {
+    window.location = location.protocol + '//www.polymer-project.org' + location.pathname;
+  }
+} catch(e) {
+  // noop
+}
+</script>
+
+
+
+
+<!--   
+  <script src="/polymer.min.js?20131025"></script>
+ -->
+  
+
+
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      </a>
+      <a class="brand" href="/">Polymer</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="icon github"><a href="https://github.com/polymer/polymer"><img src="/images/icons/github.png">View on Github</a></li>
+          <li class="icon bug"><a href="https://github.com/polymer/polymer/issues/new"><img src="/images/icons/bug.png">File a bug</a></li>
+          <li class="icon source"><a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md"><img src="/images/icons/source.png">Contribute</a></li>
+          <li class="icon talk"><a href="/discuss.html"><img src="/images/icons/talk.png">Discuss</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+  <div class="well well-small sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">Getting Started</li>
+      <li><a href="/getting-the-code.html">Get the code</a></li>
+      <li><a href="/getting-started.html">Getting started</a></li>
+      <li><a href="/runtime-config.html">Runtime configuration</a></li>
+      <li><a href="/articles/">Articles</a></li>
+      
+      <li class="divider"></li>
+      <li class="nav-header elements">Elements</li>
+      <li><a href="/docs/elements/">Polymer elements</a></li>
+      <li><a href="/docs/elements/other.html">Other elements</a></li>
+      <li class="nav-header core">Core runtime</li>
+      <li><a href="/polymer.html">polymer.js</a></li>
+      <li class="nav-header foundation">Platform technologies</li>
+      <li><a href="/platform/custom-elements.html">Custom Elements</a></li>
+      <li><a href="/platform/shadow-dom.html">Shadow DOM</a></li>
+      <li><a href="/platform/html-imports.html">HTML Imports</a></li>
+      <!-- <li class="disabled"><a href="#">Templates</a></li> -->
+      <li><a href="/platform/mdv.html">MDV</a></li>
+      <!-- <li><a href="/platform/mutation-observers.html" disabled>Mutation Observers</a></li> -->
+      <li><a href="/platform/pointer-events.html">Pointer Events</a></li>
+      <li><a href="/platform/web-animations.html">Web Animations</a></li>
+      <li class="divider"></li>
+      <li class="nav-header">More information</li>
+      <li><a href="/tooling-strategy.html">Tools &amp; Testing</a></li>
+      <li><a href="/compatibility.html">Browser Compatibility</a></li>
+      <li><a href="/changelog.html">Changelog</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="span8" id="content-container">
+
+      <span class="edit-on-github">
+  <a href="https://github.com/Polymer/docs/edit/master/platform/web-animations.md">Edit on Github</a>
+</span>
+
+
+      
+      <div class="page-header">
+        <h1>Web Animations
+          
+            <small>polyfill</small>
+          
+        </h1>
+      </div>
+      
+
+      
+      
+
+      <div id="content" class="
+        
+           
+              show-permalinks 
+           
+        
+      "><!-- TODO(ericbidelman): remove when Toolkit builds in Web Animations. -->
+<!-- <script src="/toolkit/platform/web-animations-js/web-animations.js"></script> -->
+
+<dl class="dl-horizontal">
+  <dt>Implementation status</dt>
+  <dd><span class="label label-success">functional</span></dd>
+  <dt>Repository</dt>
+  <dd><a href="https://github.com/web-animations/web-animations-js">github.com/web-animations/web-animations-js</a></dd>
+  
+  <dt>W3C Specification</dt>
+  <dd><a href="https://dvcs.w3.org/hg/FXTF/raw-file/default/web-anim/index.html">dvcs.w3.org/hg/FXTF/raw-file/default/web-anim/index.html</a></dd>
+  
+</dl>
+
+<hr />
+
+<blockquote>
+  <p>Web Animations defines a APIs for synchronizing several of the web&#8217;s animation models with complex, scriptable animations.</p>
+</blockquote>
+
+<h2 id="learn-the-tech">Learn the tech</h2>
+
+<h3 id="why-web-animations">Why Web Animations?</h3>
+
+<p>Four animation-related specifications already exist on the web platform: <a href="http://dev.w3.org/csswg/css-transitions/">CSS Transitions</a>,
+<a href="http://dev.w3.org/csswg/css-animations/">CSS Animations</a>, <a href="http://www.w3.org/TR/SVG/animate.html">SVG Animations</a> / <a href="http://www.w3.org/TR/2001/REC-smil-animation-20010904/">SMIL</a>, and <code>requestAnimationFrame()</code>. However:</p>
+
+<ul>
+  <li><em>CSS Transitions / CSS Animations are not very expressive</em> - animations can&#8217;t
+be composed, or sequenced, or even reliably run in parallel; and animations can&#8217;t be tweaked from script.</li>
+  <li><em>SVG Animations are very expressive, but also very complicated</em>. SVG Animations
+can&#8217;t be applied to HTML content.</li>
+  <li><em><code>requestAnimationFrame()</code> is not a declarative approach</em> - it requires the use
+of the main thread, and will therefore jank if the main thread is busy.</li>
+</ul>
+
+<p>Web Animations is a new specification for animated content on the web. It&#8217;s being
+developed as a W3C specification as part of the CSS and SVG working groups. It aims
+to address the deficiencies inherent in these four specifications. Web Animations also aims to replace the underlying implementations of CSS Transitions, CSS Animations and SVG Animations, so that:</p>
+
+<ul>
+  <li>The code cost of supporting animations on the web is reduced.</li>
+  <li>The various animations specifications are interoperable.</li>
+  <li>Spec authors and browser vendors have a single place to experiment with new animation innovations to improve the Web for the future.</li>
+</ul>
+
+<h3 id="basic-usage">Basic usage</h3>
+
+<p>Here&#8217;s a simple example of an animation that scales and changes the opacity of
+a <code>&lt;div&gt;</code> over 0.5 seconds. The animation alternates producing a pulsing effect.</p>
+
+<pre><code>&lt;div class="pulse" style="width:150px;"&gt;Hello world!&lt;/div&gt;
+&lt;script&gt;
+  var elem = document.querySelector('.pulse');
+  var player = document.timeline.play(new Animation(elem, {
+    [{opacity: "0.5"}, {opacity: "1.0"}], 
+    [{transform: "scale(0.5)"}, {transform: "scale(1)"}]
+  }, {
+    direction: "alternate", duration: 0.5, iterationCount: Infinity
+  }));
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="the-animation-model">The animation model</h3>
+
+<p>The Web Animations model is a description of an engine for animation content on the web. The engine is sufficiently powerful to support CSS Transitions, CSS Animations and SVG Animations.</p>
+
+<p>Web Animations also exposes a JS API to the model. This API defines a number of
+new interfaces that are exposed to JavaScript. We&#8217;ll go through some of the more
+important ones here: Animations, AnimationEffects, TimingDictionaries, TimingGroups, and Players.</p>
+
+<p>An <code>Animation</code> object defines a single animation effect that applies to a single element target. For example:</p>
+
+<pre><code>var animation = new Animation(targetElement,
+    [{left: '0px'}, {left: '100px'}], 2);
+</code></pre>
+
+<p>Here, the target element&#8217;s &#8220;left&#8221; CSS property is modified smoothly from <code>0px</code> to <code>100px</code> over 2 seconds.</p>
+
+<h3 id="specifying-animation-effects">Specifying animation effects</h3>
+
+<p>An <code>AnimationEffect</code> object controls which CSS properties and SVG attributes are
+modified by an animation, and the values that those properties and attributes
+vary between. AnimationEffect objects also control whether the effect replaces
+or adds to the underlying value.</p>
+
+<p>There are three major kinds of effects: <code>KeyframeAnimationEffect</code>, <code>PathAnimationEffect</code>, and <code>CustomAnimationEffect</code>.</p>
+
+<h4 id="animating-between-keyframes">Animating between keyframes</h4>
+
+<p>A <code>KeyframeAnimationEffect</code> controls one or more properties/attributes by linearly
+interpolating values between specified keyframes. KeyframeEffects are usually
+defined by specifying the keyframe offset and the property-value pair in a
+dictionary:</p>
+
+<pre><code>[
+  {offset: 0.2, left: "35px"},
+  {offset: 0.6, left: "50px"},
+  {offset: 0.9, left: "70px"},
+]
+</code></pre>
+
+<p>If the offset is not specified, keyframes are evenly distributed at offsets
+between 0 and 1.</p>
+
+<pre><code>[{left: "35px"}, {left: "50px"}, {left: "70px"}]
+</code></pre>
+
+<p>See the <a href="http://dev.w3.org/fxtf/web-animations">specification</a> for the details
+of the keyframe distribution procedure, and how KeyframeAnimationEffects are
+evaluated at offsets outside those specified by the keyframes.</p>
+
+<h4 id="animating-along-paths">Animating along paths</h4>
+
+<p>A <code>PathAnimationEffect</code> allows elements to be animated along SVG-style paths. For example:</p>
+
+<pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"&gt;
+  &lt;defs&gt;
+    &lt;path id=path1 d="M 100,100 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"/&gt;
+  &lt;/defs&gt;
+&lt;/svg&gt;
+&lt;script&gt;
+  var animFunc = new PathAnimationEffect(document.querySelector('#path').pathSegList);
+  var animation = new Animation(targetElement, animFunc, 2);
+&lt;/script&gt;
+</code></pre>
+
+<h4 id="custom-animation-effects">Custom animation effects</h4>
+
+<p>A <code>CustomAnimationEffect</code> allows animations to generate call-outs to JavaScript
+rather than manipulating properties directly. Please see the
+<a href="http://dev.w3.org/fxtf/web-animations">specification</a> for more details on this
+feature.</p>
+
+<h3 id="sequencing-and-synchronizing-animations">Sequencing and synchronizing animations</h3>
+
+<p>Two different types of TimingGroups (<code>ParGroup</code> and <code>SeqGroup</code>) allow animations to be synchronized and sequenced.</p>
+
+<p>To play a list of animations in parallel:</p>
+
+<pre><code>var parGroup = new ParGroup([new Animation(...), new Animation(...)]);
+</code></pre>
+
+<p>To play a list in sequence:</p>
+
+<pre><code>var seqGroup = new SeqGroup([new Animation(...), new Animation(...)]);
+</code></pre>
+
+<p>Because <code>Animation</code>, <code>ParGroup</code>, <code>SeqGroup</code> are all TimedItems, groups can be nested:</p>
+
+<pre><code>var parGroup = new ParGroup([
+  new SeqGroup([
+    new Animation(...),
+    new Animation(...),
+  ]),
+  new Animation(...)
+]);
+</code></pre>
+
+<p>Groups also take an optional TimingDictionary parameter (see below), which among other things allows iteration and timing functions to apply at the group level:</p>
+
+<pre><code>var parGroup = new ParGroup([new Animation(...), new Animation(...)], {iterationCount: 4});
+</code></pre>
+
+<h3 id="controlling-the-animation-timing">Controlling the animation timing</h3>
+
+<p>TimingDictionaries are used to control the internal timing of an animation (players control how an animation progresses relative to document time). TimingDictionaries have several properties that can be tweaked:</p>
+
+<ul>
+  <li><strong>iterationDuration</strong>: the duration of a single iteration of the animation</li>
+  <li><strong>iterationCount</strong>: the number of iterations of the animation that will be played (fractional iterationCounts are allowed)</li>
+  <li><strong>iterationStart</strong>: the start offset of the first iteration</li>
+  <li><strong>fillMode</strong>: whether the animation has effect before starting the first iteration and/or after finishing the final iteration</li>
+  <li><strong>startDelay</strong>: the time between the animation&#8217;s start time and the first animation effect of the animation</li>
+  <li><strong>playbackRate</strong>: the rate at which the animation progresses relative to external time</li>
+  <li><strong>direction</strong>: the direction in which successive iterations of the animation play back</li>
+  <li><strong>timingFunction</strong>: fine-grained control over how external time impacts an animation across the total active duration of the animation.</li>
+</ul>
+
+<p>The values provided within TimingDictionaries combine with the animation hierarchy
+to generate concrete start and end values for animation iterations, animation
+backwards fills, and animation forwards fills. There are a few simple rules which govern this:</p>
+
+<ul>
+  <li>Animations never extend beyond the start or end values of their parent iteration.</li>
+  <li>Animations only fill beyond their parent iteration if:
+    <ul>
+      <li>the relevant fillMode value is selected for the animation;</li>
+      <li>the matching fillMode value is selected for the parent; and</li>
+      <li>this is the first parent iteration (for <code>fillMode: 'backward'</code>) or last parent iteration (for <code>fillMode: 'forward'</code>)</li>
+    </ul>
+  </li>
+  <li>Missing <code>iterationDuration</code> values for TimingGroups are generated based on the calculated durations of the child animations.</li>
+</ul>
+
+<p>The following example illustrates these rules:</p>
+
+<pre><code>var parGroup = new ParGroup([
+  new SeqGroup([
+    new Animation(..., {iterationDuration: 3}),
+    new Animation(..., {iterationDuration: 5, fillMode: 'both'})
+  ], {iterationDuration: 6, startDelay: 3, fillMode: 'none'}),
+  new Animation(..., {iterationDuration: 8, fillMode: 'forward'})
+], {iterationCount: 2, fillMode: 'forward'});
+</code></pre>
+
+<p>In this example:</p>
+
+<ul>
+  <li>The <code>SeqGroup</code> has an explicit <code>iterationDuration</code> of 6 seconds, and so the
+second child animation will only play for the first 3 of its 5 second duration</li>
+  <li>The <code>ParGroup</code> has no explicit iterationDuration, and will be provided with a
+calculated duration of the max (<code>duration + startDelay</code>) of its children - in this case 9 seconds.</li>
+  <li>Although <code>fillMode: "both"</code> is specified for the second <code>Animation</code> within the <code>SeqGroup</code>, the <code>SeqGroup</code> itself has a <code>fillMode</code> of &#8220;none&#8221;. Hence, as the animation ends right at the end of the <code>SeqGroup</code>, the animation will only fill backwards, and only up until the boundary of the <code>SeqGroup</code> (i.e. 3 seconds after the start of the <code>ParGroup</code>).</li>
+  <li>The <code>Animation</code> inside the <code>ParGroup</code> and the <code>ParGroup</code> are both <code>fillMode: "forward"</code>. Therefore the animation will fill forward in two places: 
+    <ul>
+      <li>from 8 seconds after the <code>ParGroup</code> starts until the second iteration of the <code>ParGroup</code> starts (i.e. for 1 second)</li>
+      <li>from 17 seconds after the <code>ParGroup</code> starts, extending forward indefinitely.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="playing-animations">Playing Animations</h3>
+
+<p>In order to play an <code>Animation</code> or <code>TimingGroup</code>, a <code>Player</code> must be constructed:</p>
+
+<pre><code>var player = document.timeline.play(myAnimation);
+</code></pre>
+
+<p>Players provide complete control the start time and current playback head of their attached animation. However, players can&#8217;t modify any internal details of an animation.</p>
+
+<p>Players can be used to pause, seek, reverse, or modify the playback rate of an animation.</p>
+
+<p><code>document.timeline.currentTime</code> is a timeline&#8217;s global time. It gives the number
+of seconds since the document fired its load event.</p>
+
+<h2 id="polyfill-details">Polyfill details</h2>
+
+<h3 id="getting-started">Getting started</h3>
+
+<p>Include <code>web-animations.js</code> in your project:</p>
+
+<pre><code>&lt;script src="web-animations-js/web-animations.js"&gt;&lt;/script&gt; 
+</code></pre>
+
+<h3 id="polyfill-notes">Polyfill notes</h3>
+
+<h4 id="prefix-handling">Prefix handling</h4>
+
+<p>In order to work in as many browsers as feasible, we have decided to take the
+following approach to prefix handling:</p>
+
+<ul>
+  <li>the polyfill will automatically detect the correctly prefixed name to use when
+writing animated properties back to the platform.</li>
+  <li>
+    <p>where possible, the polyfill will <em>only</em> accept unprefixed versions of experimental features. For example:</p>
+
+    <pre><code>  var animation = new Animation(elem, {"transform": "translate(100px, 100px)"}, 2);
+</code></pre>
+
+    <p>will work in all browsers that implement a conforming version of <code>transform</code>, but</p>
+
+    <pre><code>  var animation =  new Animation(elem, {"-webkit-transform": "translate(100px, 100px)"}, 2);
+</code></pre>
+
+    <p>will not work anywhere.</p>
+  </li>
+</ul>
+
+<h4 id="experimental-features">Experimental features</h4>
+
+<p>When the polyfill requires features to implement functionality that is not inherently specified using those
+features (for example, CSS <code>calc()</code> is required in order to implement merging between lengths with different units) 
+then the polyfill will provide a console warning in browsers where these features are absent.</p>
+
+<h2 id="tools--testing">Tools &amp; testing</h2>
+
+<p>For running tests or building minified files, consult the
+<a href="http://www.polymer-project.org/tooling-strategy.html">tooling information</a>.</p>
+
+</div>
+
+      <hr>
+
+      <footer>
+        <div>
+          <div>&copy; 2013 Polymer Authors.<br>Code licensed under the <a href="https://github.com/polymer/polymer/blob/master/LICENSE" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</div>
+        </div>
+        <div id="logo-row">
+          <img src="/images/logos/webcomponents.png" alt="Web Components" title="Web Components">
+          <img src="/images/logos/html5logo.svg" alt="HTML5" title="HTML5">
+          <img src="/images/logos/js.jpg" alt="JavaScript" title="JavaScript">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/js/prettify/prettify.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39334307-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+function addPermalink(el) {
+  el.classList.add('has-permalink');
+  el.insertAdjacentHTML('beforeend',
+      '<a class="permalink" title="Permalink" href="#' + el.id + '">#</a>');
+}
+
+// Change "active" style on selected left-hand navigation menu item.
+$(document).ready(function () {
+  var path = location.pathname;
+  $('ul.nav > li > a[href="' + path + '"]').parent().addClass('active');
+
+  // Add permalinks to heading elements.
+  var permalinkEl = document.querySelector('.show-permalinks');
+  if (permalinkEl) {
+    ['h2','h3','h4'].forEach(function(h, i) {
+      [].forEach.call(permalinkEl.querySelectorAll(h), addPermalink);
+    });
+  }
+
+  // TODO: Use kramdown {:.prettyprint .linenums .lang-ruby} to add the
+  // <pre class="prettyprint"> instead of doing this client-side.
+  $('pre').addClass('prettyprint');
+  window.prettyPrint && prettyPrint();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta itemprop="name" content="Polymer - 工具和测试">
+<meta itemprop="description" content="Polymer is a new type of library for the web, built on top of Web Components, and designed to leverage the evolving web platform on modern browsers.">
+
+
+<meta itemprop="image" content="http://www.polymer-project.org/images/instacod.png">
+
+
+<title>
+  
+    工具和测试 - 
+   Polymer
+</title>
+<link rel="shortcut icon" href="/images/icons/loading_icon.png">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/prettify/sunburst.css" rel="stylesheet">
+<!-- <link href="/css/pygments/default.css" rel="stylesheet" type="text/css"> -->
+<link href="/css/site.css?20131025" rel="stylesheet">
+
+
+
+<script async>
+// Prevent usage of the appspot.com URL.
+try {
+  if (location.hostname.match('appspot.com') &&
+      location.search.substring(1).split('&').indexOf('force') == -1) {
+    window.location = location.protocol + '//www.polymer-project.org' + location.pathname;
+  }
+} catch(e) {
+  // noop
+}
+</script>
+
+
+
+
+<!--   
+  <script src="/polymer.min.js?20131025"></script>
+ -->
+  
+
+
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      </a>
+      <a class="brand" href="./">Polymer</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="icon github"><a href="https://github.com/polymer/polymer"><img src="/images/icons/github.png">View on Github</a></li>
+          <li class="icon bug"><a href="https://github.com/polymer/polymer/issues/new"><img src="/images/icons/bug.png">File a bug</a></li>
+          <li class="icon source"><a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md"><img src="/images/icons/source.png">Contribute</a></li>
+          <li class="icon talk"><a href="./discuss.html"><img src="/images/icons/talk.png">Discuss</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+  <div class="well well-small sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">入门指南</li>
+      <li><a href="/zh/getting-the-code.html">获取源码</a></li>
+      <li><a href="/zh/getting-started.html">入门指南</a></li>
+      <li><a href="/zh/runtime-config.html">运行时配置</a></li>
+      <li><a href="/articles/">相关文章</a></li>
+      
+      <li class="divider"></li>
+      <li class="nav-header elements">Elements</li>
+      <li><a href="/zh/docs/elements/">Polymer elements</a></li>
+      <li><a href="/zh/docs/elements/other.html">其他 elements</a></li>
+      <li class="nav-header core">核心运行库</li>
+      <li><a href="/zh/polymer.html">polymer.js</a></li>
+      <li class="nav-header foundation">平台化技术</li>
+      <li><a href="/platform/custom-elements.html">Custom Elements</a></li>
+      <li><a href="/platform/shadow-dom.html">Shadow DOM</a></li>
+      <li><a href="/platform/html-imports.html">HTML Imports</a></li>
+      <!-- <li class="disabled"><a href="#">Templates</a></li> -->
+      <li><a href="/platform/mdv.html">MDV</a></li>
+      <!-- <li><a href="/platform/mutation-observers.html" disabled>Mutation Observers</a></li> -->
+      <li><a href="/platform/pointer-events.html">Pointer Events</a></li>
+      <li><a href="/platform/web-animations.html">Web Animations</a></li>
+      <li class="divider"></li>
+      <li class="nav-header">更多资料</li>
+      <li><a href="/zh/tooling-strategy.html">工具和测试</a></li>
+      <li><a href="/zh/compatibility.html">浏览器兼容性</a></li>
+      <li><a href="/changelog.html">更新日志</a></li>
+      <li><a href="/zh/faq.html">常见问题</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="span8" id="content-container">
+
+      <span class="edit-on-github">
+  <a href="https://github.com/Polymer/docs/edit/master/zh/tooling-strategy.md">Edit on Github</a>
+</span>
+
+
+      
+      <div class="page-header">
+        <h1>工具和测试
+          
+        </h1>
+      </div>
+      
+
+      
+      
+
+      <div id="content" class="
+        
+           
+              show-permalinks 
+           
+        
+      "><h2 id="section">压缩, 测试, 和文档化</h2>
+
+<p>要运行测试, 生成压缩文件, 或生成文档你的系统需要安装 <code>node</code> 和
+<code>grunt-cli</code>.</p>
+
+<ul>
+  <li>安装<a href="http://nodejs.org">NodeJS</a> 要用其官方网站的命令</li>
+  <li>
+    <p>使用 <code>npm</code> 来安装 <a href="http://gruntjs.com">GruntJS</a> 获得command-line支持</p>
+
+    <pre><code>  npm install -g grunt-cli
+</code></pre>
+  </li>
+</ul>
+
+<p>接着在你想使用工具的仓库下, 安装node依赖和通过Grunt完成任务.到项目的根目录下(如. <code>&lt;somepath&gt;/platform/</code>),运行:</p>
+
+<pre><code>npm install
+</code></pre>
+
+<h3 id="section-1">任务</h3>
+
+<p>以上都安装完后,可以运行测试或者通过 <code>grunt</code> 来执行任务了.</p>
+
+<p>生成压缩项目文件 (默认):</p>
+
+<pre><code>grunt
+</code></pre>
+
+<p>生成文档:</p>
+
+<pre><code>grunt docs
+</code></pre>
+
+<p>运行测试:</p>
+
+<pre><code>grunt test
+</code></pre>
+
+<h2 id="source-maps">Source maps</h2>
+
+<p>Polymer polyfill 了 <a href="/platform/html-imports.html">HTML Imports</a> 的规范. 为了在运行时能能够调试代码, 组件引用的脚本是被注入到主文档的<code>&lt;head&gt;</code>里的. 支持<a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">source maps</a> 的工具/浏览器 会识别出这些脚本属于各自的源组件.</p>
+
+<h2 id="shadow-dom">调试 Shadow DOM</h2>
+
+<p>在Chrome里, 默认情况下原生的Shadow DOM 是无法查看的. 也就是说, 你无法通过DevTools翻看一个Shadow Root. </p>
+
+<p>为了能查看Shadow DOM, 在 DevTools 的设置的General选项卡里将&#8221;Show Shadow DOM&#8221;勾选:</p>
+
+<p><img src="/images/showshadowdom.png" alt="Enable &quot;Show Shadow DOM&quot; in the Devtools" title="Enable &quot;Show Shadow DOM&quot; in the Devtools" /></p>
+
+<p>重启DevTools后, Shadow DOM 已可查看并且渲染成一个个的<code>#document-fragment</code>.</p>
+</div>
+
+      <hr>
+
+      <footer>
+        <div>
+          <div>&copy; 2013 Polymer Authors.<br>Code licensed under the <a href="https://github.com/polymer/polymer/blob/master/LICENSE" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</div>
+        </div>
+        <div id="logo-row">
+          <img src="/images/logos/webcomponents.png" alt="Web Components" title="Web Components">
+          <img src="/images/logos/html5logo.svg" alt="HTML5" title="HTML5">
+          <img src="/images/logos/js.jpg" alt="JavaScript" title="JavaScript">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/js/prettify/prettify.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39334307-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+function addPermalink(el) {
+  el.classList.add('has-permalink');
+  el.insertAdjacentHTML('beforeend',
+      '<a class="permalink" title="Permalink" href="#' + el.id + '">#</a>');
+}
+
+// Change "active" style on selected left-hand navigation menu item.
+$(document).ready(function () {
+  var path = location.pathname;
+  $('ul.nav > li > a[href="' + path + '"]').parent().addClass('active');
+
+  // Add permalinks to heading elements.
+  var permalinkEl = document.querySelector('.show-permalinks');
+  if (permalinkEl) {
+    ['h2','h3','h4'].forEach(function(h, i) {
+      [].forEach.call(permalinkEl.querySelectorAll(h), addPermalink);
+    });
+  }
+
+  // TODO: Use kramdown {:.prettyprint .linenums .lang-ruby} to add the
+  // <pre class="prettyprint"> instead of doing this client-side.
+  $('pre').addClass('prettyprint');
+  window.prettyPrint && prettyPrint();
+});
+</script>
+
+</body>
+</html>

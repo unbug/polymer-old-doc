@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta itemprop="name" content="Polymer - Polymer element 参考文档">
+<meta itemprop="description" content="Polymer is a new type of library for the web, built on top of Web Components, and designed to leverage the evolving web platform on modern browsers.">
+
+
+<meta itemprop="image" content="http://www.polymer-project.org/images/instacod.png">
+
+
+<title>
+  
+    Polymer element 参考文档 - 
+   Polymer
+</title>
+<link rel="shortcut icon" href="/images/icons/loading_icon.png">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/prettify/sunburst.css" rel="stylesheet">
+<!-- <link href="/css/pygments/default.css" rel="stylesheet" type="text/css"> -->
+<link href="/css/site.css?20131025" rel="stylesheet">
+
+
+
+<script async>
+// Prevent usage of the appspot.com URL.
+try {
+  if (location.hostname.match('appspot.com') &&
+      location.search.substring(1).split('&').indexOf('force') == -1) {
+    window.location = location.protocol + '//www.polymer-project.org' + location.pathname;
+  }
+} catch(e) {
+  // noop
+}
+</script>
+
+
+
+
+<!--   
+  <script src="/polymer.min.js?20131025"></script>
+ -->
+  
+
+
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      </a>
+      <a class="brand" href="./">Polymer</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="icon github"><a href="https://github.com/polymer/polymer"><img src="/images/icons/github.png">View on Github</a></li>
+          <li class="icon bug"><a href="https://github.com/polymer/polymer/issues/new"><img src="/images/icons/bug.png">File a bug</a></li>
+          <li class="icon source"><a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md"><img src="/images/icons/source.png">Contribute</a></li>
+          <li class="icon talk"><a href="./discuss.html"><img src="/images/icons/talk.png">Discuss</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+  <div class="well well-small sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">入门指南</li>
+      <li><a href="/zh/getting-the-code.html">获取源码</a></li>
+      <li><a href="/zh/getting-started.html">入门指南</a></li>
+      <li><a href="/zh/runtime-config.html">运行时配置</a></li>
+      <li><a href="/articles/">相关文章</a></li>
+      
+      <li class="divider"></li>
+      <li class="nav-header elements">Elements</li>
+      <li><a href="/zh/docs/elements/">Polymer elements</a></li>
+      <li><a href="/zh/docs/elements/other.html">其他 elements</a></li>
+      <li class="nav-header core">核心运行库</li>
+      <li><a href="/zh/polymer.html">polymer.js</a></li>
+      <li class="nav-header foundation">平台化技术</li>
+      <li><a href="/platform/custom-elements.html">Custom Elements</a></li>
+      <li><a href="/platform/shadow-dom.html">Shadow DOM</a></li>
+      <li><a href="/platform/html-imports.html">HTML Imports</a></li>
+      <!-- <li class="disabled"><a href="#">Templates</a></li> -->
+      <li><a href="/platform/mdv.html">MDV</a></li>
+      <!-- <li><a href="/platform/mutation-observers.html" disabled>Mutation Observers</a></li> -->
+      <li><a href="/platform/pointer-events.html">Pointer Events</a></li>
+      <li><a href="/platform/web-animations.html">Web Animations</a></li>
+      <li class="divider"></li>
+      <li class="nav-header">更多资料</li>
+      <li><a href="/zh/tooling-strategy.html">工具和测试</a></li>
+      <li><a href="/zh/compatibility.html">浏览器兼容性</a></li>
+      <li><a href="/changelog.html">更新日志</a></li>
+      <li><a href="/zh/faq.html">常见问题</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="span8" id="content-container">
+
+      <span class="edit-on-github">
+  <a href="https://github.com/Polymer/docs/edit/master/zh/docs/elements/index.md">Edit on Github</a>
+</span>
+
+
+      
+      <div class="page-header">
+        <h1>Polymer element 参考文档
+          
+        </h1>
+      </div>
+      
+
+      
+      
+
+      <div id="content" class="
+        
+           
+              show-permalinks 
+           
+        
+      "><p class="alert alert-info"><strong>注意:</strong> 这些 elements 和 它们的文档都很初期 their documentation are very early.
+以下的&#8221;source&#8221; 链接指向一段带注解的代码供你学习如何使用这些element.</p>
+
+<h2 id="elements">Elements</h2>
+
+<p>工具类 elements 不会渲染 UI. </p>
+
+<p><strong>代码库:</strong> <a href="https://github.com/Polymer/polymer-elements">github.com/Polymer/polymer-elements</a></p>
+
+<ul class="element-list">
+<li data-element-file="/polymer-all/polymer-elements/polymer-ajax/polymer-ajax.html">
+        <h3 id="polymer-ajax">&lt;polymer-ajax&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-ajax/polymer-ajax.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-ajax/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-animation/polymer-animation.html">
+        <h3 id="polymer-animation">&lt;polymer-animation&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-animation/polymer-animation.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-animation/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-collapse/polymer-collapse.html">
+        <h3 id="polymer-collapse">&lt;polymer-collapse&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-collapse/polymer-collapse.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-collapse/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-file/polymer-file.html">
+        <h3 id="polymer-file">&lt;polymer-file&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-file/polymer-file.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-file/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-flex-layout/polymer-flex-layout.html">
+        <h3 id="polymer-flex-layout">&lt;polymer-flex-layout&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-flex-layout/polymer-flex-layout.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-flex-layout/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-google-jsapi/polymer-google-jsapi.html">
+        <h3 id="polymer-google-jsapi">&lt;polymer-google-jsapi&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-google-jsapi/polymer-google-jsapi.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-google-jsapi/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-jsonp/polymer-jsonp.html">
+        <h3 id="polymer-jsonp">&lt;polymer-jsonp&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-jsonp/polymer-jsonp.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-jsonp/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-key-helper/polymer-key-helper.html">
+        <h3 id="polymer-key-helper">&lt;polymer-key-helper&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-key-helper/polymer-key-helper.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-key-helper/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-layout/polymer-layout.html">
+        <h3 id="polymer-layout">&lt;polymer-layout&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-layout/polymer-layout.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-layout/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-localstorage/polymer-localstorage.html">
+        <h3 id="polymer-localstorage">&lt;polymer-localstorage&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-localstorage/polymer-localstorage.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-localstorage/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-media-query/polymer-media-query.html">
+        <h3 id="polymer-media-query">&lt;polymer-media-query&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-media-query/polymer-media-query.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-media-query/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-meta/polymer-meta.html">
+        <h3 id="polymer-meta">&lt;polymer-meta&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-meta/polymer-meta.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-meta/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-overlay/polymer-overlay.html">
+        <h3 id="polymer-overlay">&lt;polymer-overlay&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-overlay/polymer-overlay.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-overlay/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-page/polymer-page.html">
+        <h3 id="polymer-page">&lt;polymer-page&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-page/polymer-page.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-page/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-selector/polymer-selector.html">
+        <h3 id="polymer-selector">&lt;polymer-selector&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-selector/polymer-selector.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-selector/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-elements/polymer-view-source-link/polymer-view-source-link.html">
+        <h3 id="polymer-view-source-link">&lt;polymer-view-source-link&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-elements/blob/stable/polymer-view-source-link/polymer-view-source-link.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-elements/polymer-view-source-link/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li>
+</ul>
+
+<hr />
+
+<h2 id="ui-elements">UI Elements</h2>
+
+<p>Basic UI components.</p>
+
+<p><strong>Repository:</strong> <a href="https://github.com/Polymer/polymer-ui-elements">github.com/Polymer/polymer-ui-elements</a></p>
+
+<ul class="element-list">
+<li data-element-file="/polymer-all/polymer-ui-elements/polymer-ui-accordion/polymer-ui-accordion.html">
+        <h3 id="polymer-ui-accordion">&lt;polymer-ui-accordion&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-ui-elements/blob/stable/polymer-ui-accordion/polymer-ui-accordion.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-ui-elements/polymer-ui-accordion/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-ui-elements/polymer-ui-collapsible/polymer-ui-collapsible.html">
+        <h3 id="polymer-ui-collapsible">&lt;polymer-ui-collapsible&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-ui-elements/blob/stable/polymer-ui-collapsible/polymer-ui-collapsible.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-ui-elements/polymer-ui-collapsible/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-ui-elements/polymer-ui-icon/polymer-ui-icon.html">
+        <h3 id="polymer-ui-icon">&lt;polymer-ui-icon&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-ui-elements/blob/stable/polymer-ui-icon/polymer-ui-icon.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-ui-elements/polymer-ui-icon/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-ui-elements/polymer-ui-icon-button/polymer-ui-icon-button.html">
+        <h3 id="polymer-ui-icon-button">&lt;polymer-ui-icon-button&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-ui-elements/blob/stable/polymer-ui-icon-button/polymer-ui-icon-button.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-ui-elements/polymer-ui-icon-button/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-ui-elements/polymer-ui-menu/polymer-ui-menu.html">
+        <h3 id="polymer-ui-menu">&lt;polymer-ui-menu&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-ui-elements/blob/stable/polymer-ui-menu/polymer-ui-menu.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-ui-elements/polymer-ui-menu/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-ui-elements/polymer-ui-menu-item/polymer-ui-menu-item.html">
+        <h3 id="polymer-ui-menu-item">&lt;polymer-ui-menu-item&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-ui-elements/blob/stable/polymer-ui-menu-item/polymer-ui-menu-item.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-ui-elements/polymer-ui-menu-item/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-ui-elements/polymer-ui-nav-arrow/polymer-ui-nav-arrow.html">
+        <h3 id="polymer-ui-nav-arrow">&lt;polymer-ui-nav-arrow&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-ui-elements/blob/stable/polymer-ui-nav-arrow/polymer-ui-nav-arrow.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-ui-elements/polymer-ui-nav-arrow/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-ui-elements/polymer-ui-ratings/polymer-ui-ratings.html">
+        <h3 id="polymer-ui-ratings">&lt;polymer-ui-ratings&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-ui-elements/blob/stable/polymer-ui-ratings/polymer-ui-ratings.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-ui-elements/polymer-ui-ratings/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-ui-elements/polymer-ui-sidebar-menu/polymer-ui-sidebar-menu.html">
+        <h3 id="polymer-ui-sidebar-menu">&lt;polymer-ui-sidebar-menu&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-ui-elements/blob/stable/polymer-ui-sidebar-menu/polymer-ui-sidebar-menu.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-ui-elements/polymer-ui-sidebar-menu/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-ui-elements/polymer-ui-splitter/polymer-ui-splitter.html">
+        <h3 id="polymer-ui-splitter">&lt;polymer-ui-splitter&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-ui-elements/blob/stable/polymer-ui-splitter/polymer-ui-splitter.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-ui-elements/polymer-ui-splitter/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-ui-elements/polymer-ui-tabs/polymer-ui-tabs.html">
+        <h3 id="polymer-ui-tabs">&lt;polymer-ui-tabs&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-ui-elements/blob/stable/polymer-ui-tabs/polymer-ui-tabs.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-ui-elements/polymer-ui-tabs/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-ui-elements/polymer-ui-theme-aware/polymer-ui-theme-aware.html">
+        <h3 id="polymer-ui-theme-aware">&lt;polymer-ui-theme-aware&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-ui-elements/blob/stable/polymer-ui-theme-aware/polymer-ui-theme-aware.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-ui-elements/polymer-ui-theme-aware/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-ui-elements/polymer-ui-toggle-button/polymer-ui-toggle-button.html">
+        <h3 id="polymer-ui-toggle-button">&lt;polymer-ui-toggle-button&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-ui-elements/blob/stable/polymer-ui-toggle-button/polymer-ui-toggle-button.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-ui-elements/polymer-ui-toggle-button/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/polymer-ui-elements/polymer-ui-toolbar/polymer-ui-toolbar.html">
+        <h3 id="polymer-ui-toolbar">&lt;polymer-ui-toolbar&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/polymer-ui-elements/blob/stable/polymer-ui-toolbar/polymer-ui-toolbar.html" target="_blank">source</a>
+          <a href="/polymer-all/polymer-ui-elements/polymer-ui-toolbar/index.html" target="_blank">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li>
+</ul>
+</div>
+
+      <hr>
+
+      <footer>
+        <div>
+          <div>&copy; 2013 Polymer Authors.<br>Code licensed under the <a href="https://github.com/polymer/polymer/blob/master/LICENSE" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</div>
+        </div>
+        <div id="logo-row">
+          <img src="/images/logos/webcomponents.png" alt="Web Components" title="Web Components">
+          <img src="/images/logos/html5logo.svg" alt="HTML5" title="HTML5">
+          <img src="/images/logos/js.jpg" alt="JavaScript" title="JavaScript">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/js/prettify/prettify.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39334307-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+function addPermalink(el) {
+  el.classList.add('has-permalink');
+  el.insertAdjacentHTML('beforeend',
+      '<a class="permalink" title="Permalink" href="#' + el.id + '">#</a>');
+}
+
+// Change "active" style on selected left-hand navigation menu item.
+$(document).ready(function () {
+  var path = location.pathname;
+  $('ul.nav > li > a[href="' + path + '"]').parent().addClass('active');
+
+  // Add permalinks to heading elements.
+  var permalinkEl = document.querySelector('.show-permalinks');
+  if (permalinkEl) {
+    ['h2','h3','h4'].forEach(function(h, i) {
+      [].forEach.call(permalinkEl.querySelectorAll(h), addPermalink);
+    });
+  }
+
+  // TODO: Use kramdown {:.prettyprint .linenums .lang-ruby} to add the
+  // <pre class="prettyprint"> instead of doing this client-side.
+  $('pre').addClass('prettyprint');
+  window.prettyPrint && prettyPrint();
+});
+</script>
+
+</body>
+</html>

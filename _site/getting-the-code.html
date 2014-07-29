@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta itemprop="name" content="Polymer - Getting the Code">
+<meta itemprop="description" content="Polymer is a new type of library for the web, built on top of Web Components, and designed to leverage the evolving web platform on modern browsers.">
+
+
+<meta itemprop="image" content="http://www.polymer-project.org/images/instacod.png">
+
+
+<title>
+  
+    Getting the Code - 
+   Polymer
+</title>
+<link rel="shortcut icon" href="/images/icons/loading_icon.png">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/prettify/sunburst.css" rel="stylesheet">
+<!-- <link href="/css/pygments/default.css" rel="stylesheet" type="text/css"> -->
+<link href="/css/site.css?20131025" rel="stylesheet">
+
+
+
+<script async>
+// Prevent usage of the appspot.com URL.
+try {
+  if (location.hostname.match('appspot.com') &&
+      location.search.substring(1).split('&').indexOf('force') == -1) {
+    window.location = location.protocol + '//www.polymer-project.org' + location.pathname;
+  }
+} catch(e) {
+  // noop
+}
+</script>
+
+
+
+
+<!--   
+  <script src="/polymer.min.js?20131025"></script>
+ -->
+  
+
+
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      </a>
+      <a class="brand" href="/">Polymer</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="icon github"><a href="https://github.com/polymer/polymer"><img src="/images/icons/github.png">View on Github</a></li>
+          <li class="icon bug"><a href="https://github.com/polymer/polymer/issues/new"><img src="/images/icons/bug.png">File a bug</a></li>
+          <li class="icon source"><a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md"><img src="/images/icons/source.png">Contribute</a></li>
+          <li class="icon talk"><a href="/discuss.html"><img src="/images/icons/talk.png">Discuss</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+  <div class="well well-small sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">Getting Started</li>
+      <li><a href="/getting-the-code.html">Get the code</a></li>
+      <li><a href="/getting-started.html">Getting started</a></li>
+      <li><a href="/runtime-config.html">Runtime configuration</a></li>
+      <li><a href="/articles/">Articles</a></li>
+      
+      <li class="divider"></li>
+      <li class="nav-header elements">Elements</li>
+      <li><a href="/docs/elements/">Polymer elements</a></li>
+      <li><a href="/docs/elements/other.html">Other elements</a></li>
+      <li class="nav-header core">Core runtime</li>
+      <li><a href="/polymer.html">polymer.js</a></li>
+      <li class="nav-header foundation">Platform technologies</li>
+      <li><a href="/platform/custom-elements.html">Custom Elements</a></li>
+      <li><a href="/platform/shadow-dom.html">Shadow DOM</a></li>
+      <li><a href="/platform/html-imports.html">HTML Imports</a></li>
+      <!-- <li class="disabled"><a href="#">Templates</a></li> -->
+      <li><a href="/platform/mdv.html">MDV</a></li>
+      <!-- <li><a href="/platform/mutation-observers.html" disabled>Mutation Observers</a></li> -->
+      <li><a href="/platform/pointer-events.html">Pointer Events</a></li>
+      <li><a href="/platform/web-animations.html">Web Animations</a></li>
+      <li class="divider"></li>
+      <li class="nav-header">More information</li>
+      <li><a href="/tooling-strategy.html">Tools &amp; Testing</a></li>
+      <li><a href="/compatibility.html">Browser Compatibility</a></li>
+      <li><a href="/changelog.html">Changelog</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="span8" id="content-container">
+
+      <span class="edit-on-github">
+  <a href="https://github.com/Polymer/docs/edit/master/getting-the-code.md">Edit on Github</a>
+</span>
+
+
+      
+      <div class="page-header">
+        <h1>Getting the Code
+          
+        </h1>
+      </div>
+      
+
+      
+      
+
+      <div id="content" class="
+        
+           
+              show-permalinks 
+           
+        
+      "><h2 id="bring-on-the-code">Bring on the code!</h2>
+
+<p>You can recursively clone and initialize all of Polymer&#8217;s submodules with a single git command.</p>
+
+<p><strong>To get the code, run:</strong></p>
+
+<pre><code>git clone git://github.com/Polymer/polymer-all.git --recursive
+</code></pre>
+
+<p>This creates a <code>polymer-all/</code> folder with the following top-level files and folders:</p>
+
+<ul>
+  <li><strong>platform/</strong> — The platform shims and polyfills.</li>
+  <li><strong>polymer/polymer.js</strong> — The <a href="polymer.html">Polymer kernel</a></li>
+  <li><strong>polymer-elements/</strong> — A collection of core utility elements.</li>
+  <li><strong>polymer-ui-elements/</strong> — A collection of UI elements.</li>
+  <li><strong>projects/</strong> — Larger examples, demos, and tools that use Polymer.</li>
+  <li>Each platform (polyfill) also has a sibling repo.</li>
+</ul>
+
+<p>More on repository structure is below.</p>
+
+<h3 id="test-your-environment">Test your environment</h3>
+
+<p>To check that your development environment is ready, start a local web
+server and run one of the included sample projects:</p>
+
+<ol>
+  <li><strong>Start a local web server</strong> in the folder where you have <code>polymer-all/</code> checked out.</li>
+  <li>In your browser, navigate to
+ <a href="http://localhost/toolkit-ui/workbench/menu.html">http://localhost/toolkit-ui/workbench/menu.html</a>, or whichever port you started the server on. You should see a menu of items, as shown below.</li>
+</ol>
+
+<iframe src="/polymer-all/toolkit-ui/workbench/menu.html" style="width:270px;height:220px;border:none;"></iframe>
+
+<h3 id="about-branches">About branches</h3>
+
+<p>See <a href="branching-strategy.html">Branching Workflow</a>.</p>
+
+<h3 id="updating-polymer-submodules">Updating Polymer submodules</h3>
+
+<p>Periodically, we will update the project&#8217;s submodules on GitHub. To
+update your local copy&#8217;s submodules, run the following command
+from the <code>polymer-all/</code> folder:</p>
+
+<pre><code>git submodule update --init --recursive
+</code></pre>
+
+<h2 id="repository-structure">Repository structure</h2>
+
+<p>The entirety of the Polymer is composed of a number of Git
+repositories. All are included as submodules in the main <code>polymer-all</code> repository.
+However, understanding the various pieces will help you navigate the codebase.</p>
+
+<p>We have factored our repositories into atomic chunks. For example, the following repositories may be useful individually:</p>
+
+<ul>
+  <li><code>CustomElements</code></li>
+  <li><code>HTMLImports</code></li>
+  <li><code>ShadowDOM</code></li>
+  <li><code>mdv</code></li>
+  <li><code>PointerGestures</code></li>
+</ul>
+
+<p>Some repositories depend on others in Polymer and must be siblings of the same parent directory to function completely:</p>
+
+<ul>
+  <li><code>polymer</code></li>
+  <li><code>platform</code></li>
+  <li><code>toolkit-ui</code></li>
+</ul>
+
+<h3 id="platform-repository">/platform repository</h3>
+
+<p><a href="https://github.com/polymer/platform">github.com/polymer/platform</a></p>
+
+<p>Each new web platform feature has a corresponding polyfill repository. The
+reasoning for this is two-fold:</p>
+
+<ol>
+  <li>make the polyfills work across all modern browsers</li>
+  <li>each polyfill can stand on its own and be used à la carte in projects.</li>
+</ol>
+
+<p>The <a href="https://github.com/polymer/platform"><code>platform</code></a> repository references each of the polyfills as a sibling directory, and contains integration tests, loader, and build tools for the amalgamated polyfills.</p>
+
+<p>See <a href="tooling-strategy.html">Tooling Strategy</a> for information.</p>
+
+<h3 id="polymer-repository">/polymer repository</h3>
+
+<p><a href="https://github.com/polymer/polymer">github.com/polymer/polymer</a></p>
+
+<p>The <a href="https://github.com/polymer/polymer"><code>polymer</code></a> repository contains the guts
+of the project. It expects the <a href="https://github.com/polymer/platform"><code>platform</code></a>
+polyfill repo to be a sibling directory, and hosts the
+<a href="polymer.html">Polymer kernel</a> with its tools and tests.</p>
+
+<p>If you want to see the development activity, checkout the <em>master</em> branch directly:</p>
+
+<pre><code>git clone -b master https://github.com/Polymer/polymer.git --recursive
+</code></pre>
+
+<p class="alert">
+<b>Remember</b>: If you don't specify <em>master</em>, you'll get the <em>stable</em> branch by default.
+See <a href="/branching-strategy.html">Branching Workflow</a> for more info.
+</p>
+
+<h3 id="toolkit-ui-repository">/toolkit-ui repository</h3>
+
+<p><a href="https://github.com/polymer/toolkit-ui">github.com/polymer/toolkit-ui</a></p>
+
+<p>The <a href="https://github.com/polymer/toolkit-ui"><code>toolkit-ui</code></a> repository contains examples of
+the types of things you can do when writing a <a href="/polymer.html">Polymer element</a>.</p>
+
+<ul>
+  <li><strong>elements/</strong> — <code>g-*</code> custom element definitions.</li>
+  <li><strong>workbench/</strong> — demos of the Polymer-style elements found in <code>elements/</code>.</li>
+</ul>
+
+</div>
+
+      <hr>
+
+      <footer>
+        <div>
+          <div>&copy; 2013 Polymer Authors.<br>Code licensed under the <a href="https://github.com/polymer/polymer/blob/master/LICENSE" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</div>
+        </div>
+        <div id="logo-row">
+          <img src="/images/logos/webcomponents.png" alt="Web Components" title="Web Components">
+          <img src="/images/logos/html5logo.svg" alt="HTML5" title="HTML5">
+          <img src="/images/logos/js.jpg" alt="JavaScript" title="JavaScript">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/js/prettify/prettify.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39334307-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+function addPermalink(el) {
+  el.classList.add('has-permalink');
+  el.insertAdjacentHTML('beforeend',
+      '<a class="permalink" title="Permalink" href="#' + el.id + '">#</a>');
+}
+
+// Change "active" style on selected left-hand navigation menu item.
+$(document).ready(function () {
+  var path = location.pathname;
+  $('ul.nav > li > a[href="' + path + '"]').parent().addClass('active');
+
+  // Add permalinks to heading elements.
+  var permalinkEl = document.querySelector('.show-permalinks');
+  if (permalinkEl) {
+    ['h2','h3','h4'].forEach(function(h, i) {
+      [].forEach.call(permalinkEl.querySelectorAll(h), addPermalink);
+    });
+  }
+
+  // TODO: Use kramdown {:.prettyprint .linenums .lang-ruby} to add the
+  // <pre class="prettyprint"> instead of doing this client-side.
+  $('pre').addClass('prettyprint');
+  window.prettyPrint && prettyPrint();
+});
+</script>
+
+</body>
+</html>

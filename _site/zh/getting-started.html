@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta itemprop="name" content="Polymer - 入门指南">
+<meta itemprop="description" content="Polymer is a new type of library for the web, built on top of Web Components, and designed to leverage the evolving web platform on modern browsers.">
+
+
+<meta itemprop="image" content="http://www.polymer-project.org/images/instacod.png">
+
+
+<title>
+  
+    入门指南 - 
+   Polymer
+</title>
+<link rel="shortcut icon" href="/images/icons/loading_icon.png">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/prettify/sunburst.css" rel="stylesheet">
+<!-- <link href="/css/pygments/default.css" rel="stylesheet" type="text/css"> -->
+<link href="/css/site.css?20131025" rel="stylesheet">
+
+
+
+<script async>
+// Prevent usage of the appspot.com URL.
+try {
+  if (location.hostname.match('appspot.com') &&
+      location.search.substring(1).split('&').indexOf('force') == -1) {
+    window.location = location.protocol + '//www.polymer-project.org' + location.pathname;
+  }
+} catch(e) {
+  // noop
+}
+</script>
+
+
+<script src="/polymer.min.js?20131025"></script>
+
+
+
+<!--   
+  <script src="/polymer.min.js?20131025"></script>
+ -->
+  
+
+
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      </a>
+      <a class="brand" href="./">Polymer</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="icon github"><a href="https://github.com/polymer/polymer"><img src="/images/icons/github.png">View on Github</a></li>
+          <li class="icon bug"><a href="https://github.com/polymer/polymer/issues/new"><img src="/images/icons/bug.png">File a bug</a></li>
+          <li class="icon source"><a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md"><img src="/images/icons/source.png">Contribute</a></li>
+          <li class="icon talk"><a href="./discuss.html"><img src="/images/icons/talk.png">Discuss</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+  <div class="well well-small sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">入门指南</li>
+      <li><a href="/zh/getting-the-code.html">获取源码</a></li>
+      <li><a href="/zh/getting-started.html">入门指南</a></li>
+      <li><a href="/zh/runtime-config.html">运行时配置</a></li>
+      <li><a href="/articles/">相关文章</a></li>
+      
+      <li class="divider"></li>
+      <li class="nav-header elements">Elements</li>
+      <li><a href="/zh/docs/elements/">Polymer elements</a></li>
+      <li><a href="/zh/docs/elements/other.html">其他 elements</a></li>
+      <li class="nav-header core">核心运行库</li>
+      <li><a href="/zh/polymer.html">polymer.js</a></li>
+      <li class="nav-header foundation">平台化技术</li>
+      <li><a href="/platform/custom-elements.html">Custom Elements</a></li>
+      <li><a href="/platform/shadow-dom.html">Shadow DOM</a></li>
+      <li><a href="/platform/html-imports.html">HTML Imports</a></li>
+      <!-- <li class="disabled"><a href="#">Templates</a></li> -->
+      <li><a href="/platform/mdv.html">MDV</a></li>
+      <!-- <li><a href="/platform/mutation-observers.html" disabled>Mutation Observers</a></li> -->
+      <li><a href="/platform/pointer-events.html">Pointer Events</a></li>
+      <li><a href="/platform/web-animations.html">Web Animations</a></li>
+      <li class="divider"></li>
+      <li class="nav-header">更多资料</li>
+      <li><a href="/zh/tooling-strategy.html">工具和测试</a></li>
+      <li><a href="/zh/compatibility.html">浏览器兼容性</a></li>
+      <li><a href="/changelog.html">更新日志</a></li>
+      <li><a href="/zh/faq.html">常见问题</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="span8" id="content-container">
+
+      <span class="edit-on-github">
+  <a href="https://github.com/Polymer/docs/edit/master/zh/getting-started.md">Edit on Github</a>
+</span>
+
+
+      
+      <div class="page-header">
+        <h1>入门指南
+          
+        </h1>
+      </div>
+      
+
+      
+      
+
+      <div id="content" class="
+        
+           
+              show-permalinks 
+           
+        
+      "><p><a href="/platform/custom-elements.html">Custom Elements</a> 是基于
+Polymer 的应用的核心开发组件. 你通过将这些Custom Elements整合到一块来开发应用,这些Custom Elements要么是
+Polymer提供的,要么是你自己创建的,或者第三方的.</p>
+
+<h2 id="section">基础</h2>
+
+<p>Polymer 通过提供更多吸引人的东西来发展<a href="/platform/custom-elements.html">Custom Elements</a> 的概念. 不过, 如果你只对创建一个通用的的Custom Element有兴趣, <code>platform.js</code>就足够了. 它包含的正是平台上所缺失的特性的polyfills,如<a href="platform/shadow-dom.html">Shadow DOM</a> 和 <a href="platform/html-imports.html">HTML Imports</a>.</p>
+
+<ol>
+  <li>加载 <strong>platform.js</strong> 来弥补平台所缺失的特性.</li>
+  <li>和组件一起加载<code>&lt;link rel="import" href="/path/to/component-file.html"&gt;</code></li>
+  <li>在你的页面里引用custom element.</li>
+</ol>
+
+<p>这是个纯例子:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;!-- 1. 弥补平台所缺失的特性 --&gt;
+    &lt;script src="polymer-all/platform/platform.js"&gt;&lt;/script&gt;
+    &lt;!-- 2. 加载组件 --&gt;
+    &lt;link rel="import" href="x-foo.html"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- 3. 用组件的标签声明组件. --&gt;
+    &lt;x-foo&gt;&lt;/x-foo&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p class="alert"><b>注意</b>: 你必须要在Web服务器里运行你的应用. 
+这是使<a href="/platform/html-imports.html">HTML Imports</a> 此polyfill
+  正常工作的正确方式. 这个需要会在浏览器原生支持后消失的.</p>
+
+<h2 id="section-1">组件</h2>
+
+<h3 id="custom-element">创建一个基础的custom element</h3>
+
+<p>Polymer所提供的平台化的polyfill允许你加载和显示
+custom elements. 只需加载<code>platform.js</code> 就能得到这项新技术的支持.</p>
+
+<link rel="import" href="/samples/components/basic-element.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<!-- Source tabs -->
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element" data-toggle="tab">my-element.html</a></li>
+  <li><a href="#index" data-toggle="tab">index.html</a></li>
+</ul>
+
+<!-- Source tab content -->
+<div class="tab-content">
+  <div class="tab-pane active" id="element">
+  <div>
+    <pre><code class="html">&lt;element name=&quot;my-element&quot;&gt;
+  &lt;section&gt;
+    I'm a my-element!
+  &lt;/section&gt;
+  &lt;footer&gt;nothing to see here&lt;/footer&gt;
+  &lt;script&gt;
+    // When &lt;element&gt; is in document, might run in wrong context.
+    // Only do work when this == &lt;element&gt;.
+    if (this !== window) {
+      var section = this.querySelector('section');
+      this.register({
+        prototype: {
+          readyCallback: function() {
+            this.innerHTML = section.innerHTML;
+          }
+        }
+     });
+    }
+  &lt;/script&gt;
+&lt;/element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/platform/platform.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- Load custom element --&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;my-element.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Instantiate custom element --&gt;
+    &lt;my-element&gt;&lt;/my-element&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<!-- Running sample -->
+  <div class="span4">
+    <h5>Result</h5>
+    <div class="well">
+      <my-element></my-element>
+    </div>
+  </div>
+</div>
+
+<p class="alert"><strong>提示:</strong> <code>name</code> 属性是必需的,指定的即是你所写的标签(例. <code>&lt;tag-name&gt;</code>). 它必须是以 &#8220;-&#8220; 分隔的字符串.</p>
+
+<h3 id="polymer-">创建一个Polymer 元件</h3>
+
+<p>Polymer 提供更多吸引人的东西来创建custom elements. 我们将这类增加的 custom elements 称之为&#8221;Polymer elements&#8221;. 要新建一个, 跟着以下步骤:</p>
+
+<ol>
+  <li>
+    <p>载入 <a href="/polymer.html">Polymer 核心</a> (<code>polymer/polymer.js</code> or <code>polymer.min.js</code>).</p>
+
+    <p class="alert"><strong>注意:</strong> 加载<code>polymer.js</code> 会载入 <code>platform.js</code>.
+录你要写一个Polymer element时你仅需要加载<code>polymer.js</code> .</p>
+  </li>
+  <li>
+    <p>用 <code>&lt;polymer-element&gt;</code>声明你的custom element .</p>
+  </li>
+</ol>
+
+<p>下面实例中, 我们已经将基础的 custom element 转换成一个名为<code>tk-element</code>的Polymer element .</p>
+
+<link rel="import" href="/samples/components/tk-element.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<!-- Source tabs -->
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element2" data-toggle="tab">tk-element.html</a></li>
+  <li><a href="#index2" data-toggle="tab">index.html</a></li>
+</ul>
+
+<!-- Source tab content -->
+<div class="tab-content">
+  <div class="tab-pane active" id="element2">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-element&quot;&gt;
+  &lt;template&gt;
+    &lt;span&gt;I'm &lt;b&gt;tk-element&lt;/b&gt;. This is my Shadow DOM.&lt;/span&gt;
+  &lt;/template&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index2">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-element.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;tk-element&gt;&lt;/tk-element&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<div class="span4">
+  <h5>Result</h5>
+
+  <!-- Running sample -->
+  <div class="well">
+    <tk-element></tk-element>
+  </div>
+</div>
+</div>
+
+<h4 id="section-2">给你的组件追加属性/方法</h4>
+
+<p>如果你想为你的element追加公共的属性/方法,
+引入一个<code>&lt;script&gt;</code> 调用 <code>Polymer('your-tagname')</code>.
+<code>Polymer(..)</code> 是个为<a href="/platform/custom-elements.html#documentregister"><code>document.register</code></a> 提供的快捷包装, 同时也赋予了element特殊的特性像数据绑定和事件映射. 
+它的第一个参数是你所创建的element的名称. 第二个参数 (可选) 是一个用来定义你的element的 <code>prototype</code> 的对象. </p>
+
+<link rel="import" href="/samples/components/tk-element-proto.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<!-- Source tabs -->
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#tk-element-proto" data-toggle="tab">tk-element-proto.html</a></li>
+  <li><a href="#tk-element-proto-index" data-toggle="tab">index.html</a></li>
+</ul>
+
+<!-- Source tab content -->
+<div class="tab-content">
+  <div class="tab-pane active" id="tk-element-proto">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-element-proto&quot;&gt;
+  &lt;template&gt;
+    &lt;span&gt;I'm &lt;b&gt;tk-element-proto&lt;/b&gt; with a prototype.&lt;/span&gt;
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('tk-element-proto', {
+      ready: function() {
+        //...
+      }
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="tk-element-proto-index">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-element-proto.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;tk-element-proto&gt;&lt;/tk-element-proto&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<div class="span4">
+  <h5>Result</h5>
+
+  <!-- Running sample -->
+  <div class="well">
+    <tk-element-proto></tk-element-proto>
+  </div>
+</div>
+</div>
+
+<h2 id="section-3">声明式的数据绑定</h2>
+
+<p>你可以将属性绑定到你的组件上,使用声明式的数据绑定和来自 <a href="/platform/mdv.html">Model Driven Views</a> 的 &#8220;double-mustache&#8221; 语法 (<code>{{}}</code>). 
+<code>{{}}</code> 将被括号之间引用的属性的值所替换.</p>
+
+<link rel="import" href="/samples/components/tk-element-databinding.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element3" data-toggle="tab">tk-element-databinding.html</a></li>
+  <li><a href="#index3" data-toggle="tab">index.html</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="element3">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-element-databinding&quot;&gt;
+  &lt;template&gt;
+    This is &lt;strong&gt;{{owner}}&lt;/strong&gt;'s tk-element.
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('tk-element-databinding', {
+      owner: 'Daniel'
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index3">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-element-databinding.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;tk-element-databinding&gt;&lt;/tk-element-databinding&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+
+<!-- Running sample -->
+<div class="span4">
+  <h5>Result</h5>
+<div class="well">
+  <tk-element-databinding></tk-element-databinding>
+</div>
+</div>
+</div>
+
+<h3 id="section-4">绑定到标记上</h3>
+
+<p>你可以在大部分HTML标记上使用绑定表达式, 除了标记本身的名称. 以下实例里, 我们为组件新建了一个叫<code>color</code>的属性,它的值被绑定到了custom element的样式的<code>color</code>属性上.</p>
+
+<link rel="import" href="/samples/components/tk-element-databinding-color.html" />
+
+<!-- tk-element-databinding-color.html -->
+<div class="row-fluid">
+  <div class="span8">
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element5" data-toggle="tab">tk-element-databinding-color.html</a></li>
+  <li><a href="#index5" data-toggle="tab">index.html</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="element5">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-element-databinding-color&quot;&gt;
+  &lt;template&gt;
+    This is a &lt;strong&gt;{{owner}}&lt;/strong&gt;'s tk-element. 
+    {{owner}} likes the color 
+    &lt;span style=&quot;color: {{color}}&quot;&gt;{{color}}&lt;/span&gt;.
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('tk-element-databinding-color', {
+      owner: &quot;Daniel&quot;,
+      color: &quot;red&quot;
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index5">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-element-databinding-color.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;tk-element-databinding-color&gt;&lt;/tk-element-databinding-color&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+  <div class="span4">
+  <h5>Result</h5>
+<div class="well">
+  <tk-element-databinding-color></tk-element-databinding-color>
+</div>
+</div>
+</div>
+
+<h3 id="elements">组件和原生elements之间的绑定</h3>
+
+<p>以下实例演示了组件属性绑定到原生input elements的属性上.</p>
+
+<link rel="import" href="/samples/components/tk-binding-to-elements.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<!-- Source tabs -->
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element13" data-toggle="tab">tk-binding-to-elements.html</a></li>
+  <li><a href="#index13" data-toggle="tab">index.html</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="element13">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-binding-to-elements&quot;&gt;
+  &lt;template&gt;
+    &lt;p&gt;This is &lt;strong&gt;{{owner}}&lt;/strong&gt;'s tk-element but 
+    &lt;strong&gt;{{name}}&lt;/strong&gt; lets me borrow it. 
+    He likes the color &lt;span style=&quot;color: {{color}}&quot;&gt;{{color}}&lt;/span&gt;. 
+    I am &lt;strong&gt;{{age}}&lt;/strong&gt; years old.&lt;/p&gt;
+    &lt;label for=&quot;ageInput&quot;&gt;Age:&lt;/label&gt;
+    &lt;input id=&quot;ageInput&quot; type=&quot;range&quot; value=&quot;{{age}}&quot;&gt;
+    &lt;label for=&quot;nameInput&quot;&gt;Name:&lt;/label&gt;
+    &lt;input id=&quot;nameInput&quot; value=&quot;{{name}}&quot; placeholder=&quot;Your name here...&quot;&gt;
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('tk-binding-to-elements', {
+      age: &quot;25&quot;,
+      name: &quot;Daniel&quot;,
+      color: &quot;red&quot;,
+      owner: &quot;Eric&quot;,
+      nameChanged: function() {
+        if (this.name) {
+          // ensure capitalization
+          this.name = this.name[0].toUpperCase() +  this.name.slice(1);
+        }
+      }
+    });
+&lt;/script&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index13">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-binding-to-elements.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;tk-binding-to-elements&gt;&lt;/tk-binding-to-elements&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<div class="span4">
+  <!-- Running sample -->
+  <h5>Result</h5>
+<div class="well">
+  <tk-binding-to-elements></tk-binding-to-elements>
+</div>
+</div>
+</div>
+
+<h2 id="ready">追加生命周期方法ready()</h2>
+
+<p>当一个element被成功注册并初始化好后,它会调用自己的<code>ready</code> 方法, 如果有的话. <code>ready</code> 回调是类构造函数作初始化处理的最佳地方.</p>
+
+<link rel="import" href="/samples/components/tk-element-ready.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<!-- Tabs -->
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element10" data-toggle="tab">tk-element-ready.html</a></li>
+  <li><a href="#index10" data-toggle="tab">index.html</a></li>
+</ul>
+
+<!-- Tab content -->
+<div class="tab-content">
+  <div class="tab-pane active" id="element10">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-element-ready&quot;&gt;
+  &lt;template&gt;
+    This is a &lt;b&gt;tk-element&lt;/b&gt; with a ready() method.
+    &lt;span id=&quot;readyEl&quot;&gt;Not ready...&lt;/span&gt;
+  &lt;/template&gt;
+  &lt;script&gt;  
+    Polymer('tk-element-ready', {
+      owner: &quot;Daniel&quot;,
+      ready: function() {
+        this.$.readyEl.innerText = this.owner + &quot; is ready!&quot;;
+      }
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index10">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-element-ready.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;tk-element-ready&gt;&lt;/tk-element-ready&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<div class="span4">
+  <!-- Running sample -->
+  <h5>Result</h5>
+<div class="well">
+  <tk-element-ready></tk-element-ready>
+</div>
+</div>
+</div>
+
+<h2 id="section-5">属性的公布</h2>
+
+<p>属性的公布可以用来定义一个element的 &#8220;公共 API&#8221;. Polymer
+为公布的属性制定了双向数据绑定且可以使用MDV的 <code>{{}}</code>来访问属性的值.</p>
+
+<p>要<em>公布</em> 一个属性,可通过在你的<code>&lt;polymer-element&gt;</code>的<code>attributes</code>列表里追加属性的方式. 如此声明的属性默认值是<code>null</code>. 
+要自定义属性的默认值,需将同名的属性追加到组件的注册时的属性上(如下).</p>
+
+<p>以下实例是在element上定义了两个绑定数据和属性, <code>owner</code> 和 <code>color</code>,并赋予它们默认值:</p>
+
+<link rel="import" href="/samples/components/tk-element-property-public.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element6" data-toggle="tab">tk-element-property-public.html</a></li>
+  <li><a href="#index6" data-toggle="tab">index.html</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="element6">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-element-property-public&quot;
+         attributes=&quot;owner color&quot;&gt;
+  &lt;template&gt;
+    This is a &lt;strong&gt;{{owner}}&lt;/strong&gt;'s tk-element. 
+    He likes the color &lt;b style=&quot;color: {{color}}&quot;&gt;{{color}}&lt;/b&gt;.
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('tk-element-property-public', {
+      // These default values are overridden
+      // by the user's attribute values.
+      color: &quot;red&quot;,
+      owner: &quot;Daniel&quot;
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index6">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-element-property-public.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;well&quot;&gt;
+      &lt;!-- Component specifies values its public properties. --&gt;
+      &lt;tk-element-property-public owner=&quot;Scott&quot; color=&quot;blue&quot;&gt;
+      &lt;/tk-element-property-public&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<div class="span4">
+  <!-- Running sample -->
+  <h5>Result</h5>
+  <div class="well">
+    <tk-element-property-public owner="Scott" color="blue"></tk-element-property-public>
+  </div>
+</div>
+</div>
+
+<p>注意: 本实例里用户通过配置element的初始的属性值修改了<code>owner</code> 和 <code>color</code>的默认值(例. <code>&lt;tk-element-property-public owner="Scott" color="blue"&gt;</code>).</p>
+
+<p><a href="/polymer.html#published-properties">更多属性的公布参看</a></p>
+
+<h2 id="section-6">自动节点索引</h2>
+
+<p>Shadow DOM 是个自包含的类document的子树; 那里边的id不受其他树里面的id的影响. 每个 Polymer element 都在element的模板里生成一份id对节点的映射图. 此映射图可以通过<code>$</code> 在element上索引到. </p>
+
+<link rel="import" href="/samples/components/tk-node-finding.html" />
+
+<div class="row-fluid">
+  <div class="span8">
+<!-- Source tabs -->
+<ul id="myTab" class="nav nav-tabs">
+  <li class="active"><a href="#element12" data-toggle="tab">tk-node-finding.html</a></li>
+  <li><a href="#index12" data-toggle="tab">index.html</a></li>
+</ul>
+
+<!-- Source tab content -->
+<div class="tab-content">
+  <div class="tab-pane active" id="element12">
+  <div>
+    <pre><code class="html">&lt;polymer-element name=&quot;tk-node-finding&quot; attributes=&quot;owner color&quot;&gt;
+  &lt;template&gt;
+    &lt;p&gt;
+    This is a &lt;strong&gt;{{owner}}&lt;/strong&gt;'s tk-element.
+    He likes the color &lt;b style=&quot;color: {{color}}&quot;&gt;{{color}}&lt;/b&gt;.
+    &lt;/p&gt;
+    &lt;button on-click=&quot;setFocus&quot;&gt;Set focus to text input&lt;/button&gt;
+    &lt;input id=&quot;nameInput&quot; value=&quot;{{owner}}&quot; placeholder=&quot;Your name here...&quot;&gt;
+  &lt;/template&gt;
+  &lt;script&gt;
+    Polymer('tk-node-finding', {
+      color: &quot;red&quot;,
+      owner: &quot;Daniel&quot;,
+      setFocus: function() {
+        this.$.nameInput.focus();
+      }
+    });
+  &lt;/script&gt;
+&lt;/polymer-element&gt;</code></pre>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="index12">
+  <div>
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;polymer-all/polymer/polymer.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- Load custom element --&gt;
+    &lt;link rel=&quot;import&quot; href=&quot;tk-node-finding.html&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Instantiate custom element --&gt;
+    &lt;tk-node-finding&gt;&lt;/tk-node-finding&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<div class="span4">
+  <!-- Running sample -->
+  <h5>Result</h5>
+<div class="well">
+  <tk-node-finding></tk-node-finding>
+</div>
+</div>
+</div>
+</div>
+
+      <hr>
+
+      <footer>
+        <div>
+          <div>&copy; 2013 Polymer Authors.<br>Code licensed under the <a href="https://github.com/polymer/polymer/blob/master/LICENSE" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</div>
+        </div>
+        <div id="logo-row">
+          <img src="/images/logos/webcomponents.png" alt="Web Components" title="Web Components">
+          <img src="/images/logos/html5logo.svg" alt="HTML5" title="HTML5">
+          <img src="/images/logos/js.jpg" alt="JavaScript" title="JavaScript">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/js/prettify/prettify.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39334307-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+function addPermalink(el) {
+  el.classList.add('has-permalink');
+  el.insertAdjacentHTML('beforeend',
+      '<a class="permalink" title="Permalink" href="#' + el.id + '">#</a>');
+}
+
+// Change "active" style on selected left-hand navigation menu item.
+$(document).ready(function () {
+  var path = location.pathname;
+  $('ul.nav > li > a[href="' + path + '"]').parent().addClass('active');
+
+  // Add permalinks to heading elements.
+  var permalinkEl = document.querySelector('.show-permalinks');
+  if (permalinkEl) {
+    ['h2','h3','h4'].forEach(function(h, i) {
+      [].forEach.call(permalinkEl.querySelectorAll(h), addPermalink);
+    });
+  }
+
+  // TODO: Use kramdown {:.prettyprint .linenums .lang-ruby} to add the
+  // <pre class="prettyprint"> instead of doing this client-side.
+  $('pre').addClass('prettyprint');
+  window.prettyPrint && prettyPrint();
+});
+</script>
+
+</body>
+</html>

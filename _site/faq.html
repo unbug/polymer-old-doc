@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta itemprop="name" content="Polymer - FAQ">
+<meta itemprop="description" content="Polymer is a new type of library for the web, built on top of Web Components, and designed to leverage the evolving web platform on modern browsers.">
+
+
+<meta itemprop="image" content="http://www.polymer-project.org/images/instacod.png">
+
+
+<title>
+  
+    FAQ - 
+   Polymer
+</title>
+<link rel="shortcut icon" href="/images/icons/loading_icon.png">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/prettify/sunburst.css" rel="stylesheet">
+<!-- <link href="/css/pygments/default.css" rel="stylesheet" type="text/css"> -->
+<link href="/css/site.css?20131025" rel="stylesheet">
+
+
+
+<script async>
+// Prevent usage of the appspot.com URL.
+try {
+  if (location.hostname.match('appspot.com') &&
+      location.search.substring(1).split('&').indexOf('force') == -1) {
+    window.location = location.protocol + '//www.polymer-project.org' + location.pathname;
+  }
+} catch(e) {
+  // noop
+}
+</script>
+
+
+
+
+<!--   
+  <script src="/polymer.min.js?20131025"></script>
+ -->
+  
+
+
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      </a>
+      <a class="brand" href="/">Polymer</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="icon github"><a href="https://github.com/polymer/polymer"><img src="/images/icons/github.png">View on Github</a></li>
+          <li class="icon bug"><a href="https://github.com/polymer/polymer/issues/new"><img src="/images/icons/bug.png">File a bug</a></li>
+          <li class="icon source"><a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md"><img src="/images/icons/source.png">Contribute</a></li>
+          <li class="icon talk"><a href="/discuss.html"><img src="/images/icons/talk.png">Discuss</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+  <div class="well well-small sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">Getting Started</li>
+      <li><a href="/getting-the-code.html">Get the code</a></li>
+      <li><a href="/getting-started.html">Getting started</a></li>
+      <li><a href="/runtime-config.html">Runtime configuration</a></li>
+      <li><a href="/articles/">Articles</a></li>
+      
+      <li class="divider"></li>
+      <li class="nav-header elements">Elements</li>
+      <li><a href="/docs/elements/">Polymer elements</a></li>
+      <li><a href="/docs/elements/other.html">Other elements</a></li>
+      <li class="nav-header core">Core runtime</li>
+      <li><a href="/polymer.html">polymer.js</a></li>
+      <li class="nav-header foundation">Platform technologies</li>
+      <li><a href="/platform/custom-elements.html">Custom Elements</a></li>
+      <li><a href="/platform/shadow-dom.html">Shadow DOM</a></li>
+      <li><a href="/platform/html-imports.html">HTML Imports</a></li>
+      <!-- <li class="disabled"><a href="#">Templates</a></li> -->
+      <li><a href="/platform/mdv.html">MDV</a></li>
+      <!-- <li><a href="/platform/mutation-observers.html" disabled>Mutation Observers</a></li> -->
+      <li><a href="/platform/pointer-events.html">Pointer Events</a></li>
+      <li><a href="/platform/web-animations.html">Web Animations</a></li>
+      <li class="divider"></li>
+      <li class="nav-header">More information</li>
+      <li><a href="/tooling-strategy.html">Tools &amp; Testing</a></li>
+      <li><a href="/compatibility.html">Browser Compatibility</a></li>
+      <li><a href="/changelog.html">Changelog</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="span8" id="content-container">
+
+      <span class="edit-on-github">
+  <a href="https://github.com/Polymer/docs/edit/master/faq.md">Edit on Github</a>
+</span>
+
+
+      
+      <div class="page-header">
+        <h1>FAQ
+          
+        </h1>
+      </div>
+      
+
+      
+      
+
+      <div id="content" class="
+        
+           
+              show-permalinks 
+           
+        
+      "><p class="alert alert-error">
+<b>Thanks for checking us out!</b> Polymer is in <em>pre-alpha</em> mode and
+only the daring need apply.
+
+
+Please refer to this page for more information on the project.
+
+</p>
+
+<p><em>Don&#8217;t see an answer to your question on here? Ask on the <a href="/discuss.html">mailing list</a>!</em></p>
+
+<h2 id="polymer">Polymer</h2>
+
+<h4 id="why">Why should I care about this project?</h4>
+
+<p>Polymer is a new type of library for the web, targeting the modern
+web platform, and useful for building web applications based on Web Components.</p>
+
+<p>Unlike some other frameworks before it, Polymer attempts to embrace
+HTML as much as possible by encouraging the use of <a href="/platform/custom-elements.html">custom element</a> wherever possible. It includes a handful of independent polyfills for these emerging web standards (Custom Elements, Shadow DOM, etc.) that over time, diminish and ultimately disappear as browser vendors implement the native APIs.</p>
+
+<p>Polymer is still in its very early days, but we&#8217;re excited about its potential! </p>
+
+<h4 id="uicomponents">Where are all of the shiny magic components that are going to revolutionize the entire internet and solve all of my problems?</h4>
+
+<p>At this point they&#8217;re basically just a glimmer in our collective eye. But we&#8217;ve built a solid technical foundation and are working feverishly to make our ambitious vision a reality, so watch this space.</p>
+
+<h4 id="readiness">Okay, the components aren&#8217;t there yet. Is the rest of Polymer production ready?</h4>
+
+<p>We don&#8217;t think so, but if you&#8217;re the adventurous type you&#8217;re welcome to give it a try. Run the demos, play with the toolkit. Most importantly, join the mailing list and give us feedback!</p>
+
+<h4 id="dislike">I don&#8217;t like your {components | toolkit syntax | face }!</h4>
+
+<!-- 
+<figure id="architecture-diagram" style="float:right">
+  <iframe src="/images/architecture-diagram.svg?20131025" style="width:150px;"></iframe>
+  <figcaption>Architectural Diagram</figcaption>
+</figure> -->
+
+<p>That&#8217;s fine. We&#8217;ve designed Polymer  to be cleanly layered so you can use just the parts you like. You can use our whole stack, a single polyfill, or anything in between. It&#8217;s up to you.
+<!-- {: style="clear:both"} --></p>
+
+<h4 id="sandbox">Do I have to use the Sandbox tool if I want to use Polymer?</h4>
+
+<p>Nope, Sandbox is just a simple demo app that makes it easy to play around with
+components and get a feel for Polymer. It&#8217;s not intended to be
+any kind of production tool.</p>
+
+<h4 id="browsersupport">Which browsers does Polymer support?</h4>
+
+<p>Polymer aims to support <a href="http://www.yetihq.com/blog/evergreen-web-browser/">evergreen browsers</a>. After all, we&#8217;re trying to simulate the future, and as someone once said, &#8220;You&#8217;re headed for trouble if all you do is stare in the rear-view mirror.&#8221; In practice, this means we support the most recent versions of Chrome, Safari, Internet Explorer, and Firefox. Note that this is fewer browsers than other frameworks support. For example, Polymer only aims to support Internet Explorer 10 and above. Some pieces of Polymer may support more browsers if it doesn&#8217;t require too much extra effort&#8211;if you find bugs in unsupported browsers, please still file them.  Most things should work in IE9 today without too much work; feel free to file bugs on what doesn&#8217;t.  IE8 is incompatable due to its insufficient DOM support. </p>
+
+<p>See our <a href="/compatibility.html">Browser Compatibility</a> page for more information.</p>
+
+<h4 id="nativesupport">When will other browsers support these APIs natively?</h4>
+
+<p>The foundation layer in our <a href="/images/architecture-diagram.svg">architecture diagram</a> is based on emerging web standards. As browsers support them natively, the need for that layer will diminish and ultimately disappear. It&#8217;s impossible to say when every browser will support these features natively&#8211;but the more that web developers ask for them, the sooner native support will come.</p>
+
+<h4 id="onmobile">What&#8217;s your mobile story?</h4>
+
+<p>One of our core goals is for Polymer to work on mobile as a first-class citizen. For example, many parts of Polymer work on Chrome for Android and Mobile Safari today. We&#8217;re also investigating responsive components that can automatically configure themselves correctly on desktop, tablets, and phones.</p>
+
+<h4 id="xtags">What does this have to do with x-tags?</h4>
+
+<p><a href="http://x-tags.org/">x-tags</a> is a cool project that Mozilla is working on, and it&#8217;s not directly affiliated with Polymer. However, both Polymer and x-tags build on the emerging Custom Elements standard, which means their components are interoperable by default. Both Google and Mozilla offer polyfills for the Custom Element spec. X-Tag works on top of either, so you can use X-Tag custom elements alongside your Polymer components. We&#8217;re working actively with them to maximize compatibility between the component sets.</p>
+
+<h4 id="uiframeworks">How is Polymer different from Twitter&#8217;s Bootstrap or Adobe&#8217;s Topcoat?</h4>
+
+<p>Bootstrap and Topcoat are awesome CSS/UI libraries. Our goals for Polymer are different. While we eventually plan to create a standard set of shiny amazing UI components, the meat of Polymer is geared towards developers interested in building web applications on top of Web Component technologies. Polymer also provides additional sugaring APIs (<a href="/platform/mdv.html">MDV</a>, templates, and data-binding)  to meet the demands of today&#8217;s web applications.</p>
+
+<h4 id="toolkitchen">Wait, what happened to Toolkitchen?</h4>
+
+<p>Toolkitchen was the first name we picked for this project. We didn&#8217;t love it, so
+we changed it to Polymer.</p>
+
+<h4 id="google">How is this related to Google?</h4>
+
+<p>We&#8217;re first and foremost just a group of folks who think web components are the bee&#8217;s knees&#8211;a bunch of us just happen to work at Google. We&#8217;re thrilled about the community participation we&#8217;ve gotten already and hope you&#8217;ll join in the discussion!</p>
+
+<h4 id="frameworks">Is this project related to {Angular JS | Closure | Google Web Toolkit}?</h4>
+
+<p>Nope.</p>
+
+<h4 id="dart">How is polymer.dart related to Polymer?</h4>
+
+<p>polymer.dart is a Dart port of Polymer created and maintained by the Dart team. The Dart team is collaborating with the Polymer team to ensure that polymer.dart elements and polyfills are fully compatible with Polymer. </p>
+
+<h4 id="xhrrequests">I see a bunch of XHRs making network requests. What gives?</h4>
+
+<p>One limitation of today&#8217;s polyfills is that Polymer aggressively uses XHR to shim HTML Imports. We&#8217;re experimenting with packaging systems and build steps to reduce the cost of network requests. When this API lands natively in browsers, things will Just Work™. Resources will be loaded as they normally do, taking advantage of parallelism, browser caching, etc. </p>
+
+<h4 id="performancestuff">Performance isn&#8217;t ideal. Don&#8217;t you care about it?</h4>
+
+<p>Deeply. And we want the entire web platform to be a buttery smooth 60fps. That said, we have not yet run benchmarks on the various polyfills&#8211;we&#8217;re in the early stages, after all! If you&#8217;re interested in helping us put some numbers behind these guys, <a href="/discuss.html">let us know</a>.</p>
+
+<p>Remember our libraries go away over time! Polymer gets better, stronger, and faster as native browser implementations pop up.</p>
+
+<h4 id="csp">Does Polymer work under Content Security Policy (CSP)?</h4>
+
+<p>In certain cases, Polymer fails under certain <a href="http://www.html5rocks.com/tutorials/security/content-security-policy/">CSP</a>. This is because the <a href="/platform/html-imports.html">HTML Imports</a> polyfill uses XHR to do its magic. Native implementations of HTML Imports are needed (see Blink&#8217;s <a href="http://crbug.com/240592">crbug.com/240592</a>). In the interim, we may prioritize a software solution.</p>
+
+<h4 id="contributing">How can I contribute?</h4>
+
+<p>We love to hear your comments or suggestions. <a href="https://github.com/polymer/polymer/issues/new">File a bug</a> or swing by the <a href="/discuss.html">mailing list</a> and say &#8220;hi&#8221;&#8211;we don&#8217;t bite! If you want
+to contribute code, see our <a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md">contributor&#8217;s guide</a>.</p>
+
+<h4 id="filebugs">Where is the best place to file bugs?</h4>
+
+<p>We have many different demo, platform, and library repositories. If you know exactly where the problem lives in the stack, please file the bug under the appropriate repo. Otherwise, filing under the general <a href="https://github.com/polymer/polymer/issues/new">Polymer</a> project is great.</p>
+
+<h4 id="branches">What is the difference between the stable and master branches?</h4>
+
+<p>See <a href="/branching-strategy.html">Branching strategy</a>.</p>
+
+<h4 id="mdv-option-tr">How do I use an MDV model to repeat an <code>&lt;option&gt;</code> or <code>&lt;tr&gt;</code>?</h4>
+
+<p>The elements <code>&lt;option&gt;</code> and <code>&lt;tr&gt;</code> have special meaning when they&#8217;re children of
+<code>&lt;select&gt;</code> and <code>&lt;table&gt;</code>, respectively. For these special types elements, use the
+<code>template</code> attribute to repeat the element:</p>
+
+<pre><code>&lt;template bind&gt;
+  &lt;select&gt;
+    &lt;option template repeat="{{options}}"&gt;{{}}&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  var t = document.querySelector('template').model = {
+    options: ['One', 'Two', 'Three']
+  };
+&lt;/script&gt;
+</code></pre>
+
+<h4 id="loadlibs">How do I manage JavaScript dependencies to prevent 1000 copies of library X?</h4>
+
+<p>There is no way to guarantee sharing and deduping in the general case. However, if
+you have a library of components that use a library, they can all import a
+&#8220;library.html&#8221; file that loads that library. <a href="/platform/html-imports.html">HTML Imports</a>
+will de-dupe the import based on it&#8217;s fully qualified path.</p>
+
+<p>If multiple libraries want to share a dependency, they will have to agree on a system.
+Feature detection, or an agreed upon common location for a &#8216;jquery.html&#8217; file in a CDN, etc.</p>
+
+<h2 id="web-components">Web Components</h2>
+
+<h4 id="packaging">How do I package a bunch of custom elements together?</h4>
+
+<p>Use a custom build step that flattens/concatenates everything into a single file,
+then use <a href="/platform/html-imports.html">HTML Imports</a> (<code>&lt;link ref="import"&gt;</code>) to 
+bring that file into your app. </p>
+
+<p>Similarly, you could write a build step that inlines any custom element definition
+directly into your main app. We&#8217;ve experimented with this basic idea in a
+tool we call <a href="https://github.com/Polymer/labs/tree/master/vulcanize">Vulcanizer</a>.</p>
+
+<h4 id="seo">Crawlers understand custom elements? How does SEO work?</h4>
+
+<p>They don&#8217;t. However, search engines have been dealing with heavy AJAX
+based application for some time now. Moving away from JS and being more declarative
+is a good thing and will generally make things better.</p>
+
+<h4 id="registry">Is there a registry of components I can play with?</h4>
+
+<p>Not yet, but we think that&#8217;s a great idea.</p>
+
+<h4 id="externalsheets">I get errors when trying to use external stylesheets in my element definition or using <code>&lt;link rel="import"&gt;</code> with external files.</h4>
+
+<p>Unfortunately, this is a limitation of the HTML Import spec and the polyfill follows suit. The polyfill uses XHR to pull down resources defined in an <code>&lt;polymer-element&gt;</code> definition. External resources will fail if they are not <a href="http://www.html5rocks.com/tutorials/cors/">CORs-enabled</a>.</p>
+
+<p>For stylesheets that are not same domain or CORs-enabled, you can use <code>@import</code> in a <code>&lt;style&gt;</code>:</p>
+
+<pre><code>&lt;polymer-element name="x-blink"&gt;
+&lt;style&gt;
+  @import url(http://example.com/awesome.css);
+&lt;/style&gt;
+&lt;template&gt;...&lt;/template&gt;
+&lt;/polymer-element&gt;
+</code></pre>
+
+<p><em>Note</em>: If your stylesheet <strong>is</strong> CORs-enabled or from the same domain as your app,
+it&#8217;s preferred to inline the styles without using <code>@import</code>. For example:</p>
+
+<pre><code>&lt;polymer-element ...&gt;
+  &lt;link rel="stylesheet" href="frameworkstyles.css"&gt;
+  &lt;template&gt;...&lt;/template&gt;
+  ...
+&lt;/polymer-element&gt;
+</code></pre>
+
+<h4 id="fontsanimations">How can I use web fonts or CSS Animations in my custom element?</h4>
+
+<p>According to the spec, certain @ at-rules (including CSS <code>@keyframe</code> and <code>@font-face</code>) <a href="http://lists.w3.org/Archives/Public/public-whatwg-archive/2013Jan/0251.html">cannot be defined</a> in <code>&lt;style scoped&gt;</code>. Therefore, you need to define these values outside of ShadowDOM (e.g. outside a <code>&lt;template&gt;</code>) using <code>&lt;style polymer-scope="global"&gt;</code>. After that, you can use the animation/font inside your Shadow DOM:</p>
+
+<pre><code>&lt;polymer-element name="x-blink"&gt;
+  &lt;!-- CSS Animation defs need to be outside of scoped styles --&gt;
+  &lt;style polymer-scope="global"&gt;
+    @import url(http://fonts.googleapis.com/css?family=Quicksand);
+    @-webkit-keyframes blink {
+      to { opacity: 0; }
+     }
+  &lt;/style&gt;
+  &lt;template&gt;
+    &lt;style&gt;
+      @host {
+        x-blink { -webkit-animation: blink 1s cubic-bezier(1.0,0,0,1.0) inifnite 1s; }
+      }
+    &lt;/style&gt;
+    ...
+  &lt;/template&gt;
+&lt;/polymer-element&gt;
+</code></pre>
+
+<h4 id="clientDimenstions">Why does my element claim its <code>.clientWidth/clientHeight</code> is 0?</h4>
+
+<p>By default, customs elements are <code>display: inline</code>. The fix is to give your element
+a default style of <code>display: block</code> using an <code>@host</code> rule.</p>
+
+<pre><code>&lt;polymer-element name="my-element"&gt;
+  &lt;template&gt;
+    &lt;style&gt;
+      @host { * { display: block; } }
+    &lt;/style&gt;
+    ...
+  &lt;/template&gt;
+  ...
+&lt;/polymer-element&gt;
+&lt;script&gt;
+window.addEventListener('WebComponentsReady', function(e) {
+  var element = document.querySelector('my-element');
+  // element.clientWidth/clientHeight won't be 0.
+});
+&lt;/script&gt;
+</code></pre>
+
+<h4 id="multipleextends">Can an element <code>extend</code> from more than one element or have multiple inheritance (e.g. <code>&lt;polymer-element name="my-element" extends="foo bar"&gt;</code>?</h4>
+
+<p>No. But Polymer may provide a syntax for mixins in the future.</p>
+
+<h4 id="accessContentDOM">How do I access the DOM in a <code>&lt;content&gt;</code>?</h4>
+
+<p>For a <code>&lt;content&gt;</code>, you can iterate through <code>content.getDistributedNodes()</code>
+to get the list of nodes distributed at the insertion point.</p>
+
+<p>Also remember that you can access the light DOM as the element&#8217;s normal children
+(i.e. <code>this.children</code>, or other accessors). The difference with this approach
+is that it&#8217;s the entire set of <em>potentially</em> distributed nodes; not those actually distributed.</p>
+
+<h4 id="constructorattr">Can I use the <code>constructor</code> attribute without polluting the global namespace?</h4>
+
+<p>By design, <code>constructor</code> puts the constructor&#8217;s name on <code>window</code>. If you don&#8217;t want
+this, there are two options:</p>
+
+<ol>
+  <li>Don&#8217;t use the <code>constructor</code> attribute. Use <code>document.createElement()</code> instead.</li>
+  <li>Use <code>document.register()</code> and wrap the constructor it returns in a namespace.</li>
+</ol>
+
+<hr />
+
+<p><em>Special thanks go to GitHub user md_5 who generously donated the Polymer organization name.</em></p>
+
+</div>
+
+      <hr>
+
+      <footer>
+        <div>
+          <div>&copy; 2013 Polymer Authors.<br>Code licensed under the <a href="https://github.com/polymer/polymer/blob/master/LICENSE" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</div>
+        </div>
+        <div id="logo-row">
+          <img src="/images/logos/webcomponents.png" alt="Web Components" title="Web Components">
+          <img src="/images/logos/html5logo.svg" alt="HTML5" title="HTML5">
+          <img src="/images/logos/js.jpg" alt="JavaScript" title="JavaScript">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/js/prettify/prettify.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39334307-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+function addPermalink(el) {
+  el.classList.add('has-permalink');
+  el.insertAdjacentHTML('beforeend',
+      '<a class="permalink" title="Permalink" href="#' + el.id + '">#</a>');
+}
+
+// Change "active" style on selected left-hand navigation menu item.
+$(document).ready(function () {
+  var path = location.pathname;
+  $('ul.nav > li > a[href="' + path + '"]').parent().addClass('active');
+
+  // Add permalinks to heading elements.
+  var permalinkEl = document.querySelector('.show-permalinks');
+  if (permalinkEl) {
+    ['h2','h3','h4'].forEach(function(h, i) {
+      [].forEach.call(permalinkEl.querySelectorAll(h), addPermalink);
+    });
+  }
+
+  // TODO: Use kramdown {:.prettyprint .linenums .lang-ruby} to add the
+  // <pre class="prettyprint"> instead of doing this client-side.
+  $('pre').addClass('prettyprint');
+  window.prettyPrint && prettyPrint();
+});
+</script>
+
+</body>
+</html>

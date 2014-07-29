@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta itemprop="name" content="Polymer - 运行时配置">
+<meta itemprop="description" content="Polymer is a new type of library for the web, built on top of Web Components, and designed to leverage the evolving web platform on modern browsers.">
+
+
+<meta itemprop="image" content="http://www.polymer-project.org/images/instacod.png">
+
+
+<title>
+  
+    运行时配置 - 
+   Polymer
+</title>
+<link rel="shortcut icon" href="/images/icons/loading_icon.png">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/prettify/sunburst.css" rel="stylesheet">
+<!-- <link href="/css/pygments/default.css" rel="stylesheet" type="text/css"> -->
+<link href="/css/site.css?20131025" rel="stylesheet">
+
+
+
+<script async>
+// Prevent usage of the appspot.com URL.
+try {
+  if (location.hostname.match('appspot.com') &&
+      location.search.substring(1).split('&').indexOf('force') == -1) {
+    window.location = location.protocol + '//www.polymer-project.org' + location.pathname;
+  }
+} catch(e) {
+  // noop
+}
+</script>
+
+
+
+
+<!--   
+  <script src="/polymer.min.js?20131025"></script>
+ -->
+  
+
+
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      </a>
+      <a class="brand" href="./">Polymer</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="icon github"><a href="https://github.com/polymer/polymer"><img src="/images/icons/github.png">View on Github</a></li>
+          <li class="icon bug"><a href="https://github.com/polymer/polymer/issues/new"><img src="/images/icons/bug.png">File a bug</a></li>
+          <li class="icon source"><a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md"><img src="/images/icons/source.png">Contribute</a></li>
+          <li class="icon talk"><a href="./discuss.html"><img src="/images/icons/talk.png">Discuss</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+  <div class="well well-small sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">入门指南</li>
+      <li><a href="/zh/getting-the-code.html">获取源码</a></li>
+      <li><a href="/zh/getting-started.html">入门指南</a></li>
+      <li><a href="/zh/runtime-config.html">运行时配置</a></li>
+      <li><a href="/articles/">相关文章</a></li>
+      
+      <li class="divider"></li>
+      <li class="nav-header elements">Elements</li>
+      <li><a href="/zh/docs/elements/">Polymer elements</a></li>
+      <li><a href="/zh/docs/elements/other.html">其他 elements</a></li>
+      <li class="nav-header core">核心运行库</li>
+      <li><a href="/zh/polymer.html">polymer.js</a></li>
+      <li class="nav-header foundation">平台化技术</li>
+      <li><a href="/platform/custom-elements.html">Custom Elements</a></li>
+      <li><a href="/platform/shadow-dom.html">Shadow DOM</a></li>
+      <li><a href="/platform/html-imports.html">HTML Imports</a></li>
+      <!-- <li class="disabled"><a href="#">Templates</a></li> -->
+      <li><a href="/platform/mdv.html">MDV</a></li>
+      <!-- <li><a href="/platform/mutation-observers.html" disabled>Mutation Observers</a></li> -->
+      <li><a href="/platform/pointer-events.html">Pointer Events</a></li>
+      <li><a href="/platform/web-animations.html">Web Animations</a></li>
+      <li class="divider"></li>
+      <li class="nav-header">更多资料</li>
+      <li><a href="/zh/tooling-strategy.html">工具和测试</a></li>
+      <li><a href="/zh/compatibility.html">浏览器兼容性</a></li>
+      <li><a href="/changelog.html">更新日志</a></li>
+      <li><a href="/zh/faq.html">常见问题</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="span8" id="content-container">
+
+      <span class="edit-on-github">
+  <a href="https://github.com/Polymer/docs/edit/master/zh/runtime-config.md">Edit on Github</a>
+</span>
+
+
+      
+      <div class="page-header">
+        <h1>运行时配置
+          
+        </h1>
+      </div>
+      
+
+      
+      
+
+      <div id="content" class="
+        
+           
+              show-permalinks 
+           
+        
+      "><h2 id="section">切换配置</h2>
+
+<p>Polymer 支持运行时配置,可在加载<code>platform.js</code>的<code>&lt;script&gt;</code>标签上作为属性一样设置, 或者通过URL传参.</p>
+
+<h3 id="section-1">调试</h3>
+
+<p>带条件的加载一个debug版的 <code>platform.js</code>.</p>
+
+<p><strong>例子</strong></p>
+
+<pre><code>&lt;script src="platform/platform.js" debug&gt;&lt;/script&gt;
+</code></pre>
+
+<p>或,等效于:</p>
+
+<pre><code>http://localhost/polymer/toolkit-ui/getting_started/?debug
+</code></pre>
+
+<p>默认是加载了(<code>platform.min.js</code>).使用 <code>debug</code> 会加载 <code>platform.debug.js</code>.</p>
+
+<h3 id="section-2">日志</h3>
+
+<p>控制控制台的日志输出.</p>
+
+<p><strong>例子</strong></p>
+
+<pre><code>&lt;script src="platform/platform.js" log="bind,ready"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>或,等效于:</p>
+
+<pre><code>http://localhost/polymer/toolkit-ui/getting_started/?log=bind,ready
+</code></pre>
+
+<p>可用值:</p>
+
+<table class="table">
+  <tr>
+    <th>值</th><th>描述</th>
+  </tr>
+  <tr>
+    <td>bind</td><td>数据绑定引擎执行的操作.</td>
+  </tr>
+  <tr>
+    <td>data</td><td>来自所绑定的数据运行时变换的结果</td>
+  </tr>
+  <tr>
+    <td>watch</td><td>数据变更通知</td>
+  </tr>
+  <tr>
+    <td>events</td><td>自定义绑定的事件和事件的传播</td>
+  </tr>
+  <tr>
+    <td>ready</td><td>Custom element 状态就绪时</td>
+  </tr>
+</table>
+
+<h3 id="shadow">shadow</h3>
+
+<p>选择Shadow DOM 的实现方式: <code>native</code> 给原生支持的浏览器 或者 <code>polyfill</code>
+给非原生支持的浏览器.</p>
+
+<p><strong>例子</strong></p>
+
+<pre><code>&lt;script src="platform/platform.js" debug shadow="polyfill"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>或,等效于:</p>
+
+<pre><code>http://localhost/polymer/toolkit-ui/getting_started/?debug&amp;shadow=polyfill
+</code></pre>
+
+<p>可用的属性值:</p>
+
+<table class="table">
+  <tr>
+    <th>值</th><th>描述</th>
+  </tr>
+  <tr>
+    <td>native</td><td>如果浏览器原生支持用原生实现. 默认为支持Shadow DOM的浏览器开启.</td>
+  </tr>
+  <tr>
+    <td>polyfill</td><td>强制加载 <code>platform.poly.min.js</code> 使用Shadow DOM polyfill. 默认为不原生支持 Shadow DOM 的浏览器开启.</td>
+  </tr>
+</table>
+
+<!--
+### eval
+
+当值为 `true` 时, 组件脚本将使用`eval`执行而不是script标签注入的方式. 默认为 `false`.
+
+例子:
+
+    <script src="platform/platform.js" eval="true"></script>
+
+  或
+
+    http://localhost/polymer/toolkit-ui/getting_started/?eval
+
+-->
+</div>
+
+      <hr>
+
+      <footer>
+        <div>
+          <div>&copy; 2013 Polymer Authors.<br>Code licensed under the <a href="https://github.com/polymer/polymer/blob/master/LICENSE" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</div>
+        </div>
+        <div id="logo-row">
+          <img src="/images/logos/webcomponents.png" alt="Web Components" title="Web Components">
+          <img src="/images/logos/html5logo.svg" alt="HTML5" title="HTML5">
+          <img src="/images/logos/js.jpg" alt="JavaScript" title="JavaScript">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/js/prettify/prettify.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39334307-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+function addPermalink(el) {
+  el.classList.add('has-permalink');
+  el.insertAdjacentHTML('beforeend',
+      '<a class="permalink" title="Permalink" href="#' + el.id + '">#</a>');
+}
+
+// Change "active" style on selected left-hand navigation menu item.
+$(document).ready(function () {
+  var path = location.pathname;
+  $('ul.nav > li > a[href="' + path + '"]').parent().addClass('active');
+
+  // Add permalinks to heading elements.
+  var permalinkEl = document.querySelector('.show-permalinks');
+  if (permalinkEl) {
+    ['h2','h3','h4'].forEach(function(h, i) {
+      [].forEach.call(permalinkEl.querySelectorAll(h), addPermalink);
+    });
+  }
+
+  // TODO: Use kramdown {:.prettyprint .linenums .lang-ruby} to add the
+  // <pre class="prettyprint"> instead of doing this client-side.
+  $('pre').addClass('prettyprint');
+  window.prettyPrint && prettyPrint();
+});
+</script>
+
+</body>
+</html>

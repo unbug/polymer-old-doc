@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta itemprop="name" content="Polymer - Toolkit-UI Elements">
+<meta itemprop="description" content="Polymer is a new type of library for the web, built on top of Web Components, and designed to leverage the evolving web platform on modern browsers.">
+
+
+<meta itemprop="image" content="http://www.polymer-project.org/images/instacod.png">
+
+
+<title>
+  
+    Toolkit-UI Elements - 
+   Polymer
+</title>
+<link rel="shortcut icon" href="/images/icons/loading_icon.png">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/prettify/sunburst.css" rel="stylesheet">
+<!-- <link href="/css/pygments/default.css" rel="stylesheet" type="text/css"> -->
+<link href="/css/site.css?20131025" rel="stylesheet">
+
+
+
+<script async>
+// Prevent usage of the appspot.com URL.
+try {
+  if (location.hostname.match('appspot.com') &&
+      location.search.substring(1).split('&').indexOf('force') == -1) {
+    window.location = location.protocol + '//www.polymer-project.org' + location.pathname;
+  }
+} catch(e) {
+  // noop
+}
+</script>
+
+
+
+
+<!--   
+  <script src="/polymer.min.js?20131025"></script>
+ -->
+  
+
+
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      </a>
+      <a class="brand" href="./">Polymer</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="icon github"><a href="https://github.com/polymer/polymer"><img src="/images/icons/github.png">View on Github</a></li>
+          <li class="icon bug"><a href="https://github.com/polymer/polymer/issues/new"><img src="/images/icons/bug.png">File a bug</a></li>
+          <li class="icon source"><a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md"><img src="/images/icons/source.png">Contribute</a></li>
+          <li class="icon talk"><a href="./discuss.html"><img src="/images/icons/talk.png">Discuss</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+  <div class="well well-small sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">入门指南</li>
+      <li><a href="/zh/getting-the-code.html">获取源码</a></li>
+      <li><a href="/zh/getting-started.html">入门指南</a></li>
+      <li><a href="/zh/runtime-config.html">运行时配置</a></li>
+      <li><a href="/articles/">相关文章</a></li>
+      
+      <li class="divider"></li>
+      <li class="nav-header elements">Elements</li>
+      <li><a href="/zh/docs/elements/">Polymer elements</a></li>
+      <li><a href="/zh/docs/elements/other.html">其他 elements</a></li>
+      <li class="nav-header core">核心运行库</li>
+      <li><a href="/zh/polymer.html">polymer.js</a></li>
+      <li class="nav-header foundation">平台化技术</li>
+      <li><a href="/platform/custom-elements.html">Custom Elements</a></li>
+      <li><a href="/platform/shadow-dom.html">Shadow DOM</a></li>
+      <li><a href="/platform/html-imports.html">HTML Imports</a></li>
+      <!-- <li class="disabled"><a href="#">Templates</a></li> -->
+      <li><a href="/platform/mdv.html">MDV</a></li>
+      <!-- <li><a href="/platform/mutation-observers.html" disabled>Mutation Observers</a></li> -->
+      <li><a href="/platform/pointer-events.html">Pointer Events</a></li>
+      <li><a href="/platform/web-animations.html">Web Animations</a></li>
+      <li class="divider"></li>
+      <li class="nav-header">更多资料</li>
+      <li><a href="/zh/tooling-strategy.html">工具和测试</a></li>
+      <li><a href="/zh/compatibility.html">浏览器兼容性</a></li>
+      <li><a href="/changelog.html">更新日志</a></li>
+      <li><a href="/zh/faq.html">常见问题</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="span8" id="content-container">
+
+      <span class="edit-on-github">
+  <a href="https://github.com/Polymer/docs/edit/master/zh/docs/elements/other.md">Edit on Github</a>
+</span>
+
+
+      
+      <div class="page-header">
+        <h1>Toolkit-UI Elements
+          
+        </h1>
+      </div>
+      
+
+      
+      
+
+      <div id="content" class="
+        
+           
+              show-permalinks 
+           
+        
+      "><p>传统和可能过时的UI体验.</p>
+
+<p><strong>代码库:</strong> <a href="https://github.com/Polymer/toolkit-ui">github.com/Polymer/toolkit-ui</a></p>
+
+<ul class="element-list">
+<li data-element-file="/polymer-all/toolkit-ui/elements/g-ajax.html">
+        <h3 id="g-ajax">&lt;g-ajax&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-ajax.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-ajax.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-app.html">
+        <h3 id="g-app">&lt;g-app&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-app.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-app.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-checkbox.html">
+        <h3 id="g-checkbox">&lt;g-checkbox&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-checkbox.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-checkbox.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-field.html">
+        <h3 id="g-field">&lt;g-field&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-field.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-field.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-form.html">
+        <h3 id="g-form">&lt;g-form&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-form.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-form.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-icon-button.html">
+        <h3 id="g-icon-button">&lt;g-icon-button&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-icon-button.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-icon-button.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-icon.html">
+        <h3 id="g-icon">&lt;g-icon&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-icon.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-icon.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-jsonp.html">
+        <h3 id="g-jsonp">&lt;g-jsonp&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-jsonp.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-jsonp.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-menu-button.html">
+        <h3 id="g-menu-button">&lt;g-menu-button&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-menu-button.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-menu-button.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-menu-item.html">
+        <h3 id="g-menu-item">&lt;g-menu-item&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-menu-item.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-menu-item.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-menu.html">
+        <h3 id="g-menu">&lt;g-menu&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-menu.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-menu.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-overlay-webanimations.html">
+        <h3 id="g-overlay-webanimations">&lt;g-overlay-webanimations&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-overlay-webanimations.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-overlay-webanimations.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-overlay.html">
+        <h3 id="g-overlay">&lt;g-overlay&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-overlay.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-overlay.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-panels.html">
+        <h3 id="g-panels">&lt;g-panels&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-panels.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-panels.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-progress.html">
+        <h3 id="g-progress">&lt;g-progress&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-progress.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-progress.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-radio.html">
+        <h3 id="g-radio">&lt;g-radio&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-radio.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-radio.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-ratings.html">
+        <h3 id="g-ratings">&lt;g-ratings&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-ratings.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-ratings.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-ribbon.html">
+        <h3 id="g-ribbon">&lt;g-ribbon&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-ribbon.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-ribbon.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-select.html">
+        <h3 id="g-select">&lt;g-select&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-select.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-select.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-selection.html">
+        <h3 id="g-selection">&lt;g-selection&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-selection.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-selection.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-selector.html">
+        <h3 id="g-selector">&lt;g-selector&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-selector.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-selector.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-sidebar.html">
+        <h3 id="g-sidebar">&lt;g-sidebar&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-sidebar.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-sidebar.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-tabpanels.html">
+        <h3 id="g-tabpanels">&lt;g-tabpanels&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-tabpanels.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-tabpanels.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-tabs.html">
+        <h3 id="g-tabs">&lt;g-tabs&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-tabs.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-tabs.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-togglebutton.html">
+        <h3 id="g-togglebutton">&lt;g-togglebutton&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-togglebutton.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-togglebutton.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-toolbar.html">
+        <h3 id="g-toolbar">&lt;g-toolbar&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-toolbar.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-toolbar.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li><li data-element-file="/polymer-all/toolkit-ui/elements/g-xhr.html">
+        <h3 id="g-xhr">&lt;g-xhr&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/toolkit-ui/blob/master/elements/g-xhr.html" target="_blank">source</a>
+          <a href="/polymer-all/toolkit-ui/elements/g-xhr.html/index.html" target="_blank" disabled="">demo</a>
+          <div hidden=""></div>
+        </span>
+      </li>
+</ul>
+
+<hr />
+
+<h2 id="elements">更多 Elements</h2>
+
+<p>第三方额外的组件和封装.</p>
+
+<p><strong>代码库:</strong> <a href="https://github.com/Polymer/more-elements">github.com/Polymer/more-elements</a></p>
+
+<!-- <ul class="element-list">
+<li data-element-file="/polymer-all/more-elements/Ace//Ace.html">
+        <h3 id="Ace">&lt;Ace&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/Ace/Ace.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/Ace//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/Animation/">
+        <h3 id="Animation">&lt;Animation&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/Animation/Animation.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/Animation//index.html" target="_blank" disabled>demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/Bootstrap/">
+        <h3 id="Bootstrap">&lt;Bootstrap&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/Bootstrap/Bootstrap.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/Bootstrap//index.html" target="_blank" disabled>demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/BuildBot/">
+        <h3 id="BuildBot">&lt;BuildBot&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/BuildBot/BuildBot.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/BuildBot//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/Chart.js/">
+        <h3 id="Chart.js">&lt;Chart.js&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/Chart.js/Chart.js.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/Chart.js//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/CoolClock//CoolClock.html">
+        <h3 id="CoolClock">&lt;CoolClock&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/CoolClock/CoolClock.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/CoolClock//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/humane-js//humane-js.html">
+        <h3 id="humane-js">&lt;humane-js&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/humane-js/humane-js.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/humane-js//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/js-beautify//js-beautify.html">
+        <h3 id="js-beautify">&lt;js-beautify&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/js-beautify/js-beautify.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/js-beautify//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/Kratu/">
+        <h3 id="Kratu">&lt;Kratu&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/Kratu/Kratu.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/Kratu//index.html" target="_blank" disabled>demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/marked/">
+        <h3 id="marked">&lt;marked&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/marked/marked.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/marked//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/pdf.js/">
+        <h3 id="pdf.js">&lt;pdf.js&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/pdf.js/pdf.js.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/pdf.js//index.html" target="_blank" disabled>demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/pixi.js/">
+        <h3 id="pixi.js">&lt;pixi.js&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/pixi.js/pixi.js.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/pixi.js//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/polymer-more/">
+        <h3 id="polymer-more">&lt;polymer-more&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/polymer-more/polymer-more.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/polymer-more//index.html" target="_blank" disabled>demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/Raphael.js/">
+        <h3 id="Raphael.js">&lt;Raphael.js&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/Raphael.js/Raphael.js.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/Raphael.js//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/smoothie-charts/">
+        <h3 id="smoothie-charts">&lt;smoothie-charts&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/smoothie-charts/smoothie-charts.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/smoothie-charts//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/Speech/">
+        <h3 id="Speech">&lt;Speech&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/Speech/Speech.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/Speech//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/Stock//Stock.html">
+        <h3 id="Stock">&lt;Stock&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/Stock/Stock.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/Stock//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/topcoat//topcoat.html">
+        <h3 id="topcoat">&lt;topcoat&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/topcoat/topcoat.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/topcoat//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/typeahead/">
+        <h3 id="typeahead">&lt;typeahead&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/typeahead/typeahead.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/typeahead//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/Weather/">
+        <h3 id="Weather">&lt;Weather&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/Weather/Weather.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/Weather//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/x-tags//x-tags.html">
+        <h3 id="x-tags">&lt;x-tags&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/x-tags/x-tags.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/x-tags//index.html" target="_blank" disabled>demo</a>
+          <div hidden></div>
+        </span>
+      </li><li data-element-file="/polymer-all/more-elements/Youtube/">
+        <h3 id="Youtube">&lt;Youtube&gt;</h3>
+        <span class="links">
+          <a href="https://github.com/Polymer/more-elements/blob/stable/Youtube/Youtube.html" target="_blank">source</a>
+          <a href="/polymer-all/more-elements/Youtube//index.html" target="_blank" >demo</a>
+          <div hidden></div>
+        </span>
+      </li>
+</ul> -->
+</div>
+
+      <hr>
+
+      <footer>
+        <div>
+          <div>&copy; 2013 Polymer Authors.<br>Code licensed under the <a href="https://github.com/polymer/polymer/blob/master/LICENSE" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</div>
+        </div>
+        <div id="logo-row">
+          <img src="/images/logos/webcomponents.png" alt="Web Components" title="Web Components">
+          <img src="/images/logos/html5logo.svg" alt="HTML5" title="HTML5">
+          <img src="/images/logos/js.jpg" alt="JavaScript" title="JavaScript">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/js/prettify/prettify.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39334307-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+function addPermalink(el) {
+  el.classList.add('has-permalink');
+  el.insertAdjacentHTML('beforeend',
+      '<a class="permalink" title="Permalink" href="#' + el.id + '">#</a>');
+}
+
+// Change "active" style on selected left-hand navigation menu item.
+$(document).ready(function () {
+  var path = location.pathname;
+  $('ul.nav > li > a[href="' + path + '"]').parent().addClass('active');
+
+  // Add permalinks to heading elements.
+  var permalinkEl = document.querySelector('.show-permalinks');
+  if (permalinkEl) {
+    ['h2','h3','h4'].forEach(function(h, i) {
+      [].forEach.call(permalinkEl.querySelectorAll(h), addPermalink);
+    });
+  }
+
+  // TODO: Use kramdown {:.prettyprint .linenums .lang-ruby} to add the
+  // <pre class="prettyprint"> instead of doing this client-side.
+  $('pre').addClass('prettyprint');
+  window.prettyPrint && prettyPrint();
+});
+</script>
+
+</body>
+</html>

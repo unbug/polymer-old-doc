@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta itemprop="name" content="Polymer - Shadow DOM">
+<meta itemprop="description" content="Polymer is a new type of library for the web, built on top of Web Components, and designed to leverage the evolving web platform on modern browsers.">
+
+
+<meta itemprop="image" content="http://www.polymer-project.org/images/instacod.png">
+
+
+<title>
+  
+    Shadow DOM - 
+   Polymer
+</title>
+<link rel="shortcut icon" href="/images/icons/loading_icon.png">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/prettify/sunburst.css" rel="stylesheet">
+<!-- <link href="/css/pygments/default.css" rel="stylesheet" type="text/css"> -->
+<link href="/css/site.css?20131025" rel="stylesheet">
+
+
+
+<script async>
+// Prevent usage of the appspot.com URL.
+try {
+  if (location.hostname.match('appspot.com') &&
+      location.search.substring(1).split('&').indexOf('force') == -1) {
+    window.location = location.protocol + '//www.polymer-project.org' + location.pathname;
+  }
+} catch(e) {
+  // noop
+}
+</script>
+
+
+
+
+<!--   
+  <script src="/polymer.min.js?20131025"></script>
+ -->
+  
+
+
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      </a>
+      <a class="brand" href="/">Polymer</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="icon github"><a href="https://github.com/polymer/polymer"><img src="/images/icons/github.png">View on Github</a></li>
+          <li class="icon bug"><a href="https://github.com/polymer/polymer/issues/new"><img src="/images/icons/bug.png">File a bug</a></li>
+          <li class="icon source"><a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md"><img src="/images/icons/source.png">Contribute</a></li>
+          <li class="icon talk"><a href="/discuss.html"><img src="/images/icons/talk.png">Discuss</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+  <div class="well well-small sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">Getting Started</li>
+      <li><a href="/getting-the-code.html">Get the code</a></li>
+      <li><a href="/getting-started.html">Getting started</a></li>
+      <li><a href="/runtime-config.html">Runtime configuration</a></li>
+      <li><a href="/articles/">Articles</a></li>
+      
+      <li class="divider"></li>
+      <li class="nav-header elements">Elements</li>
+      <li><a href="/docs/elements/">Polymer elements</a></li>
+      <li><a href="/docs/elements/other.html">Other elements</a></li>
+      <li class="nav-header core">Core runtime</li>
+      <li><a href="/polymer.html">polymer.js</a></li>
+      <li class="nav-header foundation">Platform technologies</li>
+      <li><a href="/platform/custom-elements.html">Custom Elements</a></li>
+      <li><a href="/platform/shadow-dom.html">Shadow DOM</a></li>
+      <li><a href="/platform/html-imports.html">HTML Imports</a></li>
+      <!-- <li class="disabled"><a href="#">Templates</a></li> -->
+      <li><a href="/platform/mdv.html">MDV</a></li>
+      <!-- <li><a href="/platform/mutation-observers.html" disabled>Mutation Observers</a></li> -->
+      <li><a href="/platform/pointer-events.html">Pointer Events</a></li>
+      <li><a href="/platform/web-animations.html">Web Animations</a></li>
+      <li class="divider"></li>
+      <li class="nav-header">More information</li>
+      <li><a href="/tooling-strategy.html">Tools &amp; Testing</a></li>
+      <li><a href="/compatibility.html">Browser Compatibility</a></li>
+      <li><a href="/changelog.html">Changelog</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="span8" id="content-container">
+
+      <span class="edit-on-github">
+  <a href="https://github.com/Polymer/docs/edit/master/platform/shadow-dom.md">Edit on Github</a>
+</span>
+
+
+      
+      <div class="page-header">
+        <h1>Shadow DOM
+          
+            <small>polyfill</small>
+          
+        </h1>
+      </div>
+      
+
+      
+      
+
+      <div id="content" class="
+        
+           
+              show-permalinks 
+           
+        
+      "><dl class="dl-horizontal">
+  <dt>Implementation status</dt>
+  <dd><span class="label label-success">functional</span></dd>
+  <dt>Repository</dt>
+  <dd><a href="https://github.com/polymer/ShadowDOM">github.com/polymer/ShadowDOM</a></dd>
+  
+  <dt>W3C Specification</dt>
+  <dd><a href="https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html">dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html</a></dd>
+  
+</dl>
+
+<hr />
+
+<blockquote>
+  <p>Shadow DOM is designed to provide encapsulation by hiding DOM subtrees under shadow roots. It provides a method of establishing and maintaining functional boundaries between DOM trees and how these trees interact with each other within a document, thus enabling better functional encapsulation within the DOM.</p>
+</blockquote>
+
+<h4 id="before-you-begin">Before you begin</h4>
+
+<p>Some useful resources:</p>
+
+<ul>
+  <li>
+    <p><a href="http://glazkov.com/2011/01/14/what-the-heck-is-shadow-dom/">What the Heck is Shadow DOM?</a></p>
+  </li>
+  <li>
+    <p><a href="https://dvcs.w3.org/hg/webcomponents/raw-file/57f8cfc4a7dc/explainer/index.html#shadow-dom-section">Web Components Explained - Shadow DOM</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.html5rocks.com/tutorials/webcomponents/shadowdom/">HTML5Rocks - Shadow DOM 101</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.html5rocks.com/tutorials/webcomponents/shadowdom-201/">HTML5Rocks - Shadow DOM 201: CSS and Styling</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.html5rocks.com/tutorials/webcomponents/shadowdom-301/">HTML5Rocks - Shadow DOM 301: Advanced Concepts &amp; DOM APIs</a></p>
+  </li>
+</ul>
+
+<h2 id="learn-the-tech">Learn the tech</h2>
+
+<h3 id="basic-usage">Basic usage</h3>
+
+<pre><code>var el = document.createElement('div');
+var shadow = el.createShadowRoot();
+shadow.innerHTML = '&lt;content select="h1"&gt;&lt;/content&gt;';
+</code></pre>
+
+<h3 id="shadow-dom-subtrees">Shadow DOM subtrees</h3>
+
+<p>Shadow DOM allows a single node to express three subtrees: <em>light DOM</em>, <em>shadow DOM</em>, and <em>composed DOM</em>.</p>
+
+<p>A component user supplies the light DOM; the node has a (hidden) shadow DOM; and the composed DOM is what is actually rendered in the browser. At render time, the light DOM is merged with the shadow DOM to produce the composed DOM. For example:</p>
+
+<p><strong>Light DOM</strong></p>
+
+<pre><code>&lt;my-custom-element&gt;
+  &lt;!-- everything in here is my-custom-element's light DOM --&gt;
+  &lt;q&gt;Hello World&lt;/q&gt;
+&lt;/my-custom-element&gt;
+</code></pre>
+
+<p><strong>Shadow DOM</strong></p>
+
+<pre><code>&lt;!-- shadow-root is attached to my-custom-element, but is not a child --&gt;
+&lt;shadow-root&gt;
+  &lt;!-- everything in here is my-custom-element's shadow DOM --&gt;
+  &lt;span&gt;People say: &lt;content&gt;&lt;/content&gt;&lt;/span&gt;
+&lt;/shadow-root&gt;
+</code></pre>
+
+<p><strong>Composed (rendered) DOM</strong></p>
+
+<pre><code>&lt;!-- rendered DOM --&gt;
+&lt;my-custom-element&gt;
+  &lt;span&gt;People say: &lt;q&gt;Hello World&lt;/q&gt;&lt;/span&gt;
+&lt;/my-custom-element&gt;
+</code></pre>
+
+<p>The following is true about this example:</p>
+
+<ul>
+  <li>The light DOM that belongs to <code>&lt;my-custom-element&gt;</code> is visible to the user as its normal subtree. It can expressed by <code>.childNodes</code>, <code>.children</code>, <code>.innerHTML</code> or any other property or method that gives you information about a node&#8217;s subtree.</li>
+  <li>Nodes in light DOM or shadow DOM express parent and sibling relationships that match their respective tree structures; the relationships that exist in the rendered tree are not expressed anywhere in DOM.</li>
+</ul>
+
+<p>So, while in the final rendered tree <code>&lt;span&gt;</code> is a child of <code>&lt;my-custom-element&gt;</code> and the parent of <code>&lt;q&gt;</code>, interrogating those nodes will tell you that the <code>&lt;span&gt;</code> is a child of <code>&lt;shadow-root&gt;</code> and <code>&lt;q&gt;</code> is a child of <code>&lt;my-custom-element&gt;</code>, and that those two nodes are unrelated.</p>
+
+<p>In this way, the user can manipulate light DOM or shadow DOM directly as regular DOM subtrees, and let the system take care of keeping the render tree synchronized.</p>
+
+<h2 id="polyfill-details">Polyfill details</h2>
+
+<p>A polyfill to provide Shadow DOM functionality in browsers that don&#8217;t
+support it natively. This section explains how a proper (native) implementation
+differs from our polyfill implementation.</p>
+
+<h3 id="logical-dom">Logical DOM</h3>
+
+<p>The light DOM and the shadow DOM is referred to as the logical DOM. This is the DOM that the developer interacts with. The composed DOM is what the browser sees and uses to render the pixels on the screen.</p>
+
+<h3 id="wrappers">Wrappers</h3>
+
+<p>The polyfill is implemented using <em>wrappers</em>. A wrapper wraps the native DOM node in a wrapper node. The wrapper node looks and behaves identical to the native node (minus bugs and known limitations). For example:</p>
+
+<pre><code>var div = document.createElement('div');
+div.innerHTML = '&lt;b&gt;Hello world&lt;/b&gt;';
+assert(div.firstChild instanceof HTMLElement);
+</code></pre>
+
+<p>But <code>div</code> is actually a wrapper of the element that the browser normally gives you. This wrapper just happen to have the same interface as the browser provided element.</p>
+
+<p>It has an <code>innerHTML</code> setter that works just like the native <code>innerHTML</code> but it instead of working on the composed tree it works on the local DOM. When you change the logical DOM tree like this it might cause the composed tree to need to be re-rendered. This does not happen immediately, but it is scheduled to happen later as needed.</p>
+
+<p>The wrapper node also have a <code>firstChild</code> getter which once again works on the logical DOM.</p>
+
+<p><code>instanceof</code> still works because we have replaced the global <code>HTMLElement</code> constructor with our custom one.</p>
+
+<h4 id="more-logical-dom">More Logical DOM</h4>
+
+<p>The <code>wrappers.Node</code> object keeps track of the logical (light as well as shadow, but not composed) DOM. Internally it has has the 5 fundamental Node pointers, <code>parentNode</code>, <code>firstChild</code>, <code>lastChild</code>, <code>nextSibling</code> and <code>previousSibling</code>. When the DOM tree is manipulated these pointers are updated to always represent the logical tree. When the shadow DOM renderer needs to render the visual tree, these internal pointers are updated as needed.</p>
+
+<h4 id="wrap-all-the-objects">Wrap all the objects!</h4>
+
+<p>The intent is to wrap all the DOM objects that interact with the DOM tree. For this polyfill to be completely transparent we need to wrap a lot of APIs. Any method, accessor or constructor that takes or returns a Node or an object that indirectly touches a node needs to be wrapped. As you can imagine there are a lot of these. At the moment we have done the most common ones but there are sure to be missing ones as soon as you try to use this with your code.</p>
+
+<h3 id="wrap-and-unwrap"><code>wrap</code> and <code>unwrap</code></h3>
+
+<p>There are bound to be cases where we haven&#8217;t done the wrapping for you. In those cases you can use <code>wrap</code> to create a wrapper of a native object, or <code>unwrap</code> to get the underlying native object from a wrapper. These two functions are available on the <code>ShadowDOMPolyfill</code> object.</p>
+
+<h4 id="event-retargetting">Event Retargetting</h4>
+
+<p>An important aspect of the shadow DOM is that events are retargetted to never expose the shadow DOM to the light DOM. For example.</p>
+
+<pre><code>var div = document.createElement('div');
+div.innerHTML = 'Click me';
+var shadow = div.createShadowRoot();
+shadow.innerHTML = '&lt;b&gt;&lt;content&gt;&lt;/content&gt;&lt;/b&gt;';
+</code></pre>
+
+<p>If the user clicks on the <code>div</code> the real <code>target</code> of the click event is the <code>&lt;b&gt;</code> element. But that element is not visible in the light DOM so the target is therefore retargetted to the <code>div</code> element itself. However, if there is an event listener on the <code>&lt;content&gt;</code>, <code>&lt;b&gt;</code> or the shadow root, the target should be visible to the event listener.</p>
+
+<p>Similar issues occur with <code>relatedTarget</code> in <code>mouseover</code> and <code>mouseout</code> events.</p>
+
+<p>To support this kind of behavior the event dispatching in the browser has to be reimplemented by the polyfill.</p>
+
+<h4 id="known-issues">Known issues</h4>
+
+<ul>
+  <li>CSS encapsulation is not implemented.</li>
+  <li><code>Object.prototype.toString</code> does not return the same string as for native objects.</li>
+  <li>No live <code>NodeList</code>s. All node lists are snapshotted upon read.</li>
+  <li><code>document</code>, <code>window</code>, <code>document.body</code>, <code>document.head</code> and others are non configurable and cannot be overridden. We are trying to make these work as seamlessly as possible but there will doubtlessly be cases where there will be problems; for those cases you can use <code>wrap</code> and <code>unwrap</code> to get unblocked.</li>
+  <li><code>onclick</code> and other <code>on*</code> attribute event handler do not wrap the event object as needed.</li>
+  <li>Cross window/frame access is not implemented.</li>
+</ul>
+
+</div>
+
+      <hr>
+
+      <footer>
+        <div>
+          <div>&copy; 2013 Polymer Authors.<br>Code licensed under the <a href="https://github.com/polymer/polymer/blob/master/LICENSE" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</div>
+        </div>
+        <div id="logo-row">
+          <img src="/images/logos/webcomponents.png" alt="Web Components" title="Web Components">
+          <img src="/images/logos/html5logo.svg" alt="HTML5" title="HTML5">
+          <img src="/images/logos/js.jpg" alt="JavaScript" title="JavaScript">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/js/prettify/prettify.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39334307-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+function addPermalink(el) {
+  el.classList.add('has-permalink');
+  el.insertAdjacentHTML('beforeend',
+      '<a class="permalink" title="Permalink" href="#' + el.id + '">#</a>');
+}
+
+// Change "active" style on selected left-hand navigation menu item.
+$(document).ready(function () {
+  var path = location.pathname;
+  $('ul.nav > li > a[href="' + path + '"]').parent().addClass('active');
+
+  // Add permalinks to heading elements.
+  var permalinkEl = document.querySelector('.show-permalinks');
+  if (permalinkEl) {
+    ['h2','h3','h4'].forEach(function(h, i) {
+      [].forEach.call(permalinkEl.querySelectorAll(h), addPermalink);
+    });
+  }
+
+  // TODO: Use kramdown {:.prettyprint .linenums .lang-ruby} to add the
+  // <pre class="prettyprint"> instead of doing this client-side.
+  $('pre').addClass('prettyprint');
+  window.prettyPrint && prettyPrint();
+});
+</script>
+
+</body>
+</html>

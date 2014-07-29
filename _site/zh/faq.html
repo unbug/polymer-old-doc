@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta itemprop="name" content="Polymer - 常见问题">
+<meta itemprop="description" content="Polymer is a new type of library for the web, built on top of Web Components, and designed to leverage the evolving web platform on modern browsers.">
+
+
+<meta itemprop="image" content="http://www.polymer-project.org/images/instacod.png">
+
+
+<title>
+  
+    常见问题 - 
+   Polymer
+</title>
+<link rel="shortcut icon" href="/images/icons/loading_icon.png">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/prettify/sunburst.css" rel="stylesheet">
+<!-- <link href="/css/pygments/default.css" rel="stylesheet" type="text/css"> -->
+<link href="/css/site.css?20131025" rel="stylesheet">
+
+
+
+<script async>
+// Prevent usage of the appspot.com URL.
+try {
+  if (location.hostname.match('appspot.com') &&
+      location.search.substring(1).split('&').indexOf('force') == -1) {
+    window.location = location.protocol + '//www.polymer-project.org' + location.pathname;
+  }
+} catch(e) {
+  // noop
+}
+</script>
+
+
+
+
+<!--   
+  <script src="/polymer.min.js?20131025"></script>
+ -->
+  
+
+
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      </a>
+      <a class="brand" href="./">Polymer</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="icon github"><a href="https://github.com/polymer/polymer"><img src="/images/icons/github.png">View on Github</a></li>
+          <li class="icon bug"><a href="https://github.com/polymer/polymer/issues/new"><img src="/images/icons/bug.png">File a bug</a></li>
+          <li class="icon source"><a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md"><img src="/images/icons/source.png">Contribute</a></li>
+          <li class="icon talk"><a href="./discuss.html"><img src="/images/icons/talk.png">Discuss</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+  <div class="well well-small sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">入门指南</li>
+      <li><a href="/zh/getting-the-code.html">获取源码</a></li>
+      <li><a href="/zh/getting-started.html">入门指南</a></li>
+      <li><a href="/zh/runtime-config.html">运行时配置</a></li>
+      <li><a href="/articles/">相关文章</a></li>
+      
+      <li class="divider"></li>
+      <li class="nav-header elements">Elements</li>
+      <li><a href="/zh/docs/elements/">Polymer elements</a></li>
+      <li><a href="/zh/docs/elements/other.html">其他 elements</a></li>
+      <li class="nav-header core">核心运行库</li>
+      <li><a href="/zh/polymer.html">polymer.js</a></li>
+      <li class="nav-header foundation">平台化技术</li>
+      <li><a href="/platform/custom-elements.html">Custom Elements</a></li>
+      <li><a href="/platform/shadow-dom.html">Shadow DOM</a></li>
+      <li><a href="/platform/html-imports.html">HTML Imports</a></li>
+      <!-- <li class="disabled"><a href="#">Templates</a></li> -->
+      <li><a href="/platform/mdv.html">MDV</a></li>
+      <!-- <li><a href="/platform/mutation-observers.html" disabled>Mutation Observers</a></li> -->
+      <li><a href="/platform/pointer-events.html">Pointer Events</a></li>
+      <li><a href="/platform/web-animations.html">Web Animations</a></li>
+      <li class="divider"></li>
+      <li class="nav-header">更多资料</li>
+      <li><a href="/zh/tooling-strategy.html">工具和测试</a></li>
+      <li><a href="/zh/compatibility.html">浏览器兼容性</a></li>
+      <li><a href="/changelog.html">更新日志</a></li>
+      <li><a href="/zh/faq.html">常见问题</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div class="span8" id="content-container">
+
+      <span class="edit-on-github">
+  <a href="https://github.com/Polymer/docs/edit/master/zh/faq.md">Edit on Github</a>
+</span>
+
+
+      
+      <div class="page-header">
+        <h1>常见问题
+          
+        </h1>
+      </div>
+      
+
+      
+      
+
+      <div id="content" class="
+        
+           
+              show-permalinks 
+           
+        
+      "><p class="alert alert-error">
+<b>感谢您的关注!</b> Polymer 正处于 <em>pre-alpha</em> 阶段应用到实际项目中需要魄力.
+
+
+本项目的更多信息请参考本页.
+
+</p>
+
+<p><em>没找到你问题的答案? 请到<a href="/discuss.html">邮件清单</a>提问!</em></p>
+
+<h2 id="polymer">Polymer</h2>
+
+<h4 id="why">为什么我要关注这个项目?</h4>
+
+<p>Polymer 是一个全新的Web库, 主打现代Web平台, 非常有助于基于Web组件来构建Web应用.</p>
+
+<p>与之前的其他框架不同的是,  Polymer 通过鼓励尽可能多的用上<a href="/platform/custom-elements.html">custom element</a> 来以最大限度的拥抱HTML. 其中包含一小部分针对这些新兴Web标准(Custom Elements,  Shadow DOM,  etc.)的独立polyfill会随着时间的推移,  逐渐减少直至浏览器提供商把原生API完全实现而消失.</p>
+
+<p>Polymer 虽还处于它的萌芽期,  但我们已为它的潜力而且激动不已! </p>
+
+<h4 id="uicomponents">这些将彻底改变整个互联网还能解决我所有的烦恼的魔法般灵光的组件都在哪?</h4>
+
+<p>这目前只是我们共识到一个闪光点, 但我们已经打下了稳固和科学的基础, 并且我们正为此疯狂的工作直至将我们的雄心壮志变成现实, 敬请期待吧!</p>
+
+<h4 id="readiness">那, 这些组件都还没有.是否其他Polymer的作品都完善了?</h4>
+
+<p>我们可没这么想, 但如果你甘当小白鼠你可要试试.都跑跑demo, 耍耍toolkit.最重要的是, 要多加入邮件清单给我们反馈!</p>
+
+<h4 id="dislike">我不喜欢你们的{组件 | toolkit语法 | 外观}!</h4>
+
+<!-- 
+<figure id="architecture-diagram" style="float:right">
+  <iframe src="/images/architecture-diagram.svg?20131025" style="width:150px;"></iframe>
+  <figcaption>Architectural Diagram</figcaption>
+</figure> -->
+
+<p>没关系.我们已将Polymer设计得层次很简洁分明所以你可以仅使用你看得上的部分. 你可以使用我们提供的全部, 单个polyfill,  或者两者之间的任意部分.全由你作主.
+<!-- {: style="clear:both"} --></p>
+
+<h4 id="sandbox">如果我想使用Polymer我必须得使用Sandbox工具吗?</h4>
+
+<p>不, Sandbox只是一个能使你玩起组件来更加容易且对 Polymer更加有感觉的demo.它不会试图变成任何形式的开发工具的. </p>
+
+<h4 id="browsersupport">Polymer 都支持哪些浏览器?</h4>
+
+<p>Polymer 目标是支持 <a href="http://www.yetihq.com/blog/evergreen-web-browser/">evergreen browsers</a>. 毕竟, 我们是在模拟未来, 正如某人所说,  &#8220;如果你总盯着后视镜那你前方肯定有麻烦了&#8221;. 在实践过程中, 这意味着我们支持以下浏览器的最新版, Chrome,  Safari,  Internet Explorer,  和 Firefox. 注意, 这是比其他框架所支持的浏览器还要少一些的.例如,  Polymer 只支持IE10+. Polymer 有些部分如果不过多考虑扩展性可能会支持更多浏览器&#8211;如果发现未支持的浏览器上有bug, 请报给我们.绝大多数东西无需过多工作也能支持IE9;哪部分有bug请随意报上来.IE8由于其对DOM支持不足因此没法兼容. </p>
+
+<p>更多资料请参考我们的 <a href="compatibility.html">浏览器兼容性</a>.</p>
+
+<h4 id="nativesupport">其他浏览器什么时候能原生支持这些API?</h4>
+
+<p>我们的<a href="/images/architecture-diagram.svg">架构图</a>里基础层是基于最新的Web标准的.任何层的需求度会随着浏览器原生支持度的增加而逐渐减少直至最终消失.很难说什么时候每个浏览器都原生支持这些特性, 但开发者的呼声越高被支持就越快. </p>
+
+<h4 id="onmobile">移动这块你们是什么打算?</h4>
+
+<p>我们的核心目标之一就是让Polymer在移动设备的支持上得到一等公民般的待遇.例如, 目前Polymer的绝大部分支持Chrome for Android 和 Mobile Safari.我们也在研究响应式的组件能在桌面浏览器, 平板和手机上自适应.</p>
+
+<h4 id="xtags">为什么与x-tags扯上关系?</h4>
+
+<p><a href="http://x-tags.org/">x-tags</a> 是Mozilla正在开发的一个很酷的项目,  它也不直接隶属于Polymer. 不过, Polymer 和 x-tags 两者者基于最新的Custom Elements标准, 这意味着两者的组件默认即是相互兼容的.Google 和 Mozilla 都为Custom Element 规范提供polyfill. X-Tag两者都支持, 因此你能在Polymer 的组件上沿用X-Tag.我们正积极的为它们和组件集合的最大兼容性而作努力.</p>
+
+<h4 id="uiframeworks">Polymer 与Twitter的 Bootstrap 或者 Adobe的 Topcoat究竟区别在哪?</h4>
+
+<p>Bootstrap 和 Topcoat 都是很强大的 CSS/UI 库. 我们对Polymer的定位不同. 我们最终打算为惊艳四座的UI 组件构建一系列的标准, Polymer是完全系统而整体的, 有助于有兴趣的开发者基于Web 组件技术打造Web 应用. Polymer也提供支持扩展的更多API(<a href="/platform/mdv.html">MDV</a>,  templates,  and data-binding) 以满足当今的Web应用.</p>
+
+<h4 id="toolkitchen">不对, 以前的Toolkitchen呢?</h4>
+
+<p>Toolkitchen是我们给这个项目取的第一个名称. 我们对它无爱了, 这就更名为了Polymer.</p>
+
+<h4 id="google">Google与这个项目是个什么关系?</h4>
+
+<p>我们仅是认为Web 组件是出类拔萃的几个家伙&#8211;我们大部分人在Google工作.我们对社区如此活跃的参与感到激动不已也早有准备, 非常期待你也加入!</p>
+
+<h4 id="frameworks">{Angular JS | Closure | Google Web Toolkit}与这个项目有关联吗?</h4>
+
+<p>都没有.</p>
+
+<h4 id="dart">polymer.dart为何被Polymer扯上了?</h4>
+
+<p>polymer.dart 是Dart团队为 Polymer 创建而维护的一部分.Dart团队正在与Polymer团队合作确保polymer.dart组件和polyfill都完全与Polymer兼容. </p>
+
+<h4 id="xhrrequests">我看到一堆XHR连接请求.干嘛用的?</h4>
+
+<p>polyfill目前所受到的一个限制是Polymer带耦合性的通过XHR模拟HTML Import. 我们正在测试改进打包系统和生成步骤来减少网络请求.当此API被浏览器原生支持, 一切还会照常工作的. 资源将会被正常的加载, 也会得益于并行加载和缓存策略等. </p>
+
+<h4 id="performancestuff">性能不是很理想, 你们都不关心吗?</h4>
+
+<p>我们真心的想使整个Web平台都得到60fps的流畅度.这么说吧,  我们还没有按基准对所有polyfill进行过测试&#8211;毕竟, 我们还处于初级阶段! 如果你有兴趣帮助我们进行统计,  <a href="/discuss.html">请随时告诉我们</a>.</p>
+
+<p>别忘了我们的库是会随着时间而流逝的! Polymer也会随着浏览器逐渐的以原生实现而变得好,  更强, 更快.</p>
+
+<h4 id="csp">Polymer在内容安全策略(Content Security Policy, CSP)下还能用吗?</h4>
+
+<p>在某些情况下,  Polymer毫无疑问在<a href="http://www.html5rocks.com/tutorials/security/content-security-policy/">CSP</a>下是废掉的.这是因为<a href="/platform/html-imports.html">HTML Imports</a>这个polyfill是通过 XHR 来实现的. HTML Import的原生支持是必需的(参看 Blink的 <a href="http://crbug.com/240592">crbug.com/240592</a>).这此之前, 我们会优先考虑软件解决的方案.</p>
+
+<h4 id="contributing">我怎样才能参与贡献?</h4>
+
+<p>我们很乐意听到你的评论和建议. <a href="https://github.com/polymer/polymer/issues/new">报bug</a> 或者转到<a href="discuss.html">邮件清单</a> 打声招呼&#8221;hi&#8221;&#8211;我们不会咬你的! 如果你想
+贡献代码, 参看<a href="https://github.com/polymer/polymer/blob/master/CONTRIBUTING.md">贡献者的指南</a>.</p>
+
+<h4 id="filebugs">哪里才是报bug的最佳地方?</h4>
+
+<p>我们有很多不同的demo, 平台, 类库的仓库. 如果你明确知道问题出在哪, 请有针对的就地报bug, 要不然就在项目通用的地方报<a href="https://github.com/polymer/polymer/issues/new">Polymer</a>.</p>
+
+<h4 id="branches">stable 和 master 分支之间的区别是什么?</h4>
+
+<p>参看 <a href="/branching-strategy.html">打分支策略</a>.</p>
+
+<h4 id="mdv-option-tr">我怎样使用一个MDV模型来复用一个 <code>&lt;option&gt;</code> 或者 <code>&lt;tr&gt;</code>?</h4>
+
+<p><code>&lt;option&gt;</code> 和 <code>&lt;tr&gt;</code> 元素当他们的子节点是
+<code>&lt;select&gt;</code> 和 <code>&lt;table&gt;</code>时各自有特殊的含意. 针对这两个特殊的元素, 使用
+<code>template</code> 的特性来复用:</p>
+
+<pre><code>&lt;template bind&gt;
+  &lt;select&gt;
+    &lt;option template repeat="{{options}}"&gt;{{}}&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  var t = document.querySelector('template').model = {
+    options: ['One',  'Two',  'Three']
+  };
+&lt;/script&gt;
+</code></pre>
+
+<h4 id="loadlibs">我怎样管理JavaScript的依赖关系才能防止XX库被上1000次的复用?</h4>
+
+<p>没有一个办法能保证是个万全之策的. 当然,  如果你有一个组件库依赖某个库, 它们是可以通过import一个
+&#8220;library.html&#8221; 来加载这些库的. <a href="/platform/html-imports.html">HTML Imports</a>
+会根据它的完整路径把文件导入.</p>
+
+<p>如果多类库之间需要共享依赖关系, 他们只能约定好一套机制.如何功能探测, 或为CDN上的一个&#8217;jauery.html&#8217;约定固定的位置等.</p>
+
+<h2 id="web-">Web 组件</h2>
+
+<h4 id="packaging">我如何将一堆Custom Elements打包到一起?</h4>
+
+<p>自定义一个构建步骤将一切合并成一个文件, 
+然后通过 <a href="/platform/html-imports.html">HTML Imports</a> (<code>&lt;link ref="import"&gt;</code>) 将
+文件引入你的应用里. </p>
+
+<p>类似的, 你可以再写个构建步骤将任何在你的应用里Custom Elements内联起来.此思路是我们实验过一个我们称为<a href="https://github.com/Polymer/labs/tree/master/vulcanize">Vulcanizer</a>的工具而得来的.</p>
+
+<h4 id="seo">搜索引擎蜘蛛爬虫能理解这些自定义的元素吗? SEO效果如何?</h4>
+
+<p>它们不理解. 不过,  搜索引擎已经处理过基于AJAX的重量级应用了.远离JS变得语义化对SEO是好事也会使事情往好的方向发展.</p>
+
+<h4 id="registry">是否有个组件的注册表我能研究研究?</h4>
+
+<p>还没有, 但我们认识这是个好想法.</p>
+
+<h4 id="externalsheets">当我在元素的定义里引入外链的CSS样式或者通过<code>&lt;link rel="import"&gt;</code>使用外链CSS会报错 .</h4>
+
+<p>不幸的是,  这是HTML Import规范的一个限制让polyfill给撞上了. polyfill 通过 XHR 抓取定义在<code>&lt;polymer-element&gt;</code> 里的资源.外链资源如果没有启用<a href="http://www.html5rocks.com/tutorials/cors/">CORs-enabled</a>是会加载失败的.</p>
+
+<p>针对跨域或者没有开启CORs-enabled,  你可以在<code>&lt;style&gt;</code>使用 <code>@import</code>:</p>
+
+<pre><code>&lt;polymer-element name="x-blink"&gt;
+&lt;style&gt;
+  @import url(http://example.com/awesome.css);
+&lt;/style&gt;
+&lt;template&gt;...&lt;/template&gt;
+&lt;/polymer-element&gt;
+</code></pre>
+
+<p><em>注意</em>: 如果你的样式文件 <strong>是</strong> 开启CORs-enabled 或者与你的应用同域, 那不使用<code>@import</code>是没有问题的. 例如:</p>
+
+<pre><code>&lt;polymer-element ...&gt;
+  &lt;link rel="stylesheet" href="frameworkstyles.css"&gt;
+  &lt;template&gt;...&lt;/template&gt;
+  ...
+&lt;/polymer-element&gt;
+</code></pre>
+
+<h4 id="fontsanimations">在我的Custom Elements里我如何使用web fonts 或 CSS Animations?</h4>
+
+<p>根据规范,  包含 @ at-rules (包括 CSS <code>@keyframe</code> 和 <code>@font-face</code>) <a href="http://lists.w3.org/Archives/Public/public-whatwg-archive/2013Jan/0251.html">不能定义</a> 在 <code>&lt;style scoped&gt;</code>里. 因此,  你需要在ShadowDOM外定义这些变量 (例如. 在 <code>&lt;template&gt;</code>外边) 使用 <code>&lt;style polymer-scope="global"&gt;</code>. 这样之后,  你就能在你的Shadow DOM里使用 animation/font 了:</p>
+
+<pre><code>&lt;polymer-element name="x-blink"&gt;
+  &lt;!-- CSS Animation 要定义在style作用域外 --&gt;
+  &lt;style polymer-scope="global"&gt;
+    @import url(http://fonts.googleapis.com/css?family=Quicksand);
+    @-webkit-keyframes blink {
+      to { opacity: 0; }
+     }
+  &lt;/style&gt;
+  &lt;template&gt;
+    &lt;style&gt;
+      @host {
+        x-blink { -webkit-animation: blink 1s cubic-bezier(1.0, 0, 0, 1.0) inifnite 1s; }
+      }
+    &lt;/style&gt;
+    ...
+  &lt;/template&gt;
+&lt;/polymer-element&gt;
+</code></pre>
+
+<h4 id="clientDimenstions">为什么我的元素<code>.clientWidth/clientHeight</code>属性值都为0 ?</h4>
+
+<p>默认情况下, Custom Elements是 <code>display: inline</code>.解决这个的办法是通过<code>@host</code>规则给你的元素应用上默认的<code>display: block</code>样式.</p>
+
+<pre><code>&lt;polymer-element name="my-element"&gt;
+  &lt;template&gt;
+    &lt;style&gt;
+      @host { * { display: block; } }
+    &lt;/style&gt;
+    ...
+  &lt;/template&gt;
+  ...
+&lt;/polymer-element&gt;
+&lt;script&gt;
+window.addEventListener('WebComponentsReady',  function(e) {
+  var element = document.querySelector('my-element');
+  // element.clientWidth/clientHeight won't be 0.
+});
+&lt;/script&gt;
+</code></pre>
+
+<h4 id="multipleextends">元素能<code>extend</code>(扩展自)多个元素或者有多重继承吗(如.<code>&lt;polymer-element name="my-element" extends="foo bar"&gt;</code>?</h4>
+
+<p>没有. 但是 Polymer 将来可能会提供一个mixins的语法.</p>
+
+<h4 id="accessContentDOM">在一个 <code>&lt;content&gt;</code>里我如何访问DOM?</h4>
+
+<p>对于一个<code>&lt;content&gt;</code>来说,  你可以通过迭代<code>content.getDistributedNodes()</code>
+来取得被分配在嵌入点上的节点列表.</p>
+
+<p>别忘了你是可以正常取到元素的子节点的DOM的
+(例如. <code>this.children</code>等). 此方式手段区别在于这是整个被<em>潜在</em>分配节点的集合;而不是实际被分配的.</p>
+
+<h4 id="constructorattr">我能使用<code>constructor</code> 属性却不污染全局命名空间吗?</h4>
+
+<p>根据设计,  <code>constructor</code> 以constructor为命名空间的方式注册到了<code>window</code>下. 如果你不想这样, 这里有两个选择:</p>
+
+<ol>
+  <li>不使用<code>constructor</code> 属性, 而使用 <code>document.createElement()</code>.</li>
+  <li>使用 <code>document.register()</code> 并再包装constructor它是在一个命名空间里返回的.</li>
+</ol>
+
+<hr />
+
+<p><em>特别感谢GitHub 用户 md_5 慷慨的贡献了Polymer 原名.</em></p>
+
+</div>
+
+      <hr>
+
+      <footer>
+        <div>
+          <div>&copy; 2013 Polymer Authors.<br>Code licensed under the <a href="https://github.com/polymer/polymer/blob/master/LICENSE" target="_blank">BSD License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</div>
+        </div>
+        <div id="logo-row">
+          <img src="/images/logos/webcomponents.png" alt="Web Components" title="Web Components">
+          <img src="/images/logos/html5logo.svg" alt="HTML5" title="HTML5">
+          <img src="/images/logos/js.jpg" alt="JavaScript" title="JavaScript">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script src="/js/prettify/prettify.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39334307-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+function addPermalink(el) {
+  el.classList.add('has-permalink');
+  el.insertAdjacentHTML('beforeend',
+      '<a class="permalink" title="Permalink" href="#' + el.id + '">#</a>');
+}
+
+// Change "active" style on selected left-hand navigation menu item.
+$(document).ready(function () {
+  var path = location.pathname;
+  $('ul.nav > li > a[href="' + path + '"]').parent().addClass('active');
+
+  // Add permalinks to heading elements.
+  var permalinkEl = document.querySelector('.show-permalinks');
+  if (permalinkEl) {
+    ['h2','h3','h4'].forEach(function(h, i) {
+      [].forEach.call(permalinkEl.querySelectorAll(h), addPermalink);
+    });
+  }
+
+  // TODO: Use kramdown {:.prettyprint .linenums .lang-ruby} to add the
+  // <pre class="prettyprint"> instead of doing this client-side.
+  $('pre').addClass('prettyprint');
+  window.prettyPrint && prettyPrint();
+});
+</script>
+
+</body>
+</html>
